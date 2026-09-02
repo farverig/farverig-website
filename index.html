@@ -11,7 +11,7 @@
     .work-story{height:520vh}
     @media(max-width:720px){.work-story{height:430vh}}
 
-    /* VI TILBYDER — VERSION B3: sharper split-screen editorial menu */
+    /* VI TILBYDER — VERSION B4: aligned split-screen editorial menu */
     .offers{
       position:relative;
       min-height:100vh;
@@ -30,14 +30,14 @@
       display:grid;
       grid-template-columns:minmax(20rem,.7fr) minmax(34rem,1.3fr);
       gap:clamp(2rem,4vw,4.5rem);
-      align-items:center;
+      align-items:start;
     }
     .offers-heading{
       display:block;
       width:auto;
       max-width:none;
       margin:0;
-      padding:0;
+      padding:clamp(.7rem,1vw,1rem) 0 0;
       text-align:left;
     }
     .offers-heading h2{
@@ -49,7 +49,7 @@
     .offers-heading .offers-intro{
       display:block;
       width:100%;
-      max-width:7.15ch;
+      max-width:28rem;
       margin:0;
       color:var(--muted);
       font:400 clamp(.76rem,.9vw,.9rem)/1.6 monospace;
@@ -89,10 +89,10 @@
     .offer-link:hover h3{transform:translateX(clamp(.5rem,1vw,1rem))}
     .offer-more{
       display:flex;
-      justify-content:flex-end;
-      padding-top:1.1rem;
+      justify-content:flex-start;
+      padding:1.15rem 0 0 3.3rem;
       color:var(--muted);
-      font:400 clamp(.68rem,.78vw,.78rem)/1 monospace;
+      font:400 clamp(.82rem,.92vw,.94rem)/1 monospace;
       letter-spacing:.08em;
     }
     .offer-preview{
@@ -132,12 +132,13 @@
     @media(max-width:760px){
       .offers{display:block;padding:4.5rem 1rem 5rem}
       .offers-shell{display:block}
-      .offers-heading{margin-bottom:2.8rem}
+      .offers-heading{margin-bottom:2.8rem;padding-top:0}
       .offers-heading h2{max-width:8ch;font-size:clamp(3.4rem,16vw,5.2rem);line-height:.84;margin-bottom:1.4rem}
       .offers-heading .offers-intro{max-width:32rem;font-size:.75rem}
       .offer-link{grid-template-columns:1.7rem 1fr;gap:.6rem;min-height:4.25rem}
       .offer-link h3{font-size:clamp(1.65rem,8vw,2.55rem)}
       .offer-index{font-size:.58rem}
+      .offer-more{padding-left:2.3rem;font-size:.75rem}
       .offers-list:hover .offer-link:not(:hover) h3{opacity:1}
       .offers:has(.offer-link:hover) .offers-heading{opacity:1}
     }
