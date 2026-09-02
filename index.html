@@ -11,7 +11,7 @@
     .work-story{height:520vh}
     @media(max-width:720px){.work-story{height:430vh}}
 
-    /* VI TILBYDER — VERSION H2: tighter field + dreamy focus blur */
+    /* VI TILBYDER — VERSION H3: editorial focus blur */
     .offers{position:relative;min-height:100vh;display:flex;align-items:center;padding:clamp(4.6rem,5vw,5.2rem) clamp(3.5rem,6.5vw,7rem) clamp(3.5rem,4vw,4rem);overflow:hidden;border-top:0;isolation:isolate}
     .offers-shell{position:relative;z-index:4;width:100%;margin:0 auto}
     .offers-heading{display:block;width:100%;margin:0 0 clamp(1.7rem,2.5vh,2.4rem);padding:0;text-align:left}
@@ -23,16 +23,16 @@
     .offer-link h3{margin:0;white-space:nowrap;font:400 clamp(3.5rem,6.05vw,6.8rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.068em;color:var(--text);filter:blur(0);text-shadow:none;transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .46s ease,text-shadow .46s ease}
     .offer-more{margin:0;white-space:nowrap;font:200 clamp(3.5rem,6.05vw,6.8rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.068em;color:var(--text);filter:blur(0);text-shadow:none;transition:filter .46s ease,text-shadow .46s ease}
     .offer-link:not(:last-of-type)::after{content:'·';margin-left:clamp(1rem,1.7vw,1.9rem);color:var(--text);font:300 clamp(2.4rem,3.7vw,4.2rem)/1 Arial,sans-serif;opacity:.5;filter:blur(0);text-shadow:none;transition:filter .46s ease,text-shadow .46s ease}
-    .offers-cloud:hover .offer-link:not(:hover) h3,.offers-cloud:hover .offer-link:not(:hover)::after,.offers-cloud:hover .offer-more{filter:blur(10px);text-shadow:0 0 14px rgba(255,255,255,.42),0 0 30px rgba(255,255,255,.16)}
+    .offers-cloud:hover .offer-link:not(:hover) h3,.offers-cloud:hover .offer-link:not(:hover)::after,.offers-cloud:hover .offer-more{filter:blur(6.5px);text-shadow:0 0 9px rgba(255,255,255,.12)}
     .offer-link:hover h3{transform:translateY(-.08em);filter:blur(0);text-shadow:none}
     .offer-preview{position:absolute;z-index:2;opacity:0;pointer-events:none;transition:opacity .32s ease,transform .58s cubic-bezier(.2,.7,.2,1);overflow:hidden;box-shadow:0 2rem 6rem rgba(0,0,0,.5)}
     .offer-preview img{display:block;width:100%;height:100%;object-fit:cover}
-    .preview-born{left:48%;top:61%;width:clamp(26rem,42vw,46rem);aspect-ratio:4/5;transform:translate(-50%,-45%) rotate(2deg) scale(.94)}
-    .preview-sommer{right:-7%;top:47%;width:clamp(27rem,44vw,48rem);aspect-ratio:5/4;transform:translateY(-44%) rotate(-2deg) scale(.94)}
-    .preview-kultur{left:-6%;top:59%;width:clamp(26rem,40vw,44rem);aspect-ratio:4/5;transform:translateY(-45%) rotate(-3deg) scale(.94)}
-    .preview-festival{left:34%;top:50%;width:clamp(28rem,45vw,49rem);aspect-ratio:5/4;transform:translate(-50%,-44%) rotate(2deg) scale(.94)}
-    .preview-mode{right:-5%;top:60%;width:clamp(26rem,41vw,45rem);aspect-ratio:4/5;transform:translateY(-45%) rotate(3deg) scale(.94)}
-    .preview-kursus{left:20%;top:64%;width:clamp(27rem,42vw,46rem);aspect-ratio:5/4;transform:translateY(-45%) rotate(-2deg) scale(.94)}
+    .preview-born{left:55%;top:58%;width:clamp(26rem,42vw,46rem);aspect-ratio:4/5;transform:translate(-50%,-45%) rotate(2deg) scale(.94)}
+    .preview-sommer{right:-9%;top:43%;width:clamp(27rem,44vw,48rem);aspect-ratio:5/4;transform:translateY(-44%) rotate(-2deg) scale(.94)}
+    .preview-kultur{left:-9%;top:55%;width:clamp(26rem,40vw,44rem);aspect-ratio:4/5;transform:translateY(-45%) rotate(-3deg) scale(.94)}
+    .preview-festival{left:39%;top:46%;width:clamp(28rem,45vw,49rem);aspect-ratio:5/4;transform:translate(-50%,-44%) rotate(2deg) scale(.94)}
+    .preview-mode{right:-8%;top:64%;width:clamp(26rem,41vw,45rem);aspect-ratio:4/5;transform:translateY(-45%) rotate(3deg) scale(.94)}
+    .preview-kursus{left:13%;top:67%;width:clamp(27rem,42vw,46rem);aspect-ratio:5/4;transform:translateY(-45%) rotate(-2deg) scale(.94)}
     .offers:has(.offer-link[data-preview="born"]:hover) .preview-born{opacity:.92;transform:translate(-50%,-50%) rotate(-1deg) scale(1)}
     .offers:has(.offer-link[data-preview="sommer"]:hover) .preview-sommer{opacity:.92;transform:translateY(-50%) rotate(1deg) scale(1)}
     .offers:has(.offer-link[data-preview="kultur"]:hover) .preview-kultur{opacity:.92;transform:translateY(-50%) rotate(1deg) scale(1)}
