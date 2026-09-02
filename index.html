@@ -14,41 +14,49 @@
 
     /* VI TILBYDER — compact, centered event grid */
     .offers{
-      padding:clamp(5rem,8vw,8rem) clamp(1.25rem,4vw,4rem) clamp(6rem,9vw,9rem);
+      padding:clamp(4.5rem,7vw,7rem) clamp(1.25rem,4vw,4rem) clamp(5rem,7vw,7rem);
       overflow:visible;
     }
     .offers-heading{
-      max-width:58rem;
-      margin:0 auto clamp(2.5rem,4vw,4rem);
+      display:block;
+      width:min(100%,62rem);
+      max-width:none;
+      margin:0 auto clamp(2rem,3.2vw,3rem);
+      padding-bottom:0;
       text-align:center;
     }
+    .offers-heading .eyebrow{
+      margin:0 0 .8rem;
+    }
     .offers-heading h2{
-      margin:.35rem 0 1rem;
-      font-size:clamp(2.8rem,6vw,6.2rem);
-      line-height:.92;
+      width:auto;
+      max-width:11ch;
+      margin:0 auto 1.1rem;
+      font-size:clamp(2.8rem,5.4vw,5.6rem);
+      line-height:.91;
+      letter-spacing:-.06em;
     }
     .offers-heading .offers-intro{
       display:block;
-      max-width:42rem;
+      max-width:43rem;
       margin:0 auto;
-      font-size:clamp(.92rem,1.25vw,1.1rem);
-      line-height:1.55;
-      letter-spacing:0;
-      opacity:.72;
+      color:var(--muted);
+      font:400 clamp(.85rem,1.05vw,1rem)/1.55 monospace;
+      letter-spacing:.01em;
     }
     .offers-grid{
-      width:min(100%,72rem);
+      width:min(100%,68rem);
       margin:0 auto;
       grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:clamp(.7rem,1.1vw,1rem);
+      gap:clamp(.7rem,1vw,.9rem);
       border:0;
     }
     .offer-item{
-      min-height:clamp(10.5rem,14vw,13.5rem);
+      min-height:clamp(9.5rem,12vw,12rem);
       justify-content:center;
       align-items:center;
-      gap:clamp(.75rem,1.2vw,1.15rem);
-      padding:clamp(1rem,1.6vw,1.5rem);
+      gap:clamp(.65rem,1vw,.9rem);
+      padding:clamp(.9rem,1.4vw,1.3rem);
       border:1px solid var(--line);
       text-align:center;
     }
@@ -59,15 +67,15 @@
       align-items:center;
       justify-content:center;
       width:100%;
-      min-height:clamp(3.8rem,5.8vw,5.6rem);
-      font:200 clamp(3.7rem,5.6vw,5.5rem)/1 Arial,sans-serif;
+      min-height:clamp(3.4rem,4.8vw,4.8rem);
+      font:200 clamp(3.3rem,4.7vw,4.7rem)/1 Arial,sans-serif;
       letter-spacing:-.04em;
       transform-origin:center;
     }
     .offer-item h3{
       max-width:none;
       margin:0;
-      font-size:clamp(.82rem,1.15vw,1.05rem);
+      font-size:clamp(.78rem,1vw,.95rem);
       line-height:1.05;
       letter-spacing:-.015em;
     }
@@ -80,17 +88,17 @@
     }
     @media(max-width:900px){
       .offers-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,38rem)}
-      .offer-item{min-height:10.5rem}
+      .offer-item{min-height:9.8rem}
     }
     @media(max-width:720px){
-      .offers{padding:4rem 1rem 5rem}
-      .offers-heading{margin-bottom:2rem}
-      .offers-heading h2{font-size:clamp(2.5rem,13vw,4.2rem)}
-      .offers-heading .offers-intro{font-size:.86rem;line-height:1.5}
+      .offers{padding:4rem 1rem 4.5rem}
+      .offers-heading{margin-bottom:1.8rem}
+      .offers-heading h2{max-width:10ch;font-size:clamp(2.5rem,12vw,4rem)}
+      .offers-heading .offers-intro{font-size:.82rem;line-height:1.5}
       .offers-grid{grid-template-columns:1fr 1fr;gap:.65rem}
-      .offer-item{min-height:9.6rem;padding:.9rem;gap:.7rem}
-      .offer-symbol{min-height:3.4rem;font-size:3.8rem}
-      .offer-item h3{font-size:.72rem;letter-spacing:.01em}
+      .offer-item{min-height:9.2rem;padding:.85rem;gap:.65rem}
+      .offer-symbol{min-height:3.2rem;font-size:3.6rem}
+      .offer-item h3{font-size:.7rem;letter-spacing:.01em}
     }
   </style>
 </head>
