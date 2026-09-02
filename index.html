@@ -14,23 +14,24 @@
 
     /* VI TILBYDER — compact editorial event field */
     .offers{
-      padding:clamp(3.2rem,4.5vw,4.5rem) clamp(1.25rem,4vw,4rem) clamp(3.8rem,5vw,5rem);
+      padding:clamp(3rem,4vw,4rem) clamp(1.25rem,4vw,4rem) clamp(3.4rem,4.5vw,4.5rem);
       overflow:visible;
       border-top:0;
     }
     .offers-heading{
       display:block;
-      width:min(100%,58rem);
+      width:min(100%,64rem);
       max-width:none;
-      margin:0 auto clamp(1.7rem,2.2vw,2.2rem);
+      margin:0 auto clamp(1.05rem,1.4vw,1.35rem);
       padding:0;
       text-align:center;
     }
     .offers-heading h2{
       width:auto;
-      max-width:15ch;
-      margin:0 auto .85rem;
-      font:300 clamp(2.05rem,3.3vw,3.45rem)/.96 Arial,Helvetica,sans-serif;
+      max-width:none;
+      margin:0 auto .7rem;
+      white-space:nowrap;
+      font:300 clamp(2rem,3.05vw,3.2rem)/1 Arial,Helvetica,sans-serif;
       letter-spacing:-.042em;
     }
     .offers-heading .offers-intro{
@@ -38,7 +39,7 @@
       max-width:39rem;
       margin:0 auto;
       color:var(--muted);
-      font:400 clamp(.76rem,.86vw,.88rem)/1.55 monospace;
+      font:400 clamp(.76rem,.86vw,.88rem)/1.5 monospace;
       letter-spacing:.01em;
     }
     .offers-grid{
@@ -47,18 +48,18 @@
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       column-gap:clamp(.65rem,1.2vw,1.1rem);
-      row-gap:clamp(.15rem,.45vw,.4rem);
+      row-gap:0;
       border:0;
     }
     .offer-item{
       position:relative;
-      min-height:clamp(5.6rem,6.4vw,6.4rem);
+      min-height:clamp(5rem,5.55vw,5.55rem);
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      gap:.72rem;
-      padding:.35rem .1rem;
+      gap:.68rem;
+      padding:.18rem .1rem;
       border:0!important;
       text-align:center;
       overflow:visible;
@@ -92,16 +93,17 @@
       transform:rotate(10deg) scale(1.08);
     }
     @media(max-width:900px){
-      .offers-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,25rem);column-gap:.8rem;row-gap:.2rem}
-      .offer-item{min-height:6rem}
+      .offers-heading h2{white-space:normal;max-width:15ch}
+      .offers-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,25rem);column-gap:.8rem;row-gap:0}
+      .offer-item{min-height:5.5rem}
     }
     @media(max-width:720px){
-      .offers{padding:3.2rem 1rem 3.8rem}
-      .offers-heading{margin-bottom:1.6rem}
-      .offers-heading h2{max-width:13ch;font-size:clamp(1.9rem,8.8vw,2.8rem);font-weight:300}
-      .offers-heading .offers-intro{max-width:30rem;font-size:.76rem;line-height:1.5}
-      .offers-grid{grid-template-columns:1fr 1fr;gap:.2rem .8rem;width:min(100%,24rem)}
-      .offer-item{min-height:5.8rem;padding:.3rem .1rem;gap:.55rem}
+      .offers{padding:3rem 1rem 3.5rem}
+      .offers-heading{margin-bottom:1.1rem}
+      .offers-heading h2{max-width:13ch;font-size:clamp(1.9rem,8.8vw,2.8rem);font-weight:300;white-space:normal}
+      .offers-heading .offers-intro{max-width:30rem;font-size:.76rem;line-height:1.45}
+      .offers-grid{grid-template-columns:1fr 1fr;gap:0 .8rem;width:min(100%,24rem)}
+      .offer-item{min-height:5.4rem;padding:.15rem .1rem;gap:.52rem}
       .offer-symbol{min-height:2.8rem;font-size:3rem}
       .offer-item h3{font-size:.64rem;letter-spacing:.005em}
     }
