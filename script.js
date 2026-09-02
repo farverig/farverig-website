@@ -55,9 +55,9 @@ if(offers&&matchMedia('(hover:hover) and (pointer:fine)').matches){
     offerHintShown=true;
     setTimeout(()=>{
       offers.classList.add('is-hinting');
-      setTimeout(()=>offers.classList.remove('is-hinting'),1100);
-    },350);
+      setTimeout(()=>offers.classList.remove('is-hinting'),1600);
+    },200);
     offerHintObserver.disconnect();
-  }),{threshold:.58});
+  }),{threshold:.35});
   offerHintObserver.observe(offers);
 }
