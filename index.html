@@ -8,134 +8,142 @@
   <meta name="description" content="FARVERIG skaber ansigtsmaling til børnefødselsdage, festivaler, firmaevents og særlige arrangementer i København og omegn.">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ARBEJDE — restore the slower carousel feel from the original preview */
     .work-story{height:520vh}
     @media(max-width:720px){.work-story{height:430vh}}
 
-    /* VI TILBYDER — VERSION B: bold editorial menu */
+    /* VI TILBYDER — VERSION B2: split-screen editorial menu */
     .offers{
       position:relative;
       min-height:100vh;
-      padding:clamp(5.5rem,8vw,8rem) clamp(1.5rem,5vw,5rem) clamp(5rem,7vw,7rem);
+      display:flex;
+      align-items:center;
+      padding:clamp(4.5rem,6vw,6rem) clamp(1.5rem,5vw,5rem);
       overflow:hidden;
       border-top:0;
       isolation:isolate;
     }
-    .offers-heading{
+    .offers-shell{
+      position:relative;
+      z-index:2;
+      width:min(100%,86rem);
+      margin:0 auto;
       display:grid;
-      grid-template-columns:minmax(0,1.05fr) minmax(18rem,.65fr);
-      align-items:end;
-      gap:clamp(2rem,5vw,6rem);
-      width:min(100%,82rem);
-      margin:0 auto clamp(3rem,5vw,5rem);
+      grid-template-columns:minmax(18rem,.78fr) minmax(30rem,1.22fr);
+      gap:clamp(3rem,7vw,8rem);
+      align-items:center;
+    }
+    .offers-heading{
+      display:block;
+      width:auto;
+      max-width:none;
+      margin:0;
       padding:0;
       text-align:left;
     }
     .offers-heading h2{
-      max-width:8ch;
-      margin:0;
-      font:300 clamp(4.2rem,7.2vw,8.1rem)/.82 Arial,Helvetica,sans-serif;
+      max-width:7.5ch;
+      margin:0 0 clamp(1.5rem,2.5vw,2.4rem);
+      font:300 clamp(4rem,6.4vw,7.2rem)/.82 Arial,Helvetica,sans-serif;
       letter-spacing:-.065em;
     }
     .offers-heading .offers-intro{
       display:block;
-      max-width:30rem;
-      margin:0 0 .5rem;
+      max-width:27rem;
+      margin:0;
       color:var(--muted);
-      font:400 clamp(.78rem,.95vw,.94rem)/1.6 monospace;
+      font:400 clamp(.76rem,.9vw,.9rem)/1.6 monospace;
       letter-spacing:.01em;
     }
     .offers-list{
       position:relative;
-      z-index:2;
-      width:min(100%,82rem);
-      margin:0 auto;
+      z-index:3;
+      width:100%;
+      margin:0;
       border-top:1px solid var(--line);
     }
     .offer-link{
       position:relative;
       display:grid;
-      grid-template-columns:3rem 1fr auto;
+      grid-template-columns:2.3rem 1fr auto;
       align-items:center;
-      min-height:clamp(4.6rem,6.2vw,6.8rem);
-      gap:1.25rem;
+      min-height:clamp(3.65rem,5.35vw,5.15rem);
+      gap:1rem;
       border-bottom:1px solid var(--line);
       color:var(--text);
-      text-decoration:none;
       cursor:default;
     }
-    .offer-link .offer-index{
+    .offer-index{
       color:var(--muted);
-      font:400 .72rem/1 monospace;
+      font:400 .65rem/1 monospace;
       letter-spacing:.08em;
     }
     .offer-link h3{
       margin:0;
-      font:300 clamp(2.25rem,4.6vw,5.3rem)/.9 Arial,Helvetica,sans-serif;
+      white-space:nowrap;
+      font:300 clamp(2rem,3.65vw,4.25rem)/.9 Arial,Helvetica,sans-serif;
       letter-spacing:-.055em;
       transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .3s ease;
     }
-    .offer-link .offer-arrow{
-      font:300 clamp(1.2rem,1.8vw,1.8rem)/1 monospace;
-      transition:transform .45s cubic-bezier(.2,.7,.2,1);
+    .offer-arrow{
+      font:300 clamp(1rem,1.5vw,1.45rem)/1 monospace;
+      transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .3s ease;
     }
-    .offers-list:hover .offer-link:not(:hover) h3{opacity:.28}
-    .offer-link:hover h3{transform:translateX(clamp(.7rem,1.5vw,1.5rem))}
-    .offer-link:hover .offer-arrow{transform:translateX(.45rem)}
+    .offers-list:hover .offer-link:not(:hover) h3,
+    .offers-list:hover .offer-link:not(:hover) .offer-arrow{opacity:.25}
+    .offer-link:hover h3{transform:translateX(clamp(.5rem,1vw,1rem))}
+    .offer-link:hover .offer-arrow{transform:translateX(.35rem)}
+    .offer-more{
+      display:flex;
+      justify-content:flex-end;
+      padding-top:1.1rem;
+      color:var(--muted);
+      font:400 clamp(.68rem,.78vw,.78rem)/1 monospace;
+      letter-spacing:.08em;
+    }
     .offer-preview{
       position:absolute;
-      z-index:1;
-      right:clamp(3rem,8vw,9rem);
+      z-index:2;
+      left:clamp(31%,37vw,43%);
       top:50%;
-      width:clamp(15rem,24vw,27rem);
+      width:clamp(13rem,20vw,21rem);
       aspect-ratio:4/5;
       opacity:0;
       pointer-events:none;
-      transform:translateY(-44%) rotate(2deg) scale(.96);
-      transition:opacity .32s ease,transform .5s cubic-bezier(.2,.7,.2,1);
-      box-shadow:0 1.5rem 4rem rgba(0,0,0,.38);
+      transform:translate(-50%,-45%) rotate(3deg) scale(.95);
+      transition:opacity .28s ease,transform .48s cubic-bezier(.2,.7,.2,1);
+      box-shadow:0 1.5rem 4rem rgba(0,0,0,.5);
       overflow:hidden;
     }
-    .offer-preview img{width:100%;height:100%;object-fit:cover;display:block}
-    .offers:has(.offer-link[data-preview="festival"]:hover) .preview-festival,
-    .offers:has(.offer-link[data-preview="firma"]:hover) .preview-firma,
-    .offers:has(.offer-link[data-preview="bryllup"]:hover) .preview-bryllup,
+    .offer-preview img{display:block;width:100%;height:100%;object-fit:cover}
     .offers:has(.offer-link[data-preview="born"]:hover) .preview-born,
-    .offers:has(.offer-link[data-preview="halloween"]:hover) .preview-halloween,
-    .offers:has(.offer-link[data-preview="jul"]:hover) .preview-jul,
     .offers:has(.offer-link[data-preview="sommer"]:hover) .preview-sommer,
-    .offers:has(.offer-link[data-preview="kultur"]:hover) .preview-kultur{
-      opacity:.92;
-      transform:translateY(-50%) rotate(-2deg) scale(1);
+    .offers:has(.offer-link[data-preview="kultur"]:hover) .preview-kultur,
+    .offers:has(.offer-link[data-preview="festival"]:hover) .preview-festival,
+    .offers:has(.offer-link[data-preview="mode"]:hover) .preview-mode,
+    .offers:has(.offer-link[data-preview="kursus"]:hover) .preview-kursus{
+      opacity:.94;
+      transform:translate(-50%,-50%) rotate(-2deg) scale(1);
     }
-    .offers:has(.offer-link:hover) .offer-link:hover{z-index:3}
-    .offers-cta{
-      width:min(100%,82rem);
-      margin:2.4rem auto 0;
-      display:flex;
-      justify-content:flex-end;
-      align-items:center;
-      gap:1rem;
-      color:var(--text);
-      font:400 .78rem/1 monospace;
-      letter-spacing:.08em;
-    }
-    @media(max-width:900px){
-      .offers{min-height:auto;padding-top:5rem}
-      .offers-heading{grid-template-columns:1fr;gap:1.5rem;margin-bottom:2.8rem}
-      .offers-heading h2{max-width:10ch;font-size:clamp(3.7rem,11vw,6rem)}
-      .offers-heading .offers-intro{max-width:35rem}
-      .offer-link{grid-template-columns:2.2rem 1fr auto;min-height:5rem}
+    .offers:has(.offer-link:hover) .offers-heading{opacity:.42;transition:opacity .3s ease}
+    .offers-heading{transition:opacity .3s ease}
+    @media(max-width:1050px){
+      .offers{min-height:auto;padding-top:5rem;padding-bottom:5rem}
+      .offers-shell{grid-template-columns:minmax(15rem,.72fr) minmax(26rem,1.28fr);gap:3rem}
+      .offers-heading h2{font-size:clamp(3.6rem,7vw,5.6rem)}
+      .offer-link h3{font-size:clamp(1.8rem,3.8vw,3.3rem)}
       .offer-preview{display:none}
-      .offers-list:hover .offer-link:not(:hover) h3{opacity:1}
     }
-    @media(max-width:720px){
-      .offers{padding:4.5rem 1rem 5rem}
-      .offers-heading h2{font-size:clamp(3.25rem,16vw,5rem);line-height:.86}
-      .offer-link{grid-template-columns:1.7rem 1fr auto;gap:.65rem;min-height:4.4rem}
-      .offer-link h3{font-size:clamp(1.75rem,8.2vw,2.7rem)}
-      .offer-link .offer-index{font-size:.6rem}
-      .offers-cta{margin-top:1.8rem}
+    @media(max-width:760px){
+      .offers{display:block;padding:4.5rem 1rem 5rem}
+      .offers-shell{display:block}
+      .offers-heading{margin-bottom:2.8rem}
+      .offers-heading h2{max-width:8ch;font-size:clamp(3.4rem,16vw,5.2rem);line-height:.84;margin-bottom:1.4rem}
+      .offers-heading .offers-intro{max-width:32rem;font-size:.75rem}
+      .offer-link{grid-template-columns:1.7rem 1fr auto;gap:.6rem;min-height:4.25rem}
+      .offer-link h3{font-size:clamp(1.65rem,8vw,2.55rem)}
+      .offer-index{font-size:.58rem}
+      .offers-list:hover .offer-link:not(:hover) h3,.offers-list:hover .offer-link:not(:hover) .offer-arrow{opacity:1}
+      .offers:has(.offer-link:hover) .offers-heading{opacity:1}
     }
   </style>
 </head>
@@ -151,29 +159,29 @@
   <section class="work-story" id="arbejde"><div class="work-story-stage"><div class="work-story-copy"><p class="eyebrow">FARVERIG I VIRKELIGHEDEN</p><p><span>Ansigtsmaling til</span><span>mindeværdige øjeblikke.</span></p></div><figure class="story-shot" data-start="108" data-travel="-335" data-rotate="0" style="top:9vh;width:34vw"><img src="assets/billeder/arbejde/10billede.JPG" alt="BAG FARVERNE"></figure><figure class="story-shot" data-start="142" data-travel="-335" data-rotate="-2" style="top:3vh;width:30vw"><img src="assets/billeder/arbejde/1billede.jpg" alt="FESTIVAL"></figure><figure class="story-shot" data-start="176" data-travel="-335" data-rotate="1" style="top:13vh;width:31vw"><img src="assets/billeder/arbejde/2billede.jpg" alt="BODY PAINT"></figure><figure class="story-shot" data-start="210" data-travel="-335" data-rotate="-1" style="top:1vh;width:34vw"><img src="assets/billeder/arbejde/3billede.jpg" alt="UV · NIGHT"></figure><figure class="story-shot" data-start="244" data-travel="-335" data-rotate="2" style="top:12vh;width:30vw"><img src="assets/billeder/arbejde/4billede.jpg" alt="EVENT"></figure><figure class="story-shot" data-start="-80" data-travel="335" data-rotate="1" style="top:55vh;width:32vw"><img src="assets/billeder/arbejde/5billede.jpg" alt="IN THE MAKING"></figure><figure class="story-shot" data-start="-114" data-travel="335" data-rotate="-2" style="top:65vh;width:31vw"><img src="assets/billeder/arbejde/6billede.jpg" alt="LIVE PAINTING"></figure><figure class="story-shot" data-start="-148" data-travel="335" data-rotate="2" style="top:53vh;width:31vw"><img src="assets/billeder/arbejde/7billede.jpeg" alt="FLOWERS"></figure><figure class="story-shot" data-start="-182" data-travel="335" data-rotate="-1" style="top:64vh;width:32vw"><img src="assets/billeder/arbejde/8billede.jpg" alt="BØRNEFEST"></figure><figure class="story-shot" data-start="-216" data-travel="335" data-rotate="1" style="top:55vh;width:31vw"><img src="assets/billeder/arbejde/9billede.jpg" alt="FARVERIG"></figure></div></section>
 
   <section class="offers" id="tilbyder">
-    <div class="offers-heading">
-      <h2>Book os til dit næste event</h2>
-      <span class="offers-intro">Fra små fødselsdage til store festivaler og firmaevents — vi skaber farverige oplevelser, der passer til anledningen.</span>
-    </div>
-    <div class="offers-list" aria-label="Vi maler til">
-      <div class="offer-link" data-preview="born"><span class="offer-index">01</span><h3>BØRNEFØDSELSDAG</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="festival"><span class="offer-index">02</span><h3>FESTIVAL</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="firma"><span class="offer-index">03</span><h3>FIRMAEVENT</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="bryllup"><span class="offer-index">04</span><h3>BRYLLUP</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="halloween"><span class="offer-index">05</span><h3>HALLOWEEN</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="jul"><span class="offer-index">06</span><h3>JUL</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="sommer"><span class="offer-index">07</span><h3>SOMMERFEST</h3><span class="offer-arrow">↗</span></div>
-      <div class="offer-link" data-preview="kultur"><span class="offer-index">08</span><h3>KULTUREVENT</h3><span class="offer-arrow">↗</span></div>
+    <div class="offers-shell">
+      <div class="offers-heading">
+        <h2>Book os til dit næste event</h2>
+        <span class="offers-intro">Fra små fødselsdage til store festivaler, kultur og kreative produktioner — vi skaber farverige oplevelser, der passer til anledningen.</span>
+      </div>
+      <div>
+        <div class="offers-list" aria-label="Vi maler til">
+          <div class="offer-link" data-preview="born"><span class="offer-index">01</span><h3>BØRNEFØDSELSDAG</h3><span class="offer-arrow">↗</span></div>
+          <div class="offer-link" data-preview="sommer"><span class="offer-index">02</span><h3>SOMMERFEST</h3><span class="offer-arrow">↗</span></div>
+          <div class="offer-link" data-preview="kultur"><span class="offer-index">03</span><h3>KULTUREVENT</h3><span class="offer-arrow">↗</span></div>
+          <div class="offer-link" data-preview="festival"><span class="offer-index">04</span><h3>FESTIVAL</h3><span class="offer-arrow">↗</span></div>
+          <div class="offer-link" data-preview="mode"><span class="offer-index">05</span><h3>MODE &amp; EDITORIAL</h3><span class="offer-arrow">↗</span></div>
+          <div class="offer-link" data-preview="kursus"><span class="offer-index">06</span><h3>KURSUS</h3><span class="offer-arrow">↗</span></div>
+        </div>
+        <div class="offer-more">OG MEGET MERE...</div>
+      </div>
     </div>
     <div class="offer-preview preview-born"><img src="assets/billeder/arbejde/8billede.jpg" alt=""></div>
-    <div class="offer-preview preview-festival"><img src="assets/billeder/arbejde/1billede.jpg" alt=""></div>
-    <div class="offer-preview preview-firma"><img src="assets/billeder/arbejde/5billede.jpg" alt=""></div>
-    <div class="offer-preview preview-bryllup"><img src="assets/billeder/arbejde/2billede.jpg" alt=""></div>
-    <div class="offer-preview preview-halloween"><img src="assets/billeder/arbejde/3billede.jpg" alt=""></div>
-    <div class="offer-preview preview-jul"><img src="assets/billeder/arbejde/7billede.jpeg" alt=""></div>
     <div class="offer-preview preview-sommer"><img src="assets/billeder/arbejde/10billede.JPG" alt=""></div>
     <div class="offer-preview preview-kultur"><img src="assets/billeder/arbejde/6billede.jpg" alt=""></div>
-    <div class="offers-cta"><span>SKAL VI SKABE NOGET FARVERIGT SAMMEN?</span><span>→</span></div>
+    <div class="offer-preview preview-festival"><img src="assets/billeder/arbejde/1billede.jpg" alt=""></div>
+    <div class="offer-preview preview-mode"><img src="assets/billeder/arbejde/3billede.jpg" alt=""></div>
+    <div class="offer-preview preview-kursus"><img src="assets/billeder/arbejde/5billede.jpg" alt=""></div>
   </section>
 
   <section class="chapter-placeholder" id="om"><span>03</span><p>OM FARVERIG</p><small>NÆSTE KAPITEL</small></section>
