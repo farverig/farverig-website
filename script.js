@@ -45,3 +45,19 @@ const offerObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
 }),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
 
 document.querySelectorAll('.offer-item').forEach(item=>offerObserver.observe(item));
+
+const offers=document.querySelector('.offers');
+let offerHintShown=false;
+
+if(offers&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+  const offerHintObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting||offerHintShown)return;
+    offerHintShown=true;
+    setTimeout(()=>{
+      offers.classList.add('is-hinting');
+      setTimeout(()=>offers.classList.remove('is-hinting'),1100);
+    },350);
+    offerHintObserver.disconnect();
+  }),{threshold:.58});
+  offerHintObserver.observe(offers);
+}
