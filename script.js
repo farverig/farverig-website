@@ -49,15 +49,19 @@ document.querySelectorAll('.offer-item').forEach(item=>offerObserver.observe(ite
 const offers=document.querySelector('.offers');
 let offerHintShown=false;
 
-if(offers&&matchMedia('(hover:hover) and (pointer:fine)').matches){
-  const offerHintObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
-    if(!entry.isIntersecting||offerHintShown)return;
+function checkOfferHint(){
+  if(!offers||offerHintShown||innerWidth<=1050)return;
+  const rect=offers.getBoundingClientRect();
+  const triggerLine=innerHeight*.72;
+  if(rect.top<=triggerLine&&rect.bottom>=innerHeight*.28){
     offerHintShown=true;
     setTimeout(()=>{
       offers.classList.add('is-hinting');
-      setTimeout(()=>offers.classList.remove('is-hinting'),1600);
-    },200);
-    offerHintObserver.disconnect();
-  }),{threshold:.35});
-  offerHintObserver.observe(offers);
+      setTimeout(()=>offers.classList.remove('is-hinting'),1800);
+    },250);
+  }
 }
+
+checkOfferHint();
+addEventListener('scroll',checkOfferHint,{passive:true});
+addEventListener('resize',checkOfferHint);
