@@ -7,6 +7,54 @@
   <title>FARVERIG — Ansigtsmaling i København</title>
   <meta name="description" content="FARVERIG skaber ansigtsmaling til børnefødselsdage, festivaler, firmaevents og særlige arrangementer i København og omegn.">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* VI MALER TIL — visual card refinement */
+    .offers-grid{
+      gap:clamp(.75rem,1.5vw,1.5rem);
+      border:0;
+    }
+    .offer-item{
+      min-height:clamp(14rem,22vw,22rem);
+      justify-content:center;
+      align-items:center;
+      gap:clamp(1.25rem,2vw,2rem);
+      padding:clamp(1.5rem,2.5vw,2.5rem);
+      border:1px solid var(--line);
+      text-align:center;
+    }
+    .offer-number{display:none}
+    .offer-symbol{
+      position:static;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      min-height:clamp(5.5rem,9vw,9rem);
+      font:200 clamp(5.5rem,9vw,9rem)/1 Arial,sans-serif;
+      letter-spacing:-.04em;
+      transform-origin:center;
+    }
+    .offer-item h3{
+      max-width:none;
+      margin:0;
+      font-size:clamp(1rem,1.7vw,1.6rem);
+      line-height:1;
+      letter-spacing:-.025em;
+    }
+    .offer-item:hover{
+      background:transparent;
+      color:var(--text);
+    }
+    .offer-item:hover .offer-symbol{
+      transform:rotate(10deg) scale(1.06);
+    }
+    @media(max-width:720px){
+      .offers-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+      .offer-item{min-height:11.5rem;padding:1.1rem;gap:.9rem}
+      .offer-symbol{min-height:4.5rem;font-size:4.7rem}
+      .offer-item h3{font-size:.78rem;letter-spacing:.01em}
+    }
+  </style>
 </head>
 <body>
 <main>
@@ -17,6 +65,8 @@
     <img class="transforming-logo" src="assets/logo/FarverigLogo_Hvid.png" alt="FARVERIG">
     <p class="hero-label">ANSIGTSMALING · KØBENHAVN</p><div class="bottom-glow" aria-hidden="true"></div><a class="book-button" href="#booking">BOOK OS <span class="book-arrow">&gt;</span></a><span class="scroll-cue"><span>SCROLL NED</span><span class="scroll-arrow">&gt;</span></span>
   </section>
-  <section class="work-story" id="arbejde"><div class="work-story-stage"><div class="work-story-copy"><p class="eyebrow">FARVERIG I VIRKELIGHEDEN</p><p><span>Ansigtsmaling til</span><span>mindeværdige øjeblikke.</span></p></div><figure class="story-shot" data-start="108" data-travel="-335" data-rotate="0" style="top:9vh;width:34vw"><img src="assets/billeder/arbejde/10billede.JPG" alt="BAG FARVERNE"></figure><figure class="story-shot" data-start="142" data-travel="-335" data-rotate="-2" style="top:3vh;width:30vw"><img src="assets/billeder/arbejde/1billede.jpg" alt="FESTIVAL"></figure><figure class="story-shot" data-start="176" data-travel="-335" data-rotate="1" style="top:13vh;width:31vw"><img src="assets/billeder/arbejde/2billede.jpg" alt="BODY PAINT"></figure><figure class="story-shot" data-start="210" data-travel="-335" data-rotate="-1" style="top:1vh;width:34vw"><img src="assets/billeder/arbejde/3billede.jpg" alt="UV · NIGHT"></figure><figure class="story-shot" data-start="244" data-travel="-335" data-rotate="2" style="top:12vh;width:30vw"><img src="assets/billeder/arbejde/4billede.jpg" alt="EVENT"></figure><figure class="story-shot" data-start="-80" data-travel="335" data-rotate="1" style="top:55vh;width:32vw"><img src="assets/billeder/arbejde/5billede.jpg" alt="IN THE MAKING"></figure><figure class="story-shot" data-start="-114" data-travel="335" data-rotate="-2" style="top:65vh;width:31vw"><img src="assets/billeder/arbejde/6billede.jpg" alt="LIVE PAINTING"></figure><figure class="story-shot" data-start="-148" data-travel="335" data-rotate="2" style="top:53vh;width:31vw"><img src="assets/billeder/arbejde/7billede.jpeg" alt="FLOWERS"></figure><figure class="story-shot" data-start="-182" data-travel="335" data-rotate="-1" style="top:64vh;width:32vw"><img src="assets/billeder/arbejde/8billede.jpg" alt="BØRNEFEST"></figure><figure class="story-shot" data-start="-216" data-travel="335" data-rotate="1" style="top:55vh;width:31vw"><img src="assets/billeder/arbejde/9billede.jpg" alt="FARVERIG"></figure></div></section>\n  <section class="offers" id="tilbyder"><div class="offers-heading"><p class="eyebrow">VI TILBYDER</p><h2>Vi maler til</h2><span>SMÅ OG STORE ØJEBLIKKE</span></div><div class="offers-grid"><div class="offer-item" style="transition-delay:0s"><span class="offer-number">01</span><span class="offer-symbol">✦</span><h3>BØRNEFØDSELSDAG</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">02</span><span class="offer-symbol">☼</span><h3>FESTIVAL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">03</span><span class="offer-symbol">◌</span><h3>FIRMAEVENT</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">04</span><span class="offer-symbol">♡</span><h3>BRYLLUP</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">05</span><span class="offer-symbol">☾</span><h3>HALLOWEEN</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">06</span><span class="offer-symbol">✳</span><h3>JUL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">07</span><span class="offer-symbol">≋</span><h3>SOMMERFEST</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">08</span><span class="offer-symbol">◇</span><h3>KULTUREVENT</h3></div></div></section>\n  <section class="chapter-placeholder" id="om"><span>03</span><p>OM FARVERIG</p><small>NÆSTE KAPITEL</small></section>
+  <section class="work-story" id="arbejde"><div class="work-story-stage"><div class="work-story-copy"><p class="eyebrow">FARVERIG I VIRKELIGHEDEN</p><p><span>Ansigtsmaling til</span><span>mindeværdige øjeblikke.</span></p></div><figure class="story-shot" data-start="108" data-travel="-335" data-rotate="0" style="top:9vh;width:34vw"><img src="assets/billeder/arbejde/10billede.JPG" alt="BAG FARVERNE"></figure><figure class="story-shot" data-start="142" data-travel="-335" data-rotate="-2" style="top:3vh;width:30vw"><img src="assets/billeder/arbejde/1billede.jpg" alt="FESTIVAL"></figure><figure class="story-shot" data-start="176" data-travel="-335" data-rotate="1" style="top:13vh;width:31vw"><img src="assets/billeder/arbejde/2billede.jpg" alt="BODY PAINT"></figure><figure class="story-shot" data-start="210" data-travel="-335" data-rotate="-1" style="top:1vh;width:34vw"><img src="assets/billeder/arbejde/3billede.jpg" alt="UV · NIGHT"></figure><figure class="story-shot" data-start="244" data-travel="-335" data-rotate="2" style="top:12vh;width:30vw"><img src="assets/billeder/arbejde/4billede.jpg" alt="EVENT"></figure><figure class="story-shot" data-start="-80" data-travel="335" data-rotate="1" style="top:55vh;width:32vw"><img src="assets/billeder/arbejde/5billede.jpg" alt="IN THE MAKING"></figure><figure class="story-shot" data-start="-114" data-travel="335" data-rotate="-2" style="top:65vh;width:31vw"><img src="assets/billeder/arbejde/6billede.jpg" alt="LIVE PAINTING"></figure><figure class="story-shot" data-start="-148" data-travel="335" data-rotate="2" style="top:53vh;width:31vw"><img src="assets/billeder/arbejde/7billede.jpeg" alt="FLOWERS"></figure><figure class="story-shot" data-start="-182" data-travel="335" data-rotate="-1" style="top:64vh;width:32vw"><img src="assets/billeder/arbejde/8billede.jpg" alt="BØRNEFEST"></figure><figure class="story-shot" data-start="-216" data-travel="335" data-rotate="1" style="top:55vh;width:31vw"><img src="assets/billeder/arbejde/9billede.jpg" alt="FARVERIG"></figure></div></section>
+  <section class="offers" id="tilbyder"><div class="offers-heading"><p class="eyebrow">VI TILBYDER</p><h2>Vi maler til</h2><span>SMÅ OG STORE ØJEBLIKKE</span></div><div class="offers-grid"><div class="offer-item" style="transition-delay:0s"><span class="offer-number">01</span><span class="offer-symbol">✦</span><h3>BØRNEFØDSELSDAG</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">02</span><span class="offer-symbol">☼</span><h3>FESTIVAL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">03</span><span class="offer-symbol">◌</span><h3>FIRMAEVENT</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">04</span><span class="offer-symbol">♡</span><h3>BRYLLUP</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">05</span><span class="offer-symbol">☾</span><h3>HALLOWEEN</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">06</span><span class="offer-symbol">✳</span><h3>JUL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">07</span><span class="offer-symbol">≋</span><h3>SOMMERFEST</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">08</span><span class="offer-symbol">◇</span><h3>KULTUREVENT</h3></div></div></section>
+  <section class="chapter-placeholder" id="om"><span>03</span><p>OM FARVERIG</p><small>NÆSTE KAPITEL</small></section>
   <section class="chapter-placeholder" id="booking"><span>04</span><p>BOOK FARVERIG</p><small>NÆSTE KAPITEL</small></section>
 </main><script src="script.js"></script></body></html>
