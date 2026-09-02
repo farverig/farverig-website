@@ -12,61 +12,57 @@
     .work-story{height:520vh}
     @media(max-width:720px){.work-story{height:430vh}}
 
-    /* VI TILBYDER — editorial continuation of the hero + image story */
+    /* VI TILBYDER — compact editorial event field */
     .offers{
-      padding:clamp(5rem,7vw,7rem) clamp(1.25rem,4vw,4rem) clamp(6rem,8vw,8rem);
+      padding:clamp(3.2rem,4.5vw,4.5rem) clamp(1.25rem,4vw,4rem) clamp(3.8rem,5vw,5rem);
       overflow:visible;
       border-top:0;
     }
     .offers-heading{
       display:block;
-      width:min(100%,64rem);
+      width:min(100%,58rem);
       max-width:none;
-      margin:0 auto clamp(3rem,4vw,4rem);
+      margin:0 auto clamp(2.1rem,2.8vw,2.8rem);
       padding:0;
       text-align:center;
-    }
-    .offers-heading .eyebrow{
-      margin:0 0 1rem;
     }
     .offers-heading h2{
       width:auto;
       max-width:15ch;
-      margin:0 auto 1.15rem;
-      font:300 clamp(2.2rem,3.7vw,3.9rem)/.95 Arial,Helvetica,sans-serif;
-      letter-spacing:-.045em;
+      margin:0 auto .85rem;
+      font:300 clamp(2.05rem,3.3vw,3.45rem)/.96 Arial,Helvetica,sans-serif;
+      letter-spacing:-.042em;
     }
     .offers-heading .offers-intro{
       display:block;
       max-width:39rem;
       margin:0 auto;
       color:var(--muted);
-      font:400 clamp(.78rem,.9vw,.9rem)/1.6 monospace;
+      font:400 clamp(.76rem,.86vw,.88rem)/1.55 monospace;
       letter-spacing:.01em;
     }
     .offers-grid{
-      width:min(100%,60rem);
+      width:min(100%,52rem);
       margin:0 auto;
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:0 clamp(1.5rem,2.4vw,2.5rem);
+      column-gap:clamp(1rem,2vw,2rem);
+      row-gap:clamp(.9rem,1.6vw,1.5rem);
       border:0;
     }
     .offer-item{
       position:relative;
-      min-height:clamp(8.5rem,10vw,10rem);
+      min-height:clamp(6.7rem,7.8vw,7.8rem);
       display:flex;
       flex-direction:column;
       justify-content:center;
       align-items:center;
-      gap:.85rem;
-      padding:1.2rem .3rem;
-      border:0;
-      border-top:1px solid var(--line);
+      gap:.72rem;
+      padding:.7rem .2rem;
+      border:0!important;
       text-align:center;
       overflow:visible;
     }
-    .offer-item:nth-child(n+5){border-bottom:1px solid var(--line)}
     .offer-number{display:none}
     .offer-symbol{
       position:static;
@@ -74,7 +70,7 @@
       align-items:center;
       justify-content:center;
       width:auto;
-      min-height:3.3rem;
+      min-height:3.1rem;
       font:200 clamp(2.9rem,3.8vw,3.9rem)/1 Arial,sans-serif;
       letter-spacing:-.04em;
       transform-origin:center;
@@ -96,19 +92,18 @@
       transform:rotate(10deg) scale(1.08);
     }
     @media(max-width:900px){
-      .offers-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,34rem)}
-      .offer-item:nth-child(n+3){border-bottom:0}
-      .offer-item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+      .offers-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,30rem);row-gap:.7rem}
+      .offer-item{min-height:7.2rem}
     }
     @media(max-width:720px){
-      .offers{padding:4.5rem 1rem 5rem}
-      .offers-heading{margin-bottom:2.5rem}
-      .offers-heading h2{max-width:13ch;font-size:clamp(2rem,9.5vw,3rem);font-weight:300}
-      .offers-heading .offers-intro{max-width:30rem;font-size:.78rem;line-height:1.55}
-      .offers-grid{grid-template-columns:1fr 1fr;gap:0 1rem}
-      .offer-item{min-height:8rem;padding:1rem .2rem;gap:.65rem}
-      .offer-symbol{min-height:2.9rem;font-size:3.1rem}
-      .offer-item h3{font-size:.65rem;letter-spacing:.005em}
+      .offers{padding:3.2rem 1rem 3.8rem}
+      .offers-heading{margin-bottom:1.9rem}
+      .offers-heading h2{max-width:13ch;font-size:clamp(1.9rem,8.8vw,2.8rem);font-weight:300}
+      .offers-heading .offers-intro{max-width:30rem;font-size:.76rem;line-height:1.5}
+      .offers-grid{grid-template-columns:1fr 1fr;gap:.55rem 1rem;width:min(100%,28rem)}
+      .offer-item{min-height:6.8rem;padding:.55rem .15rem;gap:.55rem}
+      .offer-symbol{min-height:2.8rem;font-size:3rem}
+      .offer-item h3{font-size:.64rem;letter-spacing:.005em}
     }
   </style>
 </head>
@@ -122,7 +117,7 @@
     <p class="hero-label">ANSIGTSMALING · KØBENHAVN</p><div class="bottom-glow" aria-hidden="true"></div><a class="book-button" href="#booking">BOOK OS <span class="book-arrow">&gt;</span></a><span class="scroll-cue"><span>SCROLL NED</span><span class="scroll-arrow">&gt;</span></span>
   </section>
   <section class="work-story" id="arbejde"><div class="work-story-stage"><div class="work-story-copy"><p class="eyebrow">FARVERIG I VIRKELIGHEDEN</p><p><span>Ansigtsmaling til</span><span>mindeværdige øjeblikke.</span></p></div><figure class="story-shot" data-start="108" data-travel="-335" data-rotate="0" style="top:9vh;width:34vw"><img src="assets/billeder/arbejde/10billede.JPG" alt="BAG FARVERNE"></figure><figure class="story-shot" data-start="142" data-travel="-335" data-rotate="-2" style="top:3vh;width:30vw"><img src="assets/billeder/arbejde/1billede.jpg" alt="FESTIVAL"></figure><figure class="story-shot" data-start="176" data-travel="-335" data-rotate="1" style="top:13vh;width:31vw"><img src="assets/billeder/arbejde/2billede.jpg" alt="BODY PAINT"></figure><figure class="story-shot" data-start="210" data-travel="-335" data-rotate="-1" style="top:1vh;width:34vw"><img src="assets/billeder/arbejde/3billede.jpg" alt="UV · NIGHT"></figure><figure class="story-shot" data-start="244" data-travel="-335" data-rotate="2" style="top:12vh;width:30vw"><img src="assets/billeder/arbejde/4billede.jpg" alt="EVENT"></figure><figure class="story-shot" data-start="-80" data-travel="335" data-rotate="1" style="top:55vh;width:32vw"><img src="assets/billeder/arbejde/5billede.jpg" alt="IN THE MAKING"></figure><figure class="story-shot" data-start="-114" data-travel="335" data-rotate="-2" style="top:65vh;width:31vw"><img src="assets/billeder/arbejde/6billede.jpg" alt="LIVE PAINTING"></figure><figure class="story-shot" data-start="-148" data-travel="335" data-rotate="2" style="top:53vh;width:31vw"><img src="assets/billeder/arbejde/7billede.jpeg" alt="FLOWERS"></figure><figure class="story-shot" data-start="-182" data-travel="335" data-rotate="-1" style="top:64vh;width:32vw"><img src="assets/billeder/arbejde/8billede.jpg" alt="BØRNEFEST"></figure><figure class="story-shot" data-start="-216" data-travel="335" data-rotate="1" style="top:55vh;width:31vw"><img src="assets/billeder/arbejde/9billede.jpg" alt="FARVERIG"></figure></div></section>
-  <section class="offers" id="tilbyder"><div class="offers-heading"><p class="eyebrow">VI TILBYDER</p><h2>Book os til dit næste event</h2><span class="offers-intro">Fra små fødselsdage til store festivaler og firmaevents — vi skaber farverige oplevelser, der passer til anledningen.</span></div><div class="offers-grid"><div class="offer-item" style="transition-delay:0s"><span class="offer-number">01</span><span class="offer-symbol">✦</span><h3>BØRNEFØDSELSDAG</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">02</span><span class="offer-symbol">☼</span><h3>FESTIVAL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">03</span><span class="offer-symbol">◌</span><h3>FIRMAEVENT</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">04</span><span class="offer-symbol">♡</span><h3>BRYLLUP</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">05</span><span class="offer-symbol">☾</span><h3>HALLOWEEN</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">06</span><span class="offer-symbol">✳</span><h3>JUL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">07</span><span class="offer-symbol">≋</span><h3>SOMMERFEST</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">08</span><span class="offer-symbol">◇</span><h3>KULTUREVENT</h3></div></div></section>
+  <section class="offers" id="tilbyder"><div class="offers-heading"><h2>Book os til dit næste event</h2><span class="offers-intro">Fra små fødselsdage til store festivaler og firmaevents — vi skaber farverige oplevelser, der passer til anledningen.</span></div><div class="offers-grid"><div class="offer-item" style="transition-delay:0s"><span class="offer-number">01</span><span class="offer-symbol">✦</span><h3>BØRNEFØDSELSDAG</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">02</span><span class="offer-symbol">☼</span><h3>FESTIVAL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">03</span><span class="offer-symbol">◌</span><h3>FIRMAEVENT</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">04</span><span class="offer-symbol">♡</span><h3>BRYLLUP</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">05</span><span class="offer-symbol">☾</span><h3>HALLOWEEN</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">06</span><span class="offer-symbol">✳</span><h3>JUL</h3></div><div class="offer-item" style="transition-delay:0s"><span class="offer-number">07</span><span class="offer-symbol">≋</span><h3>SOMMERFEST</h3></div><div class="offer-item" style="transition-delay:0.08s"><span class="offer-number">08</span><span class="offer-symbol">◇</span><h3>KULTUREVENT</h3></div></div></section>
   <section class="chapter-placeholder" id="om"><span>03</span><p>OM FARVERIG</p><small>NÆSTE KAPITEL</small></section>
   <section class="chapter-placeholder" id="booking"><span>04</span><p>BOOK FARVERIG</p><small>NÆSTE KAPITEL</small></section>
 </main><script src="script.js"></script></body></html>
