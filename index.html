@@ -11,13 +11,13 @@
     .work-story{height:520vh}
     @media(max-width:720px){.work-story{height:430vh}}
 
-    /* VI TILBYDER — VERSION B2: split-screen editorial menu */
+    /* VI TILBYDER — VERSION B3: sharper split-screen editorial menu */
     .offers{
       position:relative;
       min-height:100vh;
       display:flex;
       align-items:center;
-      padding:clamp(4.5rem,6vw,6rem) clamp(1.5rem,5vw,5rem);
+      padding:clamp(4.5rem,6vw,6rem) clamp(1rem,3vw,3rem);
       overflow:hidden;
       border-top:0;
       isolation:isolate;
@@ -25,11 +25,11 @@
     .offers-shell{
       position:relative;
       z-index:2;
-      width:min(100%,86rem);
+      width:min(100%,94rem);
       margin:0 auto;
       display:grid;
-      grid-template-columns:minmax(18rem,.78fr) minmax(30rem,1.22fr);
-      gap:clamp(3rem,7vw,8rem);
+      grid-template-columns:minmax(20rem,.7fr) minmax(34rem,1.3fr);
+      gap:clamp(2rem,4vw,4.5rem);
       align-items:center;
     }
     .offers-heading{
@@ -41,14 +41,15 @@
       text-align:left;
     }
     .offers-heading h2{
-      max-width:7.5ch;
-      margin:0 0 clamp(1.5rem,2.5vw,2.4rem);
-      font:300 clamp(4rem,6.4vw,7.2rem)/.82 Arial,Helvetica,sans-serif;
+      max-width:7.15ch;
+      margin:0 0 clamp(1.5rem,2.3vw,2.2rem);
+      font:300 clamp(4rem,6.2vw,7rem)/.82 Arial,Helvetica,sans-serif;
       letter-spacing:-.065em;
     }
     .offers-heading .offers-intro{
       display:block;
-      max-width:27rem;
+      width:100%;
+      max-width:7.15ch;
       margin:0;
       color:var(--muted);
       font:400 clamp(.76rem,.9vw,.9rem)/1.6 monospace;
@@ -64,7 +65,7 @@
     .offer-link{
       position:relative;
       display:grid;
-      grid-template-columns:2.3rem 1fr auto;
+      grid-template-columns:2.3rem 1fr;
       align-items:center;
       min-height:clamp(3.65rem,5.35vw,5.15rem);
       gap:1rem;
@@ -84,14 +85,8 @@
       letter-spacing:-.055em;
       transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .3s ease;
     }
-    .offer-arrow{
-      font:300 clamp(1rem,1.5vw,1.45rem)/1 monospace;
-      transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .3s ease;
-    }
-    .offers-list:hover .offer-link:not(:hover) h3,
-    .offers-list:hover .offer-link:not(:hover) .offer-arrow{opacity:.25}
+    .offers-list:hover .offer-link:not(:hover) h3{opacity:.25}
     .offer-link:hover h3{transform:translateX(clamp(.5rem,1vw,1rem))}
-    .offer-link:hover .offer-arrow{transform:translateX(.35rem)}
     .offer-more{
       display:flex;
       justify-content:flex-end;
@@ -102,14 +97,14 @@
     }
     .offer-preview{
       position:absolute;
-      z-index:2;
-      left:clamp(31%,37vw,43%);
+      z-index:4;
+      right:clamp(1.5rem,4vw,4.5rem);
       top:50%;
-      width:clamp(13rem,20vw,21rem);
+      width:clamp(13rem,19vw,20rem);
       aspect-ratio:4/5;
       opacity:0;
       pointer-events:none;
-      transform:translate(-50%,-45%) rotate(3deg) scale(.95);
+      transform:translateY(-45%) rotate(3deg) scale(.95);
       transition:opacity .28s ease,transform .48s cubic-bezier(.2,.7,.2,1);
       box-shadow:0 1.5rem 4rem rgba(0,0,0,.5);
       overflow:hidden;
@@ -122,14 +117,15 @@
     .offers:has(.offer-link[data-preview="mode"]:hover) .preview-mode,
     .offers:has(.offer-link[data-preview="kursus"]:hover) .preview-kursus{
       opacity:.94;
-      transform:translate(-50%,-50%) rotate(-2deg) scale(1);
+      transform:translateY(-50%) rotate(-2deg) scale(1);
     }
     .offers:has(.offer-link:hover) .offers-heading{opacity:.42;transition:opacity .3s ease}
     .offers-heading{transition:opacity .3s ease}
     @media(max-width:1050px){
       .offers{min-height:auto;padding-top:5rem;padding-bottom:5rem}
-      .offers-shell{grid-template-columns:minmax(15rem,.72fr) minmax(26rem,1.28fr);gap:3rem}
+      .offers-shell{grid-template-columns:minmax(15rem,.68fr) minmax(26rem,1.32fr);gap:2.5rem}
       .offers-heading h2{font-size:clamp(3.6rem,7vw,5.6rem)}
+      .offers-heading .offers-intro{max-width:100%}
       .offer-link h3{font-size:clamp(1.8rem,3.8vw,3.3rem)}
       .offer-preview{display:none}
     }
@@ -139,10 +135,10 @@
       .offers-heading{margin-bottom:2.8rem}
       .offers-heading h2{max-width:8ch;font-size:clamp(3.4rem,16vw,5.2rem);line-height:.84;margin-bottom:1.4rem}
       .offers-heading .offers-intro{max-width:32rem;font-size:.75rem}
-      .offer-link{grid-template-columns:1.7rem 1fr auto;gap:.6rem;min-height:4.25rem}
+      .offer-link{grid-template-columns:1.7rem 1fr;gap:.6rem;min-height:4.25rem}
       .offer-link h3{font-size:clamp(1.65rem,8vw,2.55rem)}
       .offer-index{font-size:.58rem}
-      .offers-list:hover .offer-link:not(:hover) h3,.offers-list:hover .offer-link:not(:hover) .offer-arrow{opacity:1}
+      .offers-list:hover .offer-link:not(:hover) h3{opacity:1}
       .offers:has(.offer-link:hover) .offers-heading{opacity:1}
     }
   </style>
@@ -166,12 +162,12 @@
       </div>
       <div>
         <div class="offers-list" aria-label="Vi maler til">
-          <div class="offer-link" data-preview="born"><span class="offer-index">01</span><h3>BØRNEFØDSELSDAG</h3><span class="offer-arrow">↗</span></div>
-          <div class="offer-link" data-preview="sommer"><span class="offer-index">02</span><h3>SOMMERFEST</h3><span class="offer-arrow">↗</span></div>
-          <div class="offer-link" data-preview="kultur"><span class="offer-index">03</span><h3>KULTUREVENT</h3><span class="offer-arrow">↗</span></div>
-          <div class="offer-link" data-preview="festival"><span class="offer-index">04</span><h3>FESTIVAL</h3><span class="offer-arrow">↗</span></div>
-          <div class="offer-link" data-preview="mode"><span class="offer-index">05</span><h3>MODE &amp; EDITORIAL</h3><span class="offer-arrow">↗</span></div>
-          <div class="offer-link" data-preview="kursus"><span class="offer-index">06</span><h3>KURSUS</h3><span class="offer-arrow">↗</span></div>
+          <div class="offer-link" data-preview="born"><span class="offer-index">01</span><h3>BØRNEFØDSELSDAG</h3></div>
+          <div class="offer-link" data-preview="sommer"><span class="offer-index">02</span><h3>SOMMERFEST</h3></div>
+          <div class="offer-link" data-preview="kultur"><span class="offer-index">03</span><h3>KULTUREVENT</h3></div>
+          <div class="offer-link" data-preview="festival"><span class="offer-index">04</span><h3>FESTIVAL</h3></div>
+          <div class="offer-link" data-preview="mode"><span class="offer-index">05</span><h3>MODE &amp; EDITORIAL</h3></div>
+          <div class="offer-link" data-preview="kursus"><span class="offer-index">06</span><h3>KURSUS</h3></div>
         </div>
         <div class="offer-more">OG MEGET MERE...</div>
       </div>
