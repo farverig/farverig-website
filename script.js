@@ -40,25 +40,20 @@ updateStory();
 addEventListener('scroll',updateStory,{passive:true});
 addEventListener('resize',updateStory);
 
-const offerObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
-  entry.target.classList.toggle('is-visible',entry.isIntersecting);
-}),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
-
-document.querySelectorAll('.offer-item').forEach(item=>offerObserver.observe(item));
-
 const offers=document.querySelector('.offers');
 let offerHintShown=false;
+let offerHintTimer=null;
 
 function checkOfferHint(){
-  if(!offers||offerHintShown||innerWidth<=1050)return;
+  if(!offers||offerHintShown)return;
   const rect=offers.getBoundingClientRect();
-  const triggerLine=innerHeight*.72;
-  if(rect.top<=triggerLine&&rect.bottom>=innerHeight*.28){
+  if(rect.top<=innerHeight*.78&&rect.bottom>=innerHeight*.35){
     offerHintShown=true;
-    setTimeout(()=>{
+    clearTimeout(offerHintTimer);
+    offerHintTimer=setTimeout(()=>{
       offers.classList.add('is-hinting');
-      setTimeout(()=>offers.classList.remove('is-hinting'),1800);
-    },250);
+      setTimeout(()=>offers.classList.remove('is-hinting'),2000);
+    },300);
   }
 }
 
