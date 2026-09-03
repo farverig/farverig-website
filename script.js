@@ -66,28 +66,39 @@ const bookingLayoutStyle=document.createElement('style');
 bookingLayoutStyle.textContent=`
 @media (min-width:1051px){
   .booking-section{
-    display:block;
-    min-height:100vh;
-    padding:clamp(4.5rem,6vh,6rem) clamp(5rem,8vw,9rem) clamp(4rem,6vh,5.5rem);
+    display:flex !important;
+    flex-direction:column !important;
+    grid-template-columns:none !important;
+    grid-template-rows:none !important;
+    min-height:100vh !important;
+    align-items:stretch !important;
+    padding:clamp(4.2rem,5.5vh,5.2rem) clamp(5rem,8vw,9rem) clamp(3.5rem,5vh,4.8rem) !important;
   }
   .booking-intro{
-    position:static;
-    width:100%;
-    margin:0 auto clamp(3.8rem,6vh,5.8rem);
-    text-align:center;
+    grid-column:auto !important;
+    grid-row:auto !important;
+    position:static !important;
+    top:auto !important;
+    align-self:auto !important;
+    width:100% !important;
+    margin:0 auto clamp(3.6rem,5vh,5rem) !important;
+    text-align:center !important;
   }
   .booking-kicker{
-    margin-bottom:clamp(1rem,1.8vh,1.5rem);
+    margin:0 0 clamp(1rem,1.7vh,1.4rem) !important;
   }
   .booking-title{
-    max-width:13ch;
-    margin:0 auto;
-    font-size:clamp(3.6rem,6.1vw,6.8rem);
-    line-height:.84;
+    max-width:13ch !important;
+    margin:0 auto !important;
+    font-size:clamp(3.6rem,6.1vw,6.8rem) !important;
+    line-height:.84 !important;
   }
   .booking-form{
-    width:min(100%,70rem);
-    margin:0 auto;
+    grid-column:auto !important;
+    grid-row:auto !important;
+    width:min(100%,70rem) !important;
+    margin:0 auto !important;
+    align-self:auto !important;
   }
 }
 `;
