@@ -60,3 +60,35 @@ function checkOfferHint(){
 checkOfferHint();
 addEventListener('scroll',checkOfferHint,{passive:true});
 addEventListener('resize',checkOfferHint);
+
+// Booking layout experiment: centered statement above the same readable form.
+const bookingLayoutStyle=document.createElement('style');
+bookingLayoutStyle.textContent=`
+@media (min-width:1051px){
+  .booking-section{
+    display:block;
+    min-height:100vh;
+    padding:clamp(4.5rem,6vh,6rem) clamp(5rem,8vw,9rem) clamp(4rem,6vh,5.5rem);
+  }
+  .booking-intro{
+    position:static;
+    width:100%;
+    margin:0 auto clamp(3.8rem,6vh,5.8rem);
+    text-align:center;
+  }
+  .booking-kicker{
+    margin-bottom:clamp(1rem,1.8vh,1.5rem);
+  }
+  .booking-title{
+    max-width:13ch;
+    margin:0 auto;
+    font-size:clamp(3.6rem,6.1vw,6.8rem);
+    line-height:.84;
+  }
+  .booking-form{
+    width:min(100%,70rem);
+    margin:0 auto;
+  }
+}
+`;
+document.head.appendChild(bookingLayoutStyle);
