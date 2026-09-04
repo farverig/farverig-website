@@ -72,7 +72,7 @@ bookingLayoutStyle.textContent=`
     grid-template-rows:none !important;
     min-height:100vh !important;
     align-items:stretch !important;
-    padding:clamp(4.2rem,5.5vh,5.2rem) clamp(5rem,8vw,9rem) clamp(3.5rem,5vh,4.8rem) !important;
+    padding:clamp(3rem,4vh,3.8rem) clamp(5rem,8vw,9rem) clamp(2.2rem,3vh,3rem) !important;
   }
   .booking-intro{
     grid-column:auto !important;
@@ -81,16 +81,16 @@ bookingLayoutStyle.textContent=`
     top:auto !important;
     align-self:auto !important;
     width:100% !important;
-    margin:0 auto clamp(3.6rem,5vh,5rem) !important;
+    margin:0 auto clamp(2.2rem,3vh,3rem) !important;
     text-align:center !important;
   }
   .booking-kicker{
-    margin:0 0 clamp(1rem,1.7vh,1.4rem) !important;
+    margin:0 0 clamp(.7rem,1vh,1rem) !important;
   }
   .booking-title{
     max-width:13ch !important;
     margin:0 auto !important;
-    font-size:clamp(3.6rem,6.1vw,6.8rem) !important;
+    font-size:clamp(3.2rem,5.2vw,5.8rem) !important;
     line-height:.84 !important;
   }
   .booking-form{
