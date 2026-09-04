@@ -61,7 +61,7 @@ checkOfferHint();
 addEventListener('scroll',checkOfferHint,{passive:true});
 addEventListener('resize',checkOfferHint);
 
-// Booking layout experiment: centered statement above the same readable form.
+// Booking layout experiment: centered statement above a slightly smaller, still readable form.
 const bookingLayoutStyle=document.createElement('style');
 bookingLayoutStyle.textContent=`
 @media (min-width:1051px){
@@ -81,12 +81,10 @@ bookingLayoutStyle.textContent=`
     top:auto !important;
     align-self:auto !important;
     width:100% !important;
-    margin:0 auto clamp(1.7rem,2.2vh,2.2rem) !important;
+    margin:0 auto clamp(2rem,2.8vh,2.7rem) !important;
     text-align:center !important;
   }
-  .booking-kicker{
-    margin:0 0 .45rem !important;
-  }
+  .booking-kicker{margin:0 0 .45rem !important;}
   .booking-title{
     max-width:13ch !important;
     margin:0 auto !important;
@@ -96,10 +94,24 @@ bookingLayoutStyle.textContent=`
   .booking-form{
     grid-column:auto !important;
     grid-row:auto !important;
-    width:min(100%,70rem) !important;
+    width:min(88%,62rem) !important;
     margin:0 auto !important;
     align-self:auto !important;
   }
+  .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
+  .booking-field{padding-bottom:clamp(1.55rem,2.35vh,2.25rem) !important;}
+  .booking-field label{font-size:clamp(.66rem,.72vw,.76rem) !important;margin-bottom:.42rem !important;}
+  .booking-field input,.booking-field textarea{
+    font-size:clamp(1.5rem,2.15vw,2.35rem) !important;
+    padding-bottom:.55rem !important;
+  }
+  .booking-field textarea{min-height:clamp(5.5rem,9vh,7.2rem) !important;}
+  .booking-submit{
+    margin-top:.25rem !important;
+    padding:clamp(.85rem,1.35vh,1.15rem) 0 !important;
+    font-size:clamp(2rem,3.6vw,3.9rem) !important;
+  }
+  .booking-note{margin-top:.75rem !important;font-size:.64rem !important;}
 }
 `;
 document.head.appendChild(bookingLayoutStyle);
