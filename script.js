@@ -1,5 +1,12 @@
 const logo=document.querySelector('.transforming-logo');
 const header=document.querySelector('.site-header');
+const mainNav=header?.querySelector('nav');
+if(mainNav){
+  const tilbyder=mainNav.querySelector('a[href="#tilbyder"]');
+  const om=mainNav.querySelector('a[href="om.html"]');
+  const kontakt=mainNav.querySelector('a[href="#booking"]');
+  [tilbyder,om,kontakt].forEach(link=>{if(link)mainNav.appendChild(link);});
+}
 
 function update(){
   const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.72)));
