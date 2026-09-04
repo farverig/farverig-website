@@ -65,6 +65,39 @@ bookingLayoutStyle.textContent=`
 .site-header{opacity:1 !important;pointer-events:none !important;}
 .site-header nav{pointer-events:auto !important;}
 @media (min-width:1051px){
+  .offers{
+    min-height:100vh !important;
+    align-items:flex-start !important;
+    padding-top:clamp(5.5rem,8vh,7.5rem) !important;
+    padding-bottom:clamp(5rem,7vh,6.5rem) !important;
+  }
+  .offers-heading{
+    margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;
+  }
+  .offers-cloud{
+    min-height:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    flex-wrap:nowrap !important;
+    align-items:flex-start !important;
+    align-content:initial !important;
+    gap:0 !important;
+    padding:clamp(1.1rem,1.8vh,1.5rem) 0 0 !important;
+  }
+  .offer-link,.offer-more{
+    display:flex !important;
+    width:max-content !important;
+    max-width:100% !important;
+    margin-left:0 !important;
+  }
+  .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
+  .offer-link h3,.offer-more{
+    font-size:clamp(3.5rem,6.05vw,6.8rem) !important;
+    line-height:.79 !important;
+    letter-spacing:-.068em !important;
+  }
+  .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
+  .offer-more{margin-top:.14em !important;}
   .booking-section{
     display:flex !important;
     flex-direction:column !important;
