@@ -19,62 +19,63 @@
     .about-logo img{display:block;width:100%;height:auto}
     .about-nav{position:absolute;right:var(--about-pad);top:50%;transform:translateY(-50%);display:flex;gap:clamp(1.3rem,2.4vw,2.8rem);pointer-events:auto}
     .about-nav a{color:var(--text);text-decoration:none;font:400 clamp(.68rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-    .about-nav a:hover{opacity:.55}
-    .about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
+    .about-nav a:hover{opacity:.55}.about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 
-    .about-page{min-height:100vh;display:flex;align-items:center;padding:clamp(7rem,10vh,8.5rem) var(--about-pad) clamp(3rem,5vh,4rem)}
-    .about-layout{width:100%;display:grid;grid-template-columns:minmax(22rem,.9fr) minmax(27rem,1.1fr);gap:clamp(4rem,8vw,10rem);align-items:center}
-    .about-image-wrap{margin:0}
-    .about-image{display:block;width:100%;height:min(70vh,46rem);object-fit:cover;object-position:center;box-shadow:0 2rem 7rem rgba(0,0,0,.42)}
-    .about-content{max-width:48rem;align-self:center}
-    .about-kicker{margin:0 0 .8rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .about-title{margin:0 0 clamp(2.2rem,4vh,3.4rem);max-width:11ch;font:400 clamp(4.4rem,8vw,9rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
-    .about-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
-    .about-copy{max-width:43rem;border-top:1px solid var(--line);padding-top:clamp(1.4rem,2.4vh,2rem)}
-    .about-copy p{margin:0 0 1.15em;font:400 clamp(1.2rem,1.75vw,1.8rem)/1.18 Arial,Helvetica,sans-serif;letter-spacing:-.025em;color:var(--text)}
-    .about-copy p:last-of-type{margin-bottom:clamp(1.8rem,3vw,2.5rem)}
-    .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(15rem,21vw,20rem);padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
+    .about-page{padding:clamp(8rem,13vh,11rem) var(--about-pad) clamp(5rem,9vh,8rem)}
+    .about-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(18rem,.85fr);gap:clamp(3rem,8vw,10rem);align-items:end;min-height:70vh}
+    .about-kicker{margin:0 0 .9rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .about-title{margin:0;font:400 clamp(5.5rem,11vw,12rem)/.8 Arial,Helvetica,sans-serif;letter-spacing:-.08em;color:var(--text)}
+    .about-title em{display:block;font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
+    .intro-copy{max-width:31rem;margin:0 0 clamp(1rem,5vh,4rem);font:400 clamp(1.35rem,2vw,2rem)/1.18 Arial,Helvetica,sans-serif;letter-spacing:-.03em}
+
+    .story-image{margin:clamp(4rem,9vh,8rem) 0 0;width:min(70vw,68rem)}
+    .story-image img{display:block;width:100%;height:auto;max-height:82vh;object-fit:cover;box-shadow:0 2rem 7rem rgba(0,0,0,.4)}
+    .story-text{width:min(48rem,48vw);margin:clamp(5rem,10vh,9rem) 5vw 0 auto}
+    .story-text p{margin:0 0 1.2em;font:400 clamp(1.55rem,2.5vw,2.7rem)/1.12 Arial,Helvetica,sans-serif;letter-spacing:-.035em}
+    .story-text .small{margin-top:2rem;color:rgba(255,255,255,.62);font:400 clamp(.72rem,.82vw,.84rem)/1.55 monospace;letter-spacing:.055em;text-transform:uppercase;max-width:48ch}
+
+    .media-break{position:relative;width:min(58vw,54rem);margin:clamp(6rem,12vh,11rem) 0 0 auto;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;overflow:hidden;background:rgba(255,255,255,.025)}
+    .media-break::before{content:'ET LILLE GLIMT FRA FARVERIG';font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.5)}
+    .media-break::after{content:'VIDEO';position:absolute;left:1.2rem;bottom:1rem;font:400 .65rem/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.28)}
+
+    .about-finale{margin-top:clamp(7rem,14vh,13rem);padding-top:clamp(2rem,4vh,3rem);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end}
+    .finale-title{margin:0;font:400 clamp(3.8rem,7.8vw,8.8rem)/.88 Arial,Helvetica,sans-serif;letter-spacing:-.07em;max-width:10ch}
+    .finale-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic}
+    .finale-right{justify-self:end;width:min(100%,32rem)}
+    .finale-right p{margin:0 0 1.5rem;font:400 clamp(1.15rem,1.6vw,1.55rem)/1.25 Arial,Helvetica,sans-serif;letter-spacing:-.02em}
+    .instagram-button{display:flex;align-items:center;justify-content:center;width:100%;padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
     .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
-    .back-home{position:fixed;z-index:45;left:var(--about-pad);bottom:clamp(1.5rem,2vw,2rem);color:var(--text);text-decoration:none;font:400 clamp(.65rem,.72vw,.74rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
-    .back-home:hover{opacity:1}
 
-    @media(max-width:900px){
-      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-page{display:block;padding-top:7rem}.about-layout{grid-template-columns:1fr;gap:2.5rem}.about-image{height:auto;aspect-ratio:5/4}.about-content{max-width:none}.about-title{max-width:10ch;font-size:clamp(4rem,14vw,7rem)}.about-copy{max-width:none;padding-bottom:4rem}.back-home{display:none}
-    }
-    @media(max-width:600px){
-      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-page{padding-top:6rem}.about-title{font-size:clamp(3.5rem,16vw,5.2rem)}.about-image{aspect-ratio:4/5}.about-copy p{font-size:clamp(1.25rem,5.5vw,1.8rem)}
-    }
+    @media(max-width:900px){.about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-page{padding-top:7rem}.about-intro{grid-template-columns:1fr;min-height:0;gap:2.5rem}.about-title{font-size:clamp(5rem,16vw,8rem)}.intro-copy{margin:0;max-width:38rem}.story-image{width:88vw;margin-top:4rem}.story-text{width:78vw;margin:4rem 0 0 auto}.media-break{width:78vw;margin-top:5rem}.about-finale{grid-template-columns:1fr}.finale-right{justify-self:start}}
+    @media(max-width:600px){:root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-page{padding-top:6rem}.about-title{font-size:clamp(4.2rem,19vw,6.5rem)}.intro-copy{font-size:1.3rem}.story-image{width:100%;margin-top:3.5rem}.story-text{width:92%;margin-top:3.5rem}.story-text p{font-size:1.55rem}.media-break{width:92%;margin-top:4rem}.about-finale{margin-top:5rem}.finale-title{font-size:clamp(3.8rem,16vw,6rem)}}
   </style>
 </head>
 <body>
   <header class="about-header">
     <a class="about-logo" href="index.html" aria-label="Til forsiden"><img src="assets/logo/FarverigLogo_Hvid.png" alt="FARVERIG"></a>
-    <nav class="about-nav" aria-label="Primær navigation">
-      <a href="index.html#tilbyder">VI TILBYDER</a>
-      <a class="is-active" href="om.html">OM</a>
-      <a href="index.html#booking">KONTAKT</a>
-    </nav>
+    <nav class="about-nav" aria-label="Primær navigation"><a href="index.html#tilbyder">VI TILBYDER</a><a class="is-active" href="om.html">OM</a><a href="index.html#booking">KONTAKT</a></nav>
   </header>
 
   <main class="about-page">
-    <div class="about-layout">
-      <figure class="about-image-wrap">
-        <img class="about-image" src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG">
-      </figure>
+    <section class="about-intro">
+      <div><p class="about-kicker">OM FARVERIG</p><h1 class="about-title">VI ER <em>FARVERIG.</em></h1></div>
+      <p class="intro-copy">Vi er Gabriela og Maria — ansigterne bag FARVERIG. For os er ansigtsmaling et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
+    </section>
 
-      <div class="about-content">
-        <p class="about-kicker">OM FARVERIG</p>
-        <h1 class="about-title">VI ER <em>FARVERIG.</em></h1>
-        <div class="about-copy">
-          <p>Vi er Gabriela og Maria — ansigterne bag FARVERIG. Vi arbejder med ansigtsmaling som et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
-          <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — altid med lysten til at skabe noget personligt, legende og lidt uventet.</p>
-          <p>Vil du se mere af det, vi laver, så følg med på Instagram.</p>
-          <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
-        </div>
-      </div>
-    </div>
+    <figure class="story-image"><img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG"></figure>
+
+    <section class="story-text">
+      <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events.</p>
+      <p>Fælles for det hele er lysten til at skabe noget personligt, legende og lidt uventet.</p>
+      <p class="small">FARVERIG ER VORES LILLE KREATIVE UNIVERS — OG VI VIL GERNE HAVE, AT DET FØLES LIGE SÅ LEVENDE SOM DE MENNESKER, VI MØDER.</p>
+    </section>
+
+    <div class="media-break" aria-label="Plads til en kommende FARVERIG-video"></div>
+
+    <section class="about-finale">
+      <h2 class="finale-title">FØLG MED I DET <em>FARVERIGE.</em></h2>
+      <div class="finale-right"><p>Her deler vi nye malinger, mennesker, øjeblikke og alt det, der sker bag kulissen.</p><a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a></div>
+    </section>
   </main>
-
-  <a class="back-home" href="index.html">← FORSIDE</a>
 </body>
 </html>
