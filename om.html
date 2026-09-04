@@ -22,27 +22,27 @@
     .about-nav a:hover{opacity:.55}
     .about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 
-    .about-page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(7.5rem,11vh,9rem) var(--about-pad) clamp(2.5rem,4vh,3.5rem)}
-    .about-kicker{margin:0 0 .65rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .about-title{margin:0;max-width:11ch;font:400 clamp(4.4rem,8.7vw,9.7rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
+    .about-page{min-height:100vh;display:flex;align-items:center;padding:clamp(7rem,10vh,8.5rem) var(--about-pad) clamp(3rem,5vh,4rem)}
+    .about-layout{width:100%;display:grid;grid-template-columns:minmax(22rem,.9fr) minmax(27rem,1.1fr);gap:clamp(4rem,8vw,10rem);align-items:center}
+    .about-image-wrap{margin:0}
+    .about-image{display:block;width:100%;height:min(70vh,46rem);object-fit:cover;object-position:center;box-shadow:0 2rem 7rem rgba(0,0,0,.42)}
+    .about-content{max-width:48rem;align-self:center}
+    .about-kicker{margin:0 0 .8rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .about-title{margin:0 0 clamp(2.2rem,4vh,3.4rem);max-width:11ch;font:400 clamp(4.4rem,8vw,9rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
     .about-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
-
-    .about-layout{display:grid;grid-template-columns:minmax(20rem,.88fr) minmax(24rem,1.12fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-top:clamp(2.5rem,5vh,4rem)}
-    .about-image-wrap{margin:0;align-self:stretch}
-    .about-image{display:block;width:100%;height:100%;max-height:56vh;min-height:24rem;object-fit:cover;object-position:center;box-shadow:0 2rem 7rem rgba(0,0,0,.42)}
-    .about-copy{align-self:end;max-width:44rem;padding-bottom:.2rem}
-    .about-copy p{margin:0 0 1.25em;font:400 clamp(1.35rem,2.2vw,2.35rem)/1.12 Arial,Helvetica,sans-serif;letter-spacing:-.032em;color:var(--text)}
-    .about-copy p:last-of-type{margin-bottom:clamp(2rem,3vw,3rem)}
+    .about-copy{max-width:43rem;border-top:1px solid var(--line);padding-top:clamp(1.4rem,2.4vh,2rem)}
+    .about-copy p{margin:0 0 1.15em;font:400 clamp(1.2rem,1.75vw,1.8rem)/1.18 Arial,Helvetica,sans-serif;letter-spacing:-.025em;color:var(--text)}
+    .about-copy p:last-of-type{margin-bottom:clamp(1.8rem,3vw,2.5rem)}
     .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(15rem,21vw,20rem);padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
     .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
     .back-home{position:fixed;z-index:45;left:var(--about-pad);bottom:clamp(1.5rem,2vw,2rem);color:var(--text);text-decoration:none;font:400 clamp(.65rem,.72vw,.74rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
     .back-home:hover{opacity:1}
 
     @media(max-width:900px){
-      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-page{display:block;padding-top:7rem}.about-title{max-width:10ch;font-size:clamp(4rem,14vw,7rem)}.about-layout{grid-template-columns:1fr;gap:2.5rem;margin-top:2.5rem}.about-image{height:auto;max-height:none;min-height:0;aspect-ratio:5/4}.about-copy{max-width:none;padding-bottom:4rem}.back-home{display:none}
+      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-page{display:block;padding-top:7rem}.about-layout{grid-template-columns:1fr;gap:2.5rem}.about-image{height:auto;aspect-ratio:5/4}.about-content{max-width:none}.about-title{max-width:10ch;font-size:clamp(4rem,14vw,7rem)}.about-copy{max-width:none;padding-bottom:4rem}.back-home{display:none}
     }
     @media(max-width:600px){
-      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-page{padding-top:6rem}.about-title{font-size:clamp(3.5rem,16vw,5.2rem)}.about-image{aspect-ratio:4/5}.about-copy p{font-size:clamp(1.35rem,6vw,2rem)}
+      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-page{padding-top:6rem}.about-title{font-size:clamp(3.5rem,16vw,5.2rem)}.about-image{aspect-ratio:4/5}.about-copy p{font-size:clamp(1.25rem,5.5vw,1.8rem)}
     }
   </style>
 </head>
@@ -57,21 +57,20 @@
   </header>
 
   <main class="about-page">
-    <div>
-      <p class="about-kicker">OM FARVERIG</p>
-      <h1 class="about-title">VI ER <em>FARVERIG.</em></h1>
-    </div>
-
     <div class="about-layout">
       <figure class="about-image-wrap">
         <img class="about-image" src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG">
       </figure>
 
-      <div class="about-copy">
-        <p>Vi er Gabriela og Maria — ansigterne bag FARVERIG. Vi arbejder med ansigtsmaling som et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
-        <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — altid med lysten til at skabe noget personligt, legende og lidt uventet.</p>
-        <p>Vil du se mere af det, vi laver, så følg med på Instagram.</p>
-        <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
+      <div class="about-content">
+        <p class="about-kicker">OM FARVERIG</p>
+        <h1 class="about-title">VI ER <em>FARVERIG.</em></h1>
+        <div class="about-copy">
+          <p>Vi er Gabriela og Maria — ansigterne bag FARVERIG. Vi arbejder med ansigtsmaling som et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
+          <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — altid med lysten til at skabe noget personligt, legende og lidt uventet.</p>
+          <p>Vil du se mere af det, vi laver, så følg med på Instagram.</p>
+          <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
+        </div>
       </div>
     </div>
   </main>
