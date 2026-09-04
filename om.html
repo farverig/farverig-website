@@ -21,33 +21,41 @@
     .about-nav a{color:var(--text);text-decoration:none;font:400 clamp(.68rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
     .about-nav a:hover{opacity:.55}.about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 
-    .about-page{padding:clamp(7.5rem,11vh,9rem) var(--about-pad) clamp(5rem,9vh,8rem)}
-    .about-intro{width:min(88vw,92rem);margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(20rem,1.1fr);gap:clamp(4rem,8vw,10rem);align-items:end;padding-top:clamp(3.5rem,7vh,5.5rem)}
-    .about-kicker{margin:0 0 1rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .about-title{margin:0;font:400 clamp(3.5rem,6.2vw,7rem)/.84 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
-    .about-title em{display:block;font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.06em}
-    .intro-copy{max-width:35rem;margin:0 0 clamp(.5rem,2.5vh,1.8rem);font:400 clamp(1.2rem,1.65vw,1.7rem)/1.24 Arial,Helvetica,sans-serif;letter-spacing:-.025em}
+    .about-hero{position:relative;min-height:100vh;padding:clamp(7rem,10vh,8.5rem) var(--about-pad) clamp(2.5rem,4vh,3.5rem);display:flex;align-items:flex-end}
+    .hero-frame{position:relative;width:100%;height:min(78vh,48rem);overflow:hidden}
+    .hero-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+    .hero-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 18%,rgba(0,0,0,.05) 55%,rgba(0,0,0,.72) 100%)}
+    .about-kicker{position:absolute;z-index:2;left:clamp(1.5rem,3vw,3rem);top:clamp(1.4rem,2.5vw,2.5rem);margin:0;color:rgba(255,255,255,.72);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .hero-title{position:absolute;z-index:2;left:clamp(1.25rem,2.5vw,2.5rem);right:clamp(1.25rem,2.5vw,2.5rem);bottom:clamp(1.2rem,2.5vw,2.3rem);margin:0;font:400 clamp(3.5rem,6.2vw,7rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:#fff}
+    .hero-title span{display:block}
+    .hero-title em{display:block;font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.06em}
 
-    .story-image{width:min(88vw,92rem);margin:clamp(3.3rem,6vh,5rem) auto 0}
-    .story-image img{display:block;width:100%;height:auto;max-height:82vh;object-fit:cover;box-shadow:0 2rem 7rem rgba(0,0,0,.4)}
-    .story-text{width:min(45rem,45vw);margin:clamp(5rem,10vh,9rem) 5vw 0 auto}
-    .story-text p{margin:0 0 1.2em;font:400 clamp(1.4rem,2.15vw,2.35rem)/1.16 Arial,Helvetica,sans-serif;letter-spacing:-.03em}
-    .story-text .small{margin-top:2rem;color:rgba(255,255,255,.62);font:400 clamp(.72rem,.82vw,.84rem)/1.55 monospace;letter-spacing:.055em;text-transform:uppercase;max-width:48ch}
+    .about-story{padding:clamp(5.5rem,10vh,9rem) var(--about-pad) clamp(6rem,11vh,10rem)}
+    .story-top{display:grid;grid-template-columns:minmax(0,.72fr) minmax(24rem,1.28fr);gap:clamp(3rem,9vw,11rem);align-items:start;border-top:1px solid var(--line);padding-top:clamp(1.8rem,3vw,2.6rem)}
+    .story-label{margin:0;color:var(--muted);font:400 clamp(.68rem,.78vw,.8rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .story-copy{max-width:52rem}
+    .story-copy p{margin:0 0 1.25em;font:400 clamp(1.45rem,2.3vw,2.5rem)/1.14 Arial,Helvetica,sans-serif;letter-spacing:-.032em}
+    .story-copy p:last-child{margin-bottom:0}
 
-    .media-break{position:relative;width:min(55vw,52rem);margin:clamp(6rem,12vh,10rem) 0 0 auto;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;overflow:hidden;background:rgba(255,255,255,.025)}
-    .media-break::before{content:'ET LILLE GLIMT FRA FARVERIG';font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.5)}
-    .media-break::after{content:'VIDEO';position:absolute;left:1.2rem;bottom:1rem;font:400 .65rem/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.28)}
+    .video-row{display:grid;grid-template-columns:minmax(20rem,1fr) minmax(18rem,.7fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-top:clamp(6rem,12vh,10rem)}
+    .video-placeholder{position:relative;aspect-ratio:16/10;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .video-placeholder span{font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.45);text-transform:uppercase}
+    .video-placeholder::after{content:'VIDEO';position:absolute;left:1rem;bottom:1rem;font:400 .64rem/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.25)}
+    .video-note{max-width:27rem;margin:0 0 .4rem;color:rgba(255,255,255,.66);font:400 clamp(1rem,1.35vw,1.3rem)/1.4 Arial,Helvetica,sans-serif;letter-spacing:-.015em}
 
-    .about-finale{margin-top:clamp(7rem,14vh,12rem);padding-top:clamp(2rem,4vh,3rem);border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end}
-    .finale-title{margin:0;font:400 clamp(3.5rem,6.2vw,7rem)/.84 Arial,Helvetica,sans-serif;letter-spacing:-.075em;max-width:10ch}
+    .about-finale{padding:clamp(5rem,9vh,8rem) var(--about-pad) clamp(4rem,7vh,6rem);border-top:1px solid var(--line);text-align:center}
+    .finale-title{max-width:12ch;margin:0 auto clamp(2rem,3vw,2.7rem);font:400 clamp(3.5rem,6.2vw,7rem)/.84 Arial,Helvetica,sans-serif;letter-spacing:-.075em}
     .finale-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.06em}
-    .finale-right{justify-self:end;width:min(100%,32rem)}
-    .finale-right p{margin:0 0 1.5rem;font:400 clamp(1.15rem,1.6vw,1.55rem)/1.25 Arial,Helvetica,sans-serif;letter-spacing:-.02em}
-    .instagram-button{display:flex;align-items:center;justify-content:center;width:100%;padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
+    .finale-copy{max-width:36rem;margin:0 auto clamp(2rem,3vw,2.7rem);color:rgba(255,255,255,.68);font:400 clamp(1.05rem,1.4vw,1.35rem)/1.45 Arial,Helvetica,sans-serif;letter-spacing:-.015em}
+    .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(16rem,21vw,20rem);padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
     .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
 
-    @media(max-width:900px){.about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-page{padding-top:7rem}.about-intro{width:100%;grid-template-columns:1fr;padding-top:3rem;gap:2.5rem}.about-title{font-size:clamp(3.8rem,12vw,6rem)}.intro-copy{margin:0;max-width:38rem}.story-image{width:100%;margin-top:4rem}.story-text{width:78vw;margin:4rem 0 0 auto}.media-break{width:78vw;margin-top:5rem}.about-finale{grid-template-columns:1fr}.finale-right{justify-self:start}}
-    @media(max-width:600px){:root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-page{padding-top:6rem}.about-intro{padding-top:2rem}.about-title{font-size:clamp(3.4rem,15vw,5rem)}.intro-copy{font-size:1.25rem}.story-image{width:100%;margin-top:3.5rem}.story-text{width:92%;margin-top:3.5rem}.story-text p{font-size:1.5rem}.media-break{width:92%;margin-top:4rem}.about-finale{margin-top:5rem}.finale-title{font-size:clamp(3.4rem,15vw,5rem)}}
+    @media(max-width:900px){
+      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-hero{padding-top:6.8rem;min-height:auto}.hero-frame{height:72vh}.story-top,.video-row{grid-template-columns:1fr;gap:2rem}.story-copy{max-width:none}.video-note{max-width:38rem}.finale-title{font-size:clamp(3.8rem,12vw,6rem)}
+    }
+    @media(max-width:600px){
+      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-hero{padding-top:5.6rem}.hero-frame{height:68vh}.hero-title{font-size:clamp(3.4rem,15vw,5rem)}.about-story{padding-top:4rem}.story-copy p{font-size:1.5rem}.video-row{margin-top:4.5rem}.about-finale{padding-top:4.5rem}.finale-title{font-size:clamp(3.4rem,15vw,5rem)}
+    }
   </style>
 </head>
 <body>
@@ -56,25 +64,34 @@
     <nav class="about-nav" aria-label="Primær navigation"><a href="index.html#tilbyder">VI TILBYDER</a><a class="is-active" href="om.html">OM</a><a href="index.html#booking">KONTAKT</a></nav>
   </header>
 
-  <main class="about-page">
-    <section class="about-intro">
-      <div><p class="about-kicker">OM FARVERIG</p><h1 class="about-title">VI ER <em>FARVERIG.</em></h1></div>
-      <p class="intro-copy">Vi er Gabriela og Maria — ansigterne bag FARVERIG. For os er ansigtsmaling et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
+  <main>
+    <section class="about-hero">
+      <div class="hero-frame">
+        <img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG">
+        <p class="about-kicker">OM FARVERIG</p>
+        <h1 class="hero-title"><span>VI ER</span><em>FARVERIG.</em></h1>
+      </div>
     </section>
 
-    <figure class="story-image"><img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG"></figure>
+    <section class="about-story">
+      <div class="story-top">
+        <p class="story-label">GABRIELA + MARIA</p>
+        <div class="story-copy">
+          <p>Vi er ansigterne bag FARVERIG. For os er ansigtsmaling et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
+          <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — altid med lysten til at skabe noget personligt, legende og lidt uventet.</p>
+        </div>
+      </div>
 
-    <section class="story-text">
-      <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events.</p>
-      <p>Fælles for det hele er lysten til at skabe noget personligt, legende og lidt uventet.</p>
-      <p class="small">FARVERIG ER VORES LILLE KREATIVE UNIVERS — OG VI VIL GERNE HAVE, AT DET FØLES LIGE SÅ LEVENDE SOM DE MENNESKER, VI MØDER.</p>
+      <div class="video-row">
+        <div class="video-placeholder"><span>ET LILLE GLIMT FRA FARVERIG</span></div>
+        <p class="video-note">Her kan vi senere lægge en kort, sjov video af jer ind — mere levende og mindre poleret end en klassisk præsentationsfilm.</p>
+      </div>
     </section>
-
-    <div class="media-break" aria-label="Plads til en kommende FARVERIG-video"></div>
 
     <section class="about-finale">
       <h2 class="finale-title">FØLG MED I DET <em>FARVERIGE.</em></h2>
-      <div class="finale-right"><p>Her deler vi nye malinger, mennesker, øjeblikke og alt det, der sker bag kulissen.</p><a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a></div>
+      <p class="finale-copy">På Instagram deler vi nye malinger, mennesker, øjeblikke og alt det, der sker bag kulissen.</p>
+      <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
     </section>
   </main>
 </body>
