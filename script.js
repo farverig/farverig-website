@@ -111,7 +111,7 @@ bookingLayoutStyle.textContent=`
 .book-button{
   left:50% !important;
   right:auto !important;
-  bottom:clamp(3.9rem,5vh,4.7rem) !important;
+  bottom:clamp(2.9rem,3.7vh,3.5rem) !important;
   transform:translateX(-50%);
   min-width:clamp(17rem,22vw,22rem);
   justify-content:center;
@@ -130,19 +130,29 @@ bookingLayoutStyle.textContent=`
   position:fixed;
   z-index:40;
   left:50%;
-  bottom:clamp(1.15rem,1.6vh,1.5rem);
-  transform:translateX(-50%) rotate(90deg);
-  color:var(--text);
-  font:400 clamp(1.35rem,1.8vw,1.8rem)/1 monospace;
+  bottom:clamp(.7rem,1vh,1rem);
+  width:1.25rem;
+  height:.72rem;
+  transform:translateX(-50%);
   opacity:1;
   pointer-events:none;
   transition:opacity .35s ease;
-  animation:hero-arrow-nudge 1.6s ease-in-out infinite;
+  animation:hero-arrow-nudge 1.7s ease-in-out infinite;
 }
+.hero-scroll-arrow::before,.hero-scroll-arrow::after{
+  content:'';
+  position:absolute;
+  top:.18rem;
+  width:.9rem;
+  height:1px;
+  background:rgba(255,255,255,.92);
+}
+.hero-scroll-arrow::before{right:50%;transform-origin:right center;transform:rotate(36deg);}
+.hero-scroll-arrow::after{left:50%;transform-origin:left center;transform:rotate(-36deg);}
 .hero-scroll-arrow.is-hidden{opacity:0;}
 @keyframes hero-arrow-nudge{
-  0%,100%{transform:translateX(-50%) rotate(90deg) translateX(0)}
-  50%{transform:translateX(-50%) rotate(90deg) translateX(.38rem)}
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(.34rem)}
 }
 .booking-section.form-nudge{animation:form-nudge .42s ease;}
 @keyframes form-nudge{0%,100%{filter:none}50%{filter:brightness(1.14)}}
@@ -157,7 +167,6 @@ let successState=false;
 
 const heroScrollArrow=document.createElement('span');
 heroScrollArrow.className='hero-scroll-arrow';
-heroScrollArrow.textContent='>';
 document.body.appendChild(heroScrollArrow);
 
 function updateHeroScrollArrow(){
