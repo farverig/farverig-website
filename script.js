@@ -79,16 +79,19 @@ bookingLayoutStyle.textContent=`
     display:flex !important;
     flex-direction:column !important;
     flex-wrap:nowrap !important;
-    align-items:flex-start !important;
+    align-items:stretch !important;
     align-content:initial !important;
     gap:0 !important;
-    padding:clamp(1.1rem,1.8vh,1.5rem) 0 0 !important;
+    padding:0 !important;
+    border-top:1px solid var(--line) !important;
   }
   .offer-link,.offer-more{
     display:flex !important;
-    width:max-content !important;
-    max-width:100% !important;
+    width:100% !important;
+    max-width:none !important;
     margin-left:0 !important;
+    padding:clamp(.45rem,.75vh,.72rem) 0 clamp(.52rem,.82vh,.82rem) !important;
+    border-bottom:1px solid var(--line) !important;
   }
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
   .offer-link h3,.offer-more{
@@ -97,7 +100,18 @@ bookingLayoutStyle.textContent=`
     letter-spacing:-.068em !important;
   }
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
-  .offer-more{margin-top:.14em !important;}
+  .offer-more{margin-top:0 !important;}
+
+  .preview-born{left:auto !important;right:-4% !important;top:58% !important;width:clamp(24rem,35vw,40rem) !important;}
+  .preview-sommer{left:auto !important;right:4% !important;top:42% !important;width:clamp(26rem,38vw,43rem) !important;}
+  .preview-kultur{left:auto !important;right:-2% !important;top:50% !important;width:clamp(24rem,35vw,40rem) !important;}
+  .preview-festival{left:auto !important;right:7% !important;top:46% !important;width:clamp(27rem,39vw,44rem) !important;transform:translateY(-44%) rotate(2deg) scale(.94) !important;}
+  .preview-mode{left:auto !important;right:1% !important;top:57% !important;width:clamp(24rem,35vw,40rem) !important;transform:translateY(-45%) rotate(2deg) scale(.94) !important;}
+  .preview-kursus{left:auto !important;right:9% !important;top:63% !important;width:clamp(26rem,37vw,42rem) !important;}
+  .offers:has(.offer-link[data-preview="festival"]:hover) .preview-festival{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
+  .offers:has(.offer-link[data-preview="mode"]:hover) .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
+  .offers.is-hinting .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
+
   .booking-section{
     display:flex !important;
     flex-direction:column !important;
