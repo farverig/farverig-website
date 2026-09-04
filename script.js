@@ -61,7 +61,6 @@ checkOfferHint();
 addEventListener('scroll',checkOfferHint,{passive:true});
 addEventListener('resize',checkOfferHint);
 
-// Booking layout experiment: centered statement above a slightly smaller, still readable form.
 const bookingLayoutStyle=document.createElement('style');
 bookingLayoutStyle.textContent=`
 @media (min-width:1051px){
@@ -72,7 +71,7 @@ bookingLayoutStyle.textContent=`
     grid-template-rows:none !important;
     min-height:100vh !important;
     align-items:stretch !important;
-    padding:clamp(2.4rem,3vh,3rem) clamp(5rem,8vw,9rem) clamp(2.4rem,3vh,3rem) !important;
+    padding:clamp(2.4rem,3vh,3rem) clamp(5rem,8vw,9rem) clamp(6rem,9vh,8rem) !important;
   }
   .booking-intro{
     grid-column:auto !important;
@@ -94,24 +93,115 @@ bookingLayoutStyle.textContent=`
   .booking-form{
     grid-column:auto !important;
     grid-row:auto !important;
-    width:min(88%,62rem) !important;
+    width:min(84%,58rem) !important;
     margin:0 auto !important;
     align-self:auto !important;
   }
   .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
-  .booking-field{padding-bottom:clamp(1.55rem,2.35vh,2.25rem) !important;}
-  .booking-field label{font-size:clamp(.66rem,.72vw,.76rem) !important;margin-bottom:.42rem !important;}
+  .booking-field{padding-bottom:clamp(1.4rem,2vh,2rem) !important;}
+  .booking-field label{font-size:clamp(.64rem,.7vw,.74rem) !important;margin-bottom:.38rem !important;}
   .booking-field input,.booking-field textarea{
-    font-size:clamp(1.5rem,2.15vw,2.35rem) !important;
-    padding-bottom:.55rem !important;
+    font-size:clamp(1.4rem,1.95vw,2.15rem) !important;
+    padding-bottom:.5rem !important;
   }
-  .booking-field textarea{min-height:clamp(5.5rem,9vh,7.2rem) !important;}
-  .booking-submit{
-    margin-top:.25rem !important;
-    padding:clamp(.85rem,1.35vh,1.15rem) 0 !important;
-    font-size:clamp(2rem,3.6vw,3.9rem) !important;
-  }
-  .booking-note{margin-top:.75rem !important;font-size:.64rem !important;}
+  .booking-field textarea{min-height:clamp(4.8rem,7.5vh,6.2rem) !important;}
 }
+.booking-submit,.booking-note{display:none !important;}
+.book-button{
+  left:50% !important;
+  right:auto !important;
+  transform:translateX(-50%);
+  min-width:clamp(10.5rem,13vw,13rem);
+  justify-content:space-between;
+  transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s;
+}
+.book-button:hover{transform:translateX(-50%) translateY(-2px);}
+.book-button.is-form-state{backdrop-filter:blur(14px);}
+.book-button.is-form-state.is-incomplete{opacity:.48;}
+.book-button.is-form-state.is-ready{opacity:1;}
+.book-button.is-success{min-width:clamp(14rem,19vw,19rem);}
+.booking-section.form-nudge{animation:form-nudge .42s ease;}
+@keyframes form-nudge{0%,100%{filter:none}50%{filter:brightness(1.14)}}
 `;
 document.head.appendChild(bookingLayoutStyle);
+
+const bookingSection=document.querySelector('.booking-section');
+const bookingForm=document.querySelector('.booking-form');
+const globalCta=document.querySelector('.book-button');
+const requiredFields=bookingForm?[...bookingForm.querySelectorAll('input,textarea')]:[];
+let successState=false;
+
+function fieldComplete(field){
+  return field.value.trim().length>0;
+}
+
+function formComplete(){
+  return requiredFields.length>0&&requiredFields.every(fieldComplete);
+}
+
+function bookingInView(){
+  if(!bookingSection)return false;
+  const rect=bookingSection.getBoundingClientRect();
+  return rect.top<innerHeight*.72&&rect.bottom>innerHeight*.25;
+}
+
+function setCta(label,arrow='>'){
+  if(!globalCta)return;
+  globalCta.innerHTML=`<span>${label}</span><span class="book-arrow">${arrow}</span>`;
+}
+
+function updateGlobalCta(){
+  if(!globalCta||successState)return;
+  if(!bookingInView()){
+    globalCta.classList.remove('is-form-state','is-incomplete','is-ready');
+    setCta('KONTAKT OS');
+    return;
+  }
+  globalCta.classList.add('is-form-state');
+  if(formComplete()){
+    globalCta.classList.remove('is-incomplete');
+    globalCta.classList.add('is-ready');
+    setCta('SEND FORESPØRGSEL');
+  }else{
+    globalCta.classList.add('is-incomplete');
+    globalCta.classList.remove('is-ready');
+    setCta('SEND FORESPØRGSEL');
+  }
+}
+
+if(globalCta&&bookingSection&&bookingForm){
+  globalCta.removeAttribute('href');
+  globalCta.setAttribute('role','button');
+  globalCta.setAttribute('tabindex','0');
+
+  const handleCta=()=>{
+    if(successState)return;
+    if(!bookingInView()){
+      bookingSection.scrollIntoView({behavior:'smooth',block:'start'});
+      return;
+    }
+    if(!formComplete()){
+      const firstEmpty=requiredFields.find(field=>!fieldComplete(field));
+      bookingSection.classList.remove('form-nudge');
+      void bookingSection.offsetWidth;
+      bookingSection.classList.add('form-nudge');
+      if(firstEmpty){firstEmpty.focus({preventScroll:false});}
+      return;
+    }
+
+    // Visual prototype only. Real sending is connected later via Web3Forms.
+    successState=true;
+    globalCta.classList.remove('is-incomplete','is-ready');
+    globalCta.classList.add('is-success');
+    setCta('TAK — VI SVARER SNART','♡');
+  };
+
+  globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});
+  globalCta.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}
+  });
+  requiredFields.forEach(field=>field.addEventListener('input',updateGlobalCta));
+  addEventListener('scroll',updateGlobalCta,{passive:true});
+  addEventListener('resize',updateGlobalCta);
+  updateGlobalCta();
+}
