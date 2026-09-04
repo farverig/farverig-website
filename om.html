@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>Om FARVERIG — Gabriela & Maria</title>
+  <meta name="description" content="Mød Gabriela og Maria bag FARVERIG og læs historien om vores kreative univers med ansigtsmaling i København.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{--about-pad:clamp(1.25rem,5vw,5.5rem)}
+    html{scroll-behavior:smooth}
+    body{background:#090909;color:var(--text);overflow-x:hidden}
+    .about-header{position:fixed;z-index:50;top:0;left:0;width:100%;height:clamp(4.7rem,7vw,6.2rem);display:flex;align-items:center;justify-content:center;padding:0 var(--about-pad);pointer-events:none}
+    .about-logo{pointer-events:auto;display:block;width:clamp(7.8rem,12vw,10.7rem);line-height:0}
+    .about-logo img{display:block;width:100%;height:auto}
+    .about-nav{position:absolute;right:var(--about-pad);top:50%;transform:translateY(-50%);display:flex;gap:clamp(1.3rem,2.4vw,2.8rem);pointer-events:auto}
+    .about-nav a{color:var(--text);text-decoration:none;font:400 clamp(.68rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+    .about-nav a:hover{opacity:.55}
+    .about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
+
+    .about-hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(20rem,.78fr);gap:clamp(3rem,7vw,9rem);align-items:center;padding:clamp(8rem,12vh,10rem) var(--about-pad) clamp(4rem,7vh,6rem)}
+    .about-kicker{margin:0 0 clamp(1.4rem,2.5vh,2.2rem);color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .about-title{margin:0;max-width:8ch;font:400 clamp(5rem,10vw,11.5rem)/.79 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
+    .about-title em{display:block;font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
+    .about-image-wrap{position:relative;justify-self:end;width:min(100%,37rem);margin-top:2rem}
+    .about-image{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;box-shadow:0 2rem 7rem rgba(0,0,0,.45)}
+    .about-image-caption{display:flex;justify-content:space-between;gap:2rem;margin:.75rem 0 0;color:var(--muted);font:400 clamp(.62rem,.7vw,.72rem)/1.45 monospace;letter-spacing:.07em;text-transform:uppercase}
+
+    .story{padding:clamp(6rem,10vw,10rem) var(--about-pad) clamp(7rem,12vw,12rem);border-top:1px solid var(--line)}
+    .story-label{margin:0 0 clamp(2rem,3vw,3rem);color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .story-statement{max-width:13ch;margin:0 0 clamp(5rem,8vw,8rem);font:400 clamp(3.8rem,7.7vw,8.8rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.07em;color:var(--text)}
+    .story-statement em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic}
+    .story-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(22rem,1fr);gap:clamp(4rem,10vw,12rem);align-items:start;border-top:1px solid var(--line);padding-top:clamp(2rem,3vw,3rem)}
+    .story-number{color:var(--muted);font:400 clamp(.68rem,.78vw,.8rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .story-copy{max-width:46rem}
+    .story-copy p{margin:0 0 1.6em;font:400 clamp(1.45rem,2.5vw,2.75rem)/1.1 Arial,Helvetica,sans-serif;letter-spacing:-.035em;color:var(--text)}
+    .story-copy p:last-child{margin-bottom:0}
+
+    .instagram{min-height:78vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:clamp(6rem,10vw,10rem) var(--about-pad);border-top:1px solid var(--line);text-align:center}
+    .instagram-label{margin:0 0 1.4rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .instagram-title{max-width:13ch;margin:0 auto clamp(2rem,3vw,3rem);font:400 clamp(3.8rem,7.6vw,8.4rem)/.85 Arial,Helvetica,sans-serif;letter-spacing:-.07em}
+    .instagram-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic}
+    .instagram-copy{max-width:40rem;margin:0 auto clamp(2.5rem,4vw,4rem);color:rgba(255,255,255,.72);font:400 clamp(1.05rem,1.45vw,1.35rem)/1.5 Arial,Helvetica,sans-serif;letter-spacing:-.015em}
+    .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(17rem,23vw,22rem);padding:1rem 1.6rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
+    .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
+    .back-home{position:fixed;z-index:45;left:var(--about-pad);bottom:clamp(1.5rem,2vw,2rem);color:var(--text);text-decoration:none;font:400 clamp(.65rem,.72vw,.74rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+    .back-home:hover{opacity:1}
+
+    @media(max-width:900px){
+      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-hero{grid-template-columns:1fr;gap:2.5rem;align-items:start;padding-top:8rem}.about-title{max-width:9ch;font-size:clamp(4.3rem,15vw,7.5rem)}.about-image-wrap{justify-self:stretch;width:100%;max-width:none;margin-top:0}.about-image{aspect-ratio:5/4}.story-grid{grid-template-columns:1fr;gap:2rem}.story-copy{max-width:none}.back-home{display:none}
+    }
+    @media(max-width:600px){
+      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-hero{padding-top:6.5rem}.about-title{font-size:clamp(3.6rem,18vw,5.4rem)}.about-image{aspect-ratio:4/5}.about-image-caption{font-size:.58rem}.story{padding-top:5rem}.story-statement{font-size:clamp(3rem,14vw,5rem);margin-bottom:4rem}.story-copy p{font-size:clamp(1.45rem,6.4vw,2.1rem)}.instagram{min-height:70vh}.instagram-title{font-size:clamp(3rem,14vw,5.1rem)}
+    }
+  </style>
+</head>
+<body>
+  <header class="about-header">
+    <a class="about-logo" href="index.html" aria-label="Til forsiden"><img src="assets/logo/FarverigLogo_Hvid.png" alt="FARVERIG"></a>
+    <nav class="about-nav" aria-label="Primær navigation">
+      <a href="index.html#tilbyder">VI TILBYDER</a>
+      <a class="is-active" href="om.html">OM</a>
+      <a href="index.html#booking">KONTAKT</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-hero">
+      <div>
+        <p class="about-kicker">OM FARVERIG</p>
+        <h1 class="about-title">VI ER <em>FARVERIG.</em></h1>
+      </div>
+      <figure class="about-image-wrap">
+        <img class="about-image" src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG">
+        <figcaption class="about-image-caption"><span>GABRIELA &amp; MARIA</span><span>KØBENHAVN</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="story">
+      <p class="story-label">VORES HISTORIE</p>
+      <h2 class="story-statement">FARVER ER BARE STARTEN. <em>MENNESKERNE</em> ER DET, VI HUSKER.</h2>
+      <div class="story-grid">
+        <div class="story-number">01 / FARVERIG</div>
+        <div class="story-copy">
+          <p>Vi er Gabriela og Maria — ansigterne bag FARVERIG. Vi arbejder med ansigtsmaling som et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
+          <p>Gennem FARVERIG har vi malet til alt fra børnefødselsdage og sommerfester til kulturarrangementer, festivaler, shoots og events. Fælles for det hele er ønsket om at skabe noget, der føles personligt, legende og lidt uventet.</p>
+          <p>FARVERIG har udviklet sig gennem de mennesker og steder, vi har fået lov at male. Fra små øjeblikke én-til-én til større produktioner og festivalgulve. Vi er stadig nysgerrige på, hvor ansigtsmaling kan passe ind — og på hvordan vi kan gøre det på vores egen måde.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="instagram">
+      <p class="instagram-label">FØLG MED</p>
+      <h2 class="instagram-title">MERE FARVE. MERE <em>FARVERIG.</em></h2>
+      <p class="instagram-copy">På Instagram deler vi det, der sker mellem events, pensler og farver — nye looks, øjeblikke fra virkeligheden og det, vi går og finder på.</p>
+      <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
+    </section>
+  </main>
+
+  <a class="back-home" href="index.html">← FORSIDE</a>
+</body>
+</html>
