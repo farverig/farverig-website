@@ -71,9 +71,7 @@ bookingLayoutStyle.textContent=`
     padding-top:clamp(5.5rem,8vh,7.5rem) !important;
     padding-bottom:clamp(5rem,7vh,6.5rem) !important;
   }
-  .offers-heading{
-    margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;
-  }
+  .offers-heading{margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;}
   .offers-cloud{
     min-height:0 !important;
     display:flex !important;
@@ -94,11 +92,7 @@ bookingLayoutStyle.textContent=`
     border-bottom:1px solid var(--line) !important;
   }
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
-  .offer-link h3,.offer-more{
-    font-size:clamp(3.5rem,6.05vw,6.8rem) !important;
-    line-height:.79 !important;
-    letter-spacing:-.068em !important;
-  }
+  .offer-link h3,.offer-more{font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.79 !important;letter-spacing:-.068em !important;}
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
   .offer-more{margin-top:0 !important;}
 
@@ -112,100 +106,74 @@ bookingLayoutStyle.textContent=`
   .offers:has(.offer-link[data-preview="mode"]:hover) .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
   .offers.is-hinting .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
 
+  .offer-caption{
+    position:absolute;
+    z-index:7;
+    right:clamp(1rem,2vw,2.2rem);
+    bottom:clamp(1.1rem,2.3vh,2rem);
+    width:min(31vw,25rem);
+    margin:0;
+    color:rgba(255,255,255,.86);
+    font:400 clamp(.67rem,.78vw,.8rem)/1.45 monospace;
+    letter-spacing:.045em;
+    text-transform:uppercase;
+    opacity:0;
+    transform:translateY(.55rem);
+    pointer-events:none;
+    transition:opacity .28s ease,transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .offer-caption::before{content:'—';margin-right:.55em;color:rgba(255,255,255,.48);}
+  .offers:has(.offer-link[data-preview="born"]:hover) .caption-born,
+  .offers:has(.offer-link[data-preview="sommer"]:hover) .caption-sommer,
+  .offers:has(.offer-link[data-preview="kultur"]:hover) .caption-kultur,
+  .offers:has(.offer-link[data-preview="festival"]:hover) .caption-festival,
+  .offers:has(.offer-link[data-preview="mode"]:hover) .caption-mode,
+  .offers:has(.offer-link[data-preview="kursus"]:hover) .caption-kursus,
+  .offers.is-hinting .caption-mode{opacity:1;transform:translateY(0);}
+
   .booking-section{
-    display:flex !important;
-    flex-direction:column !important;
-    grid-template-columns:none !important;
-    grid-template-rows:none !important;
-    min-height:92vh !important;
-    align-items:stretch !important;
-    padding:clamp(2rem,2.6vh,2.6rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;
+    display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;
+    min-height:92vh !important;align-items:stretch !important;padding:clamp(2rem,2.6vh,2.6rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;
   }
-  .booking-intro{
-    grid-column:auto !important;
-    grid-row:auto !important;
-    position:static !important;
-    top:auto !important;
-    align-self:auto !important;
-    width:100% !important;
-    margin:0 auto clamp(1.5rem,2vh,2rem) !important;
-    text-align:center !important;
-  }
+  .booking-intro{grid-column:auto !important;grid-row:auto !important;position:static !important;top:auto !important;align-self:auto !important;width:100% !important;margin:0 auto clamp(1.5rem,2vh,2rem) !important;text-align:center !important;}
   .booking-kicker{margin:0 0 .45rem !important;}
-  .booking-title{
-    max-width:13ch !important;
-    margin:0 auto !important;
-    font-size:clamp(3.5rem,6.05vw,6.8rem) !important;
-    line-height:.84 !important;
-  }
-  .booking-form{
-    grid-column:auto !important;
-    grid-row:auto !important;
-    width:min(84%,58rem) !important;
-    margin:0 auto !important;
-    align-self:auto !important;
-  }
+  .booking-title{max-width:13ch !important;margin:0 auto !important;font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.84 !important;}
+  .booking-form{grid-column:auto !important;grid-row:auto !important;width:min(84%,58rem) !important;margin:0 auto !important;align-self:auto !important;}
   .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
   .booking-field{padding-bottom:clamp(1.4rem,2vh,2rem) !important;}
   .booking-field label{font-size:clamp(.64rem,.7vw,.74rem) !important;margin-bottom:.38rem !important;}
-  .booking-field input,.booking-field textarea{
-    font-size:clamp(1.4rem,1.95vw,2.15rem) !important;
-    padding-bottom:.5rem !important;
-  }
+  .booking-field input,.booking-field textarea{font-size:clamp(1.4rem,1.95vw,2.15rem) !important;padding-bottom:.5rem !important;}
   .booking-field textarea{min-height:clamp(4.8rem,7.5vh,6.2rem) !important;}
 }
+@media(max-width:1050px){.offer-caption{display:none !important;}}
 .booking-submit,.booking-note{display:none !important;}
 .scroll-cue{display:none !important;}
-.book-button{
-  left:50% !important;
-  right:auto !important;
-  bottom:clamp(2.9rem,3.7vh,3.5rem) !important;
-  transform:translateX(-50%);
-  min-width:clamp(17rem,22vw,22rem);
-  justify-content:center;
-  padding-left:1.4rem !important;
-  padding-right:1.4rem !important;
-  transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s,min-width .25s;
-}
-.book-button span:first-child{white-space:nowrap;}
-.book-button .book-arrow{display:none !important;}
-.book-button:hover{transform:translateX(-50%) translateY(-2px);}
-.book-button.is-form-state{min-width:clamp(12.5rem,15vw,15rem);backdrop-filter:blur(14px);}
-.book-button.is-form-state.is-incomplete{opacity:.48;}
-.book-button.is-form-state.is-ready{opacity:1;}
-.book-button.is-success{min-width:clamp(14rem,19vw,19rem);}
-.hero-scroll-arrow{
-  position:fixed;
-  z-index:40;
-  left:50%;
-  bottom:clamp(.7rem,1vh,1rem);
-  width:1.25rem;
-  height:.72rem;
-  transform:translateX(-50%);
-  opacity:1;
-  pointer-events:none;
-  transition:opacity .35s ease;
-  animation:hero-arrow-nudge 1.7s ease-in-out infinite;
-}
-.hero-scroll-arrow::before,.hero-scroll-arrow::after{
-  content:'';
-  position:absolute;
-  top:.18rem;
-  width:.9rem;
-  height:1px;
-  background:rgba(255,255,255,.92);
-}
-.hero-scroll-arrow::before{right:50%;transform-origin:right center;transform:rotate(36deg);}
-.hero-scroll-arrow::after{left:50%;transform-origin:left center;transform:rotate(-36deg);}
-.hero-scroll-arrow.is-hidden{opacity:0;}
-@keyframes hero-arrow-nudge{
-  0%,100%{transform:translateX(-50%) translateY(0)}
-  50%{transform:translateX(-50%) translateY(.34rem)}
-}
-.booking-section.form-nudge{animation:form-nudge .42s ease;}
-@keyframes form-nudge{0%,100%{filter:none}50%{filter:brightness(1.14)}}
+.book-button{left:50% !important;right:auto !important;bottom:clamp(2.9rem,3.7vh,3.5rem) !important;transform:translateX(-50%);min-width:clamp(17rem,22vw,22rem);justify-content:center;padding-left:1.4rem !important;padding-right:1.4rem !important;transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s,min-width .25s;}
+.book-button span:first-child{white-space:nowrap;}.book-button .book-arrow{display:none !important;}.book-button:hover{transform:translateX(-50%) translateY(-2px);}.book-button.is-form-state{min-width:clamp(12.5rem,15vw,15rem);backdrop-filter:blur(14px);}.book-button.is-form-state.is-incomplete{opacity:.48;}.book-button.is-form-state.is-ready{opacity:1;}.book-button.is-success{min-width:clamp(14rem,19vw,19rem);}
+.hero-scroll-arrow{position:fixed;z-index:40;left:50%;bottom:clamp(.7rem,1vh,1rem);width:1.25rem;height:.72rem;transform:translateX(-50%);opacity:1;pointer-events:none;transition:opacity .35s ease;animation:hero-arrow-nudge 1.7s ease-in-out infinite;}
+.hero-scroll-arrow::before,.hero-scroll-arrow::after{content:'';position:absolute;top:.18rem;width:.9rem;height:1px;background:rgba(255,255,255,.92);}
+.hero-scroll-arrow::before{right:50%;transform-origin:right center;transform:rotate(36deg);}.hero-scroll-arrow::after{left:50%;transform-origin:left center;transform:rotate(-36deg);}.hero-scroll-arrow.is-hidden{opacity:0;}
+@keyframes hero-arrow-nudge{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(.34rem)}}
+.booking-section.form-nudge{animation:form-nudge .42s ease;}@keyframes form-nudge{0%,100%{filter:none}50%{filter:brightness(1.14)}}
 `;
 document.head.appendChild(bookingLayoutStyle);
+
+if(offers){
+  const captions={
+    born:'Ansigtsmaling til små gæster, store fantasier og særlige fødselsdage.',
+    sommer:'Farver til sommerfester, gårdfester og hyggelige dage under åben himmel.',
+    kultur:'Kreativ ansigtsmaling til kulturhuse, byfester og arrangementer med plads til leg.',
+    festival:'Ansigtsmaling til festivaler, musik og events — fra pop-ups til flere dages produktioner.',
+    mode:'Kreativ makeup og face art til shoots, kampagner, shows og produktioner.',
+    kursus:'Kurser i ansigtsmaling med teknikker, inspiration og masser af farver.'
+  };
+  Object.entries(captions).forEach(([key,text])=>{
+    const caption=document.createElement('p');
+    caption.className=`offer-caption caption-${key}`;
+    caption.textContent=text;
+    offers.querySelector('.offers-shell')?.appendChild(caption);
+  });
+}
 
 const bookingSection=document.querySelector('.booking-section');
 const bookingForm=document.querySelector('.booking-form');
@@ -213,90 +181,12 @@ const globalCta=document.querySelector('.book-button');
 const requiredFields=bookingForm?[...bookingForm.querySelectorAll('input,textarea')]:[];
 let successState=false;
 
-const heroScrollArrow=document.createElement('span');
-heroScrollArrow.className='hero-scroll-arrow';
-document.body.appendChild(heroScrollArrow);
-
-function updateHeroScrollArrow(){
-  const show=scrollY<innerHeight*.58;
-  heroScrollArrow.classList.toggle('is-hidden',!show);
-}
-
-updateHeroScrollArrow();
-addEventListener('scroll',updateHeroScrollArrow,{passive:true});
-addEventListener('resize',updateHeroScrollArrow);
-
-function fieldComplete(field){
-  return field.value.trim().length>0;
-}
-
-function formComplete(){
-  return requiredFields.length>0&&requiredFields.every(fieldComplete);
-}
-
-function bookingInView(){
-  if(!bookingSection)return false;
-  const rect=bookingSection.getBoundingClientRect();
-  return rect.top<innerHeight*.72&&rect.bottom>innerHeight*.25;
-}
-
-function setCta(label){
-  if(!globalCta)return;
-  globalCta.innerHTML=`<span>${label}</span>`;
-}
-
-function updateGlobalCta(){
-  if(!globalCta||successState)return;
-  if(!bookingInView()){
-    globalCta.classList.remove('is-form-state','is-incomplete','is-ready');
-    setCta('BOOK OS TIL DIT NÆSTE EVENT');
-    return;
-  }
-  globalCta.classList.add('is-form-state');
-  if(formComplete()){
-    globalCta.classList.remove('is-incomplete');
-    globalCta.classList.add('is-ready');
-    setCta('SEND FORESPØRGSEL');
-  }else{
-    globalCta.classList.add('is-incomplete');
-    globalCta.classList.remove('is-ready');
-    setCta('SEND FORESPØRGSEL');
-  }
-}
-
-if(globalCta&&bookingSection&&bookingForm){
-  globalCta.removeAttribute('href');
-  globalCta.setAttribute('role','button');
-  globalCta.setAttribute('tabindex','0');
-
-  const handleCta=()=>{
-    if(successState)return;
-    if(!bookingInView()){
-      bookingSection.scrollIntoView({behavior:'smooth',block:'start'});
-      return;
-    }
-    if(!formComplete()){
-      const firstEmpty=requiredFields.find(field=>!fieldComplete(field));
-      bookingSection.classList.remove('form-nudge');
-      void bookingSection.offsetWidth;
-      bookingSection.classList.add('form-nudge');
-      if(firstEmpty){firstEmpty.focus({preventScroll:false});}
-      return;
-    }
-
-    // Visual prototype only. Real sending is connected later via Web3Forms.
-    successState=true;
-    globalCta.classList.remove('is-incomplete','is-ready');
-    globalCta.classList.add('is-success');
-    setCta('TAK — VI SVARER SNART');
-  };
-
-  globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});
-  globalCta.addEventListener('keydown',event=>{
-    if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}
-  });
-  requiredFields.forEach(field=>field.addEventListener('input',updateGlobalCta));
-  addEventListener('scroll',updateGlobalCta,{passive:true});
-  addEventListener('resize',updateGlobalCta);
-  updateGlobalCta();
-}
+const heroScrollArrow=document.createElement('span');heroScrollArrow.className='hero-scroll-arrow';document.body.appendChild(heroScrollArrow);
+function updateHeroScrollArrow(){const show=scrollY<innerHeight*.58;heroScrollArrow.classList.toggle('is-hidden',!show);}
+updateHeroScrollArrow();addEventListener('scroll',updateHeroScrollArrow,{passive:true});addEventListener('resize',updateHeroScrollArrow);
+function fieldComplete(field){return field.value.trim().length>0;}
+function formComplete(){return requiredFields.length>0&&requiredFields.every(fieldComplete);}
+function bookingInView(){if(!bookingSection)return false;const rect=bookingSection.getBoundingClientRect();return rect.top<innerHeight*.72&&rect.bottom>innerHeight*.25;}
+function setCta(label){if(!globalCta)return;globalCta.innerHTML=`<span>${label}</span>`;}
+function updateGlobalCta(){if(!globalCta||successState)return;if(!bookingInView()){globalCta.classList.remove('is-form-state','is-incomplete','is-ready');setCta('BOOK OS TIL DIT NÆSTE EVENT');return;}globalCta.classList.add('is-form-state');if(formComplete()){globalCta.classList.remove('is-incomplete');globalCta.classList.add('is-ready');setCta('SEND FORESPØRGSEL');}else{globalCta.classList.add('is-incomplete');globalCta.classList.remove('is-ready');setCta('SEND FORESPØRGSEL');}}
+if(globalCta&&bookingSection&&bookingForm){globalCta.removeAttribute('href');globalCta.setAttribute('role','button');globalCta.setAttribute('tabindex','0');const handleCta=()=>{if(successState)return;if(!bookingInView()){bookingSection.scrollIntoView({behavior:'smooth',block:'start'});return;}if(!formComplete()){const firstEmpty=requiredFields.find(field=>!fieldComplete(field));bookingSection.classList.remove('form-nudge');void bookingSection.offsetWidth;bookingSection.classList.add('form-nudge');if(firstEmpty){firstEmpty.focus({preventScroll:false});}return;}successState=true;globalCta.classList.remove('is-incomplete','is-ready');globalCta.classList.add('is-success');setCta('TAK — VI SVARER SNART');};globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});globalCta.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}});requiredFields.forEach(field=>field.addEventListener('input',updateGlobalCta));addEventListener('scroll',updateGlobalCta,{passive:true});addEventListener('resize',updateGlobalCta);updateGlobalCta();}
