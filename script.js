@@ -8,7 +8,6 @@ function update(){
   logo.style.transform='translate(-50%,-'+(50-p*50)+'%)';
   document.querySelector('.hero-label').style.opacity=Math.max(0,1-p*3.2);
   document.querySelector('.scroll-cue').style.opacity=Math.max(0,1-p*3.2);
-  header.classList.toggle('is-settled',p>.82);
 }
 
 update();
@@ -63,6 +62,8 @@ addEventListener('resize',checkOfferHint);
 
 const bookingLayoutStyle=document.createElement('style');
 bookingLayoutStyle.textContent=`
+.site-header{opacity:1 !important;pointer-events:none !important;}
+.site-header nav{pointer-events:auto !important;}
 @media (min-width:1051px){
   .booking-section{
     display:flex !important;
