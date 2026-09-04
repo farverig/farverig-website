@@ -65,37 +65,14 @@ bookingLayoutStyle.textContent=`
 .site-header{opacity:1 !important;pointer-events:none !important;}
 .site-header nav{pointer-events:auto !important;}
 @media (min-width:1051px){
-  .offers{
-    min-height:100vh !important;
-    align-items:flex-start !important;
-    padding-top:clamp(5.5rem,8vh,7.5rem) !important;
-    padding-bottom:clamp(5rem,7vh,6.5rem) !important;
-  }
+  .offers{min-height:100vh !important;align-items:flex-start !important;padding-top:clamp(5.5rem,8vh,7.5rem) !important;padding-bottom:clamp(5rem,7vh,6.5rem) !important;}
   .offers-heading{margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;}
-  .offers-cloud{
-    min-height:0 !important;
-    display:flex !important;
-    flex-direction:column !important;
-    flex-wrap:nowrap !important;
-    align-items:stretch !important;
-    align-content:initial !important;
-    gap:0 !important;
-    padding:0 !important;
-    border-top:1px solid var(--line) !important;
-  }
-  .offer-link,.offer-more{
-    display:flex !important;
-    width:100% !important;
-    max-width:none !important;
-    margin-left:0 !important;
-    padding:clamp(.45rem,.75vh,.72rem) 0 clamp(.52rem,.82vh,.82rem) !important;
-    border-bottom:1px solid var(--line) !important;
-  }
+  .offers-cloud{min-height:0 !important;display:flex !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;align-content:initial !important;gap:0 !important;padding:0 !important;border-top:1px solid var(--line) !important;}
+  .offer-link,.offer-more{display:flex !important;width:100% !important;max-width:none !important;margin-left:0 !important;padding:clamp(.45rem,.75vh,.72rem) 0 clamp(.52rem,.82vh,.82rem) !important;border-bottom:1px solid var(--line) !important;}
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
   .offer-link h3,.offer-more{font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.79 !important;letter-spacing:-.068em !important;}
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
   .offer-more{margin-top:0 !important;}
-
   .preview-born{left:auto !important;right:-4% !important;top:58% !important;width:clamp(24rem,35vw,40rem) !important;}
   .preview-sommer{left:auto !important;right:4% !important;top:42% !important;width:clamp(26rem,38vw,43rem) !important;}
   .preview-kultur{left:auto !important;right:-2% !important;top:50% !important;width:clamp(24rem,35vw,40rem) !important;}
@@ -105,36 +82,7 @@ bookingLayoutStyle.textContent=`
   .offers:has(.offer-link[data-preview="festival"]:hover) .preview-festival{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
   .offers:has(.offer-link[data-preview="mode"]:hover) .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
   .offers.is-hinting .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
-
-  .offer-caption{
-    position:absolute;
-    z-index:7;
-    right:clamp(1rem,2vw,2.2rem);
-    bottom:clamp(1.1rem,2.3vh,2rem);
-    width:min(31vw,25rem);
-    margin:0;
-    color:rgba(255,255,255,.86);
-    font:400 clamp(.67rem,.78vw,.8rem)/1.45 monospace;
-    letter-spacing:.045em;
-    text-transform:uppercase;
-    opacity:0;
-    transform:translateY(.55rem);
-    pointer-events:none;
-    transition:opacity .28s ease,transform .4s cubic-bezier(.2,.7,.2,1);
-  }
-  .offer-caption::before{content:'—';margin-right:.55em;color:rgba(255,255,255,.48);}
-  .offers:has(.offer-link[data-preview="born"]:hover) .caption-born,
-  .offers:has(.offer-link[data-preview="sommer"]:hover) .caption-sommer,
-  .offers:has(.offer-link[data-preview="kultur"]:hover) .caption-kultur,
-  .offers:has(.offer-link[data-preview="festival"]:hover) .caption-festival,
-  .offers:has(.offer-link[data-preview="mode"]:hover) .caption-mode,
-  .offers:has(.offer-link[data-preview="kursus"]:hover) .caption-kursus,
-  .offers.is-hinting .caption-mode{opacity:1;transform:translateY(0);}
-
-  .booking-section{
-    display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;
-    min-height:92vh !important;align-items:stretch !important;padding:clamp(2rem,2.6vh,2.6rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;
-  }
+  .booking-section{display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;min-height:92vh !important;align-items:stretch !important;padding:clamp(2rem,2.6vh,2.6rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;}
   .booking-intro{grid-column:auto !important;grid-row:auto !important;position:static !important;top:auto !important;align-self:auto !important;width:100% !important;margin:0 auto clamp(1.5rem,2vh,2rem) !important;text-align:center !important;}
   .booking-kicker{margin:0 0 .45rem !important;}
   .booking-title{max-width:13ch !important;margin:0 auto !important;font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.84 !important;}
@@ -145,7 +93,6 @@ bookingLayoutStyle.textContent=`
   .booking-field input,.booking-field textarea{font-size:clamp(1.4rem,1.95vw,2.15rem) !important;padding-bottom:.5rem !important;}
   .booking-field textarea{min-height:clamp(4.8rem,7.5vh,6.2rem) !important;}
 }
-@media(max-width:1050px){.offer-caption{display:none !important;}}
 .booking-submit,.booking-note{display:none !important;}
 .scroll-cue{display:none !important;}
 .book-button{left:50% !important;right:auto !important;bottom:clamp(2.9rem,3.7vh,3.5rem) !important;transform:translateX(-50%);min-width:clamp(17rem,22vw,22rem);justify-content:center;padding-left:1.4rem !important;padding-right:1.4rem !important;transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s,min-width .25s;}
@@ -157,23 +104,6 @@ bookingLayoutStyle.textContent=`
 .booking-section.form-nudge{animation:form-nudge .42s ease;}@keyframes form-nudge{0%,100%{filter:none}50%{filter:brightness(1.14)}}
 `;
 document.head.appendChild(bookingLayoutStyle);
-
-if(offers){
-  const captions={
-    born:'Ansigtsmaling til små gæster, store fantasier og særlige fødselsdage.',
-    sommer:'Farver til sommerfester, gårdfester og hyggelige dage under åben himmel.',
-    kultur:'Kreativ ansigtsmaling til kulturhuse, byfester og arrangementer med plads til leg.',
-    festival:'Ansigtsmaling til festivaler, musik og events — fra pop-ups til flere dages produktioner.',
-    mode:'Kreativ makeup og face art til shoots, kampagner, shows og produktioner.',
-    kursus:'Kurser i ansigtsmaling med teknikker, inspiration og masser af farver.'
-  };
-  Object.entries(captions).forEach(([key,text])=>{
-    const caption=document.createElement('p');
-    caption.className=`offer-caption caption-${key}`;
-    caption.textContent=text;
-    offers.querySelector('.offers-shell')?.appendChild(caption);
-  });
-}
 
 const bookingSection=document.querySelector('.booking-section');
 const bookingForm=document.querySelector('.booking-form');
