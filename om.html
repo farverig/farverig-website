@@ -13,7 +13,7 @@
   <style>
     :root{--about-pad:clamp(1.25rem,5vw,5.5rem)}
     html{scroll-behavior:smooth}
-    body{background:#090909;color:var(--text);overflow-x:hidden}
+    body{margin:0;background:#090909;color:var(--text);overflow-x:hidden}
     .about-header{position:fixed;z-index:50;top:0;left:0;width:100%;height:clamp(4.7rem,7vw,6.2rem);display:flex;align-items:center;justify-content:center;padding:0 var(--about-pad);pointer-events:none}
     .about-logo{pointer-events:auto;display:block;width:clamp(7.8rem,12vw,10.7rem);line-height:0}
     .about-logo img{display:block;width:100%;height:auto}
@@ -22,39 +22,27 @@
     .about-nav a:hover{opacity:.55}
     .about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 
-    .about-hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(20rem,.78fr);gap:clamp(3rem,7vw,9rem);align-items:center;padding:clamp(8rem,12vh,10rem) var(--about-pad) clamp(4rem,7vh,6rem)}
-    .about-kicker{margin:0 0 clamp(1.4rem,2.5vh,2.2rem);color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .about-title{margin:0;max-width:8ch;font:400 clamp(5rem,10vw,11.5rem)/.79 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
-    .about-title em{display:block;font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
-    .about-image-wrap{position:relative;justify-self:end;width:min(100%,37rem);margin-top:2rem}
-    .about-image{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;box-shadow:0 2rem 7rem rgba(0,0,0,.45)}
-    .about-image-caption{display:flex;justify-content:space-between;gap:2rem;margin:.75rem 0 0;color:var(--muted);font:400 clamp(.62rem,.7vw,.72rem)/1.45 monospace;letter-spacing:.07em;text-transform:uppercase}
+    .about-page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;padding:clamp(7.5rem,11vh,9rem) var(--about-pad) clamp(2.5rem,4vh,3.5rem)}
+    .about-kicker{margin:0 0 .65rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+    .about-title{margin:0;max-width:11ch;font:400 clamp(4.4rem,8.7vw,9.7rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:var(--text)}
+    .about-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
 
-    .story{padding:clamp(6rem,10vw,10rem) var(--about-pad) clamp(7rem,12vw,12rem);border-top:1px solid var(--line)}
-    .story-label{margin:0 0 clamp(2rem,3vw,3rem);color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .story-statement{max-width:13ch;margin:0 0 clamp(5rem,8vw,8rem);font:400 clamp(3.8rem,7.7vw,8.8rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.07em;color:var(--text)}
-    .story-statement em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic}
-    .story-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(22rem,1fr);gap:clamp(4rem,10vw,12rem);align-items:start;border-top:1px solid var(--line);padding-top:clamp(2rem,3vw,3rem)}
-    .story-number{color:var(--muted);font:400 clamp(.68rem,.78vw,.8rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .story-copy{max-width:46rem}
-    .story-copy p{margin:0 0 1.6em;font:400 clamp(1.45rem,2.5vw,2.75rem)/1.1 Arial,Helvetica,sans-serif;letter-spacing:-.035em;color:var(--text)}
-    .story-copy p:last-child{margin-bottom:0}
-
-    .instagram{min-height:78vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:clamp(6rem,10vw,10rem) var(--about-pad);border-top:1px solid var(--line);text-align:center}
-    .instagram-label{margin:0 0 1.4rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .instagram-title{max-width:13ch;margin:0 auto clamp(2rem,3vw,3rem);font:400 clamp(3.8rem,7.6vw,8.4rem)/.85 Arial,Helvetica,sans-serif;letter-spacing:-.07em}
-    .instagram-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic}
-    .instagram-copy{max-width:40rem;margin:0 auto clamp(2.5rem,4vw,4rem);color:rgba(255,255,255,.72);font:400 clamp(1.05rem,1.45vw,1.35rem)/1.5 Arial,Helvetica,sans-serif;letter-spacing:-.015em}
-    .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(17rem,23vw,22rem);padding:1rem 1.6rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
+    .about-layout{display:grid;grid-template-columns:minmax(20rem,.88fr) minmax(24rem,1.12fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-top:clamp(2.5rem,5vh,4rem)}
+    .about-image-wrap{margin:0;align-self:stretch}
+    .about-image{display:block;width:100%;height:100%;max-height:56vh;min-height:24rem;object-fit:cover;object-position:center;box-shadow:0 2rem 7rem rgba(0,0,0,.42)}
+    .about-copy{align-self:end;max-width:44rem;padding-bottom:.2rem}
+    .about-copy p{margin:0 0 1.25em;font:400 clamp(1.35rem,2.2vw,2.35rem)/1.12 Arial,Helvetica,sans-serif;letter-spacing:-.032em;color:var(--text)}
+    .about-copy p:last-of-type{margin-bottom:clamp(2rem,3vw,3rem)}
+    .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(15rem,21vw,20rem);padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
     .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
     .back-home{position:fixed;z-index:45;left:var(--about-pad);bottom:clamp(1.5rem,2vw,2rem);color:var(--text);text-decoration:none;font:400 clamp(.65rem,.72vw,.74rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
     .back-home:hover{opacity:1}
 
     @media(max-width:900px){
-      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-hero{grid-template-columns:1fr;gap:2.5rem;align-items:start;padding-top:8rem}.about-title{max-width:9ch;font-size:clamp(4.3rem,15vw,7.5rem)}.about-image-wrap{justify-self:stretch;width:100%;max-width:none;margin-top:0}.about-image{aspect-ratio:5/4}.story-grid{grid-template-columns:1fr;gap:2rem}.story-copy{max-width:none}.back-home{display:none}
+      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-page{display:block;padding-top:7rem}.about-title{max-width:10ch;font-size:clamp(4rem,14vw,7rem)}.about-layout{grid-template-columns:1fr;gap:2.5rem;margin-top:2.5rem}.about-image{height:auto;max-height:none;min-height:0;aspect-ratio:5/4}.about-copy{max-width:none;padding-bottom:4rem}.back-home{display:none}
     }
     @media(max-width:600px){
-      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-hero{padding-top:6.5rem}.about-title{font-size:clamp(3.6rem,18vw,5.4rem)}.about-image{aspect-ratio:4/5}.about-image-caption{font-size:.58rem}.story{padding-top:5rem}.story-statement{font-size:clamp(3rem,14vw,5rem);margin-bottom:4rem}.story-copy p{font-size:clamp(1.45rem,6.4vw,2.1rem)}.instagram{min-height:70vh}.instagram-title{font-size:clamp(3rem,14vw,5.1rem)}
+      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-page{padding-top:6rem}.about-title{font-size:clamp(3.5rem,16vw,5.2rem)}.about-image{aspect-ratio:4/5}.about-copy p{font-size:clamp(1.35rem,6vw,2rem)}
     }
   </style>
 </head>
@@ -68,37 +56,24 @@
     </nav>
   </header>
 
-  <main>
-    <section class="about-hero">
-      <div>
-        <p class="about-kicker">OM FARVERIG</p>
-        <h1 class="about-title">VI ER <em>FARVERIG.</em></h1>
-      </div>
+  <main class="about-page">
+    <div>
+      <p class="about-kicker">OM FARVERIG</p>
+      <h1 class="about-title">VI ER <em>FARVERIG.</em></h1>
+    </div>
+
+    <div class="about-layout">
       <figure class="about-image-wrap">
         <img class="about-image" src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG">
-        <figcaption class="about-image-caption"><span>GABRIELA &amp; MARIA</span><span>KØBENHAVN</span></figcaption>
       </figure>
-    </section>
 
-    <section class="story">
-      <p class="story-label">VORES HISTORIE</p>
-      <h2 class="story-statement">FARVER ER BARE STARTEN. <em>MENNESKERNE</em> ER DET, VI HUSKER.</h2>
-      <div class="story-grid">
-        <div class="story-number">01 / FARVERIG</div>
-        <div class="story-copy">
-          <p>Vi er Gabriela og Maria — ansigterne bag FARVERIG. Vi arbejder med ansigtsmaling som et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
-          <p>Gennem FARVERIG har vi malet til alt fra børnefødselsdage og sommerfester til kulturarrangementer, festivaler, shoots og events. Fælles for det hele er ønsket om at skabe noget, der føles personligt, legende og lidt uventet.</p>
-          <p>FARVERIG har udviklet sig gennem de mennesker og steder, vi har fået lov at male. Fra små øjeblikke én-til-én til større produktioner og festivalgulve. Vi er stadig nysgerrige på, hvor ansigtsmaling kan passe ind — og på hvordan vi kan gøre det på vores egen måde.</p>
-        </div>
+      <div class="about-copy">
+        <p>Vi er Gabriela og Maria — ansigterne bag FARVERIG. Vi arbejder med ansigtsmaling som et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
+        <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — altid med lysten til at skabe noget personligt, legende og lidt uventet.</p>
+        <p>Vil du se mere af det, vi laver, så følg med på Instagram.</p>
+        <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
       </div>
-    </section>
-
-    <section class="instagram">
-      <p class="instagram-label">FØLG MED</p>
-      <h2 class="instagram-title">MERE FARVE. MERE <em>FARVERIG.</em></h2>
-      <p class="instagram-copy">På Instagram deler vi det, der sker mellem events, pensler og farver — nye looks, øjeblikke fra virkeligheden og det, vi går og finder på.</p>
-      <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
-    </section>
+    </div>
   </main>
 
   <a class="back-home" href="index.html">← FORSIDE</a>
