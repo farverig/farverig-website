@@ -69,9 +69,9 @@ bookingLayoutStyle.textContent=`
     flex-direction:column !important;
     grid-template-columns:none !important;
     grid-template-rows:none !important;
-    min-height:100vh !important;
+    min-height:92vh !important;
     align-items:stretch !important;
-    padding:clamp(2.4rem,3vh,3rem) clamp(5rem,8vw,9rem) clamp(6rem,9vh,8rem) !important;
+    padding:clamp(2rem,2.6vh,2.6rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;
   }
   .booking-intro{
     grid-column:auto !important;
@@ -80,14 +80,14 @@ bookingLayoutStyle.textContent=`
     top:auto !important;
     align-self:auto !important;
     width:100% !important;
-    margin:0 auto clamp(2rem,2.8vh,2.7rem) !important;
+    margin:0 auto clamp(1.5rem,2vh,2rem) !important;
     text-align:center !important;
   }
   .booking-kicker{margin:0 0 .45rem !important;}
   .booking-title{
     max-width:13ch !important;
     margin:0 auto !important;
-    font-size:clamp(2.8rem,4.4vw,4.9rem) !important;
+    font-size:clamp(3.5rem,6.05vw,6.8rem) !important;
     line-height:.84 !important;
   }
   .booking-form{
@@ -111,12 +111,15 @@ bookingLayoutStyle.textContent=`
   left:50% !important;
   right:auto !important;
   transform:translateX(-50%);
-  min-width:clamp(10.5rem,13vw,13rem);
+  min-width:clamp(17rem,22vw,22rem);
   justify-content:space-between;
-  transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s;
+  padding-left:1.4rem !important;
+  padding-right:1.2rem !important;
+  transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s,min-width .25s;
 }
+.book-button span:first-child{white-space:nowrap;}
 .book-button:hover{transform:translateX(-50%) translateY(-2px);}
-.book-button.is-form-state{backdrop-filter:blur(14px);}
+.book-button.is-form-state{min-width:clamp(12.5rem,15vw,15rem);backdrop-filter:blur(14px);}
 .book-button.is-form-state.is-incomplete{opacity:.48;}
 .book-button.is-form-state.is-ready{opacity:1;}
 .book-button.is-success{min-width:clamp(14rem,19vw,19rem);}
@@ -154,7 +157,7 @@ function updateGlobalCta(){
   if(!globalCta||successState)return;
   if(!bookingInView()){
     globalCta.classList.remove('is-form-state','is-incomplete','is-ready');
-    setCta('KONTAKT OS');
+    setCta('BOOK OS TIL DIT NÆSTE EVENT');
     return;
   }
   globalCta.classList.add('is-form-state');
