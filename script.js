@@ -107,22 +107,43 @@ bookingLayoutStyle.textContent=`
   .booking-field textarea{min-height:clamp(4.8rem,7.5vh,6.2rem) !important;}
 }
 .booking-submit,.booking-note{display:none !important;}
+.scroll-cue{display:none !important;}
 .book-button{
   left:50% !important;
   right:auto !important;
+  bottom:clamp(3.9rem,5vh,4.7rem) !important;
   transform:translateX(-50%);
   min-width:clamp(17rem,22vw,22rem);
-  justify-content:space-between;
+  justify-content:center;
   padding-left:1.4rem !important;
-  padding-right:1.2rem !important;
+  padding-right:1.4rem !important;
   transition:background .25s,color .25s,opacity .25s,border-color .25s,transform .25s,min-width .25s;
 }
 .book-button span:first-child{white-space:nowrap;}
+.book-button .book-arrow{display:none !important;}
 .book-button:hover{transform:translateX(-50%) translateY(-2px);}
 .book-button.is-form-state{min-width:clamp(12.5rem,15vw,15rem);backdrop-filter:blur(14px);}
 .book-button.is-form-state.is-incomplete{opacity:.48;}
 .book-button.is-form-state.is-ready{opacity:1;}
 .book-button.is-success{min-width:clamp(14rem,19vw,19rem);}
+.hero-scroll-arrow{
+  position:fixed;
+  z-index:40;
+  left:50%;
+  bottom:clamp(1.15rem,1.6vh,1.5rem);
+  transform:translateX(-50%) rotate(90deg);
+  color:var(--text);
+  font:400 clamp(1.35rem,1.8vw,1.8rem)/1 monospace;
+  opacity:1;
+  pointer-events:none;
+  transition:opacity .35s ease;
+  animation:hero-arrow-nudge 1.6s ease-in-out infinite;
+}
+.hero-scroll-arrow.is-hidden{opacity:0;}
+@keyframes hero-arrow-nudge{
+  0%,100%{transform:translateX(-50%) rotate(90deg) translateX(0)}
+  50%{transform:translateX(-50%) rotate(90deg) translateX(.38rem)}
+}
 .booking-section.form-nudge{animation:form-nudge .42s ease;}
 @keyframes form-nudge{0%,100%{filter:none}50%{filter:brightness(1.14)}}
 `;
@@ -133,6 +154,20 @@ const bookingForm=document.querySelector('.booking-form');
 const globalCta=document.querySelector('.book-button');
 const requiredFields=bookingForm?[...bookingForm.querySelectorAll('input,textarea')]:[];
 let successState=false;
+
+const heroScrollArrow=document.createElement('span');
+heroScrollArrow.className='hero-scroll-arrow';
+heroScrollArrow.textContent='>';
+document.body.appendChild(heroScrollArrow);
+
+function updateHeroScrollArrow(){
+  const show=scrollY<innerHeight*.58;
+  heroScrollArrow.classList.toggle('is-hidden',!show);
+}
+
+updateHeroScrollArrow();
+addEventListener('scroll',updateHeroScrollArrow,{passive:true});
+addEventListener('resize',updateHeroScrollArrow);
 
 function fieldComplete(field){
   return field.value.trim().length>0;
@@ -148,9 +183,9 @@ function bookingInView(){
   return rect.top<innerHeight*.72&&rect.bottom>innerHeight*.25;
 }
 
-function setCta(label,arrow='>'){
+function setCta(label){
   if(!globalCta)return;
-  globalCta.innerHTML=`<span>${label}</span><span class="book-arrow">${arrow}</span>`;
+  globalCta.innerHTML=`<span>${label}</span>`;
 }
 
 function updateGlobalCta(){
@@ -196,7 +231,7 @@ if(globalCta&&bookingSection&&bookingForm){
     successState=true;
     globalCta.classList.remove('is-incomplete','is-ready');
     globalCta.classList.add('is-success');
-    setCta('TAK — VI SVARER SNART','♡');
+    setCta('TAK — VI SVARER SNART');
   };
 
   globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});
