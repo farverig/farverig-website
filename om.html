@@ -18,32 +18,34 @@
     .about-nav{position:absolute;right:var(--about-pad);top:50%;transform:translateY(-50%);display:flex;gap:clamp(1.3rem,2.4vw,2.8rem);pointer-events:auto}
     .about-nav a{color:var(--text);text-decoration:none;font:400 clamp(.68rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}.about-nav a:hover{opacity:.55}.about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 
-    .story{padding:clamp(9rem,14vh,12rem) var(--about-pad) clamp(7rem,12vh,10rem)}
-    .story-inner{width:min(88vw,78rem);margin:0 auto}
+    .story{padding:clamp(7rem,10vh,8.5rem) var(--about-pad) clamp(6rem,9vh,8rem)}
+    .story-inner{width:min(92vw,88rem);margin:0 auto}
     .story-kicker{margin:0 0 clamp(2.5rem,5vh,4rem);text-align:center;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .story-block{position:relative;min-height:105vh;display:flex;align-items:center;justify-content:center}
-    .story-block:last-of-type{min-height:90vh}
-    .story-copy{position:relative;z-index:8;width:min(86vw,72rem);margin:0 auto;text-align:center}
-    .story-copy p{margin:0;font:400 clamp(2.35rem,4.1vw,4.8rem)/1.04 Arial,Helvetica,sans-serif;letter-spacing:-.05em;text-wrap:balance}
-    .story-copy .soft{color:rgba(255,255,255,.4)}
-    .story-block + .story-block{margin-top:clamp(5rem,10vh,9rem)}
+    .story-flow{position:relative}
+    .story-block{position:relative;min-height:62vh;display:flex;align-items:center;justify-content:center;padding:clamp(2.2rem,4vh,3.5rem) 0}
+    .story-block:first-child{min-height:70vh}
+    .story-block:last-child{min-height:58vh}
+    .story-copy{position:relative;z-index:8;width:min(90vw,79rem);margin:0 auto;text-align:center}
+    .story-copy p{margin:0;font:500 clamp(3rem,5.2vw,5.8rem)/.98 Arial,Helvetica,sans-serif;letter-spacing:-.062em;text-wrap:balance}
+    .story-copy .soft{color:rgba(255,255,255,.38)}
 
-    .story-media{position:absolute;z-index:3;overflow:hidden;box-shadow:0 2rem 7rem rgba(0,0,0,.52);opacity:0;transform:translateY(2.2rem) rotate(var(--r,0deg)) scale(.93);transition:opacity .48s ease,transform .72s cubic-bezier(.2,.7,.2,1)}
+    .story-media{position:absolute;z-index:3;overflow:hidden;box-shadow:0 2rem 7rem rgba(0,0,0,.54);opacity:0;transform:translateY(2.8rem) rotate(var(--r,0deg)) scale(.9);transition:opacity .5s ease,transform .72s cubic-bezier(.2,.7,.2,1)}
     .story-media.is-visible{opacity:.96;transform:translateY(0) rotate(var(--r,0deg)) scale(1)}
     .story-media img{display:block;width:100%;height:100%;object-fit:cover}
-    .media-a{left:-8vw;top:50%;width:clamp(18rem,30vw,33rem);height:clamp(24rem,40vw,43rem);--r:-2deg}.media-a img{object-position:33% 44%}
-    .media-b{right:-8vw;top:44%;width:clamp(19rem,33vw,36rem);height:clamp(15rem,25vw,27rem);--r:2.5deg}.media-b img{object-position:70% 42%;transform:scale(1.18)}
-    .media-c{left:-5vw;top:46%;width:clamp(20rem,35vw,39rem);height:clamp(15rem,26vw,28rem);--r:1.5deg}.media-c img{object-position:45% 55%;transform:scale(1.12)}
-    .media-d{right:-5vw;top:50%;width:clamp(18rem,29vw,32rem);height:clamp(23rem,38vw,41rem);--r:-2deg}.media-d img{object-position:67% 43%}
-    .video-placeholder{left:-6vw;top:47%;width:clamp(18rem,30vw,33rem);aspect-ratio:4/3;border:1px solid rgba(255,255,255,.16);background:#101010;display:flex;align-items:center;justify-content:center;--r:-1.5deg}
+    .media-a{left:-6vw;top:18%;width:clamp(20rem,35vw,39rem);height:clamp(27rem,46vw,49rem);--r:-2deg}.media-a img{object-position:33% 44%}
+    .media-b{right:-7vw;top:20%;width:clamp(22rem,38vw,42rem);height:clamp(17rem,28vw,30rem);--r:2.5deg}.media-b img{object-position:70% 42%;transform:scale(1.18)}
+    .media-c{left:-6vw;top:18%;width:clamp(22rem,39vw,43rem);height:clamp(17rem,29vw,31rem);--r:1.5deg}.media-c img{object-position:45% 55%;transform:scale(1.12)}
+    .media-d{right:-6vw;top:15%;width:clamp(20rem,33vw,36rem);height:clamp(26rem,43vw,46rem);--r:-2deg}.media-d img{object-position:67% 43%}
+    .video-placeholder{left:-6vw;top:17%;width:clamp(21rem,35vw,39rem);aspect-ratio:4/3;border:1px solid rgba(255,255,255,.16);background:#101010;display:flex;align-items:center;justify-content:center;--r:-1.5deg}
     .video-placeholder span{font:400 clamp(.65rem,.75vw,.78rem)/1.3 monospace;letter-spacing:.08em;color:rgba(255,255,255,.42);text-transform:uppercase;text-align:center}
 
-    .instagram-wrap{text-align:center;margin-top:clamp(4rem,8vh,6rem)}
+    .paragraph-break{display:block;height:.42em}
+    .instagram-wrap{text-align:center;margin-top:clamp(2.5rem,5vh,4rem)}
     .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(16rem,21vw,20rem);padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
     .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
 
-    @media(max-width:900px){.about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.story-inner{width:92vw}.story-block{min-height:95vh}.story-copy p{font-size:clamp(2.25rem,6.2vw,4rem)}.media-a{left:-14vw;width:44vw;height:58vw}.media-b{right:-14vw;width:46vw;height:35vw}.media-c{left:-13vw;width:48vw;height:35vw}.media-d{right:-12vw;width:42vw;height:55vw}.video-placeholder{left:-13vw;width:44vw}}
-    @media(max-width:600px){:root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.story{padding-top:7rem}.story-kicker{margin-bottom:2rem}.story-block{min-height:88vh}.story-copy{width:94vw}.story-copy p{font-size:clamp(1.95rem,8.7vw,3rem);line-height:1.04}.story-block + .story-block{margin-top:2rem}.media-a{left:-20vw;width:62vw;height:80vw}.media-b{right:-20vw;width:66vw;height:50vw}.media-c{left:-20vw;width:66vw;height:50vw}.media-d{right:-18vw;width:60vw;height:78vw}.video-placeholder{left:-18vw;width:60vw}.instagram-wrap{margin-top:2rem}}
+    @media(max-width:900px){.about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.story-inner{width:94vw}.story-block{min-height:58vh}.story-block:first-child{min-height:66vh}.story-copy p{font-size:clamp(2.7rem,7.4vw,4.7rem)}.media-a{left:-15vw;width:50vw;height:65vw}.media-b{right:-16vw;width:52vw;height:39vw}.media-c{left:-15vw;width:54vw;height:40vw}.media-d{right:-14vw;width:48vw;height:62vw}.video-placeholder{left:-14vw;width:49vw}}
+    @media(max-width:600px){:root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.story{padding-top:6rem}.story-kicker{margin-bottom:1.5rem}.story-block{min-height:54vh;padding:1.5rem 0}.story-block:first-child{min-height:62vh}.story-copy{width:96vw}.story-copy p{font-size:clamp(2.25rem,10vw,3.45rem);line-height:1}.media-a{left:-22vw;width:68vw;height:88vw}.media-b{right:-22vw;width:70vw;height:52vw}.media-c{left:-22vw;width:72vw;height:54vw}.media-d{right:-20vw;width:64vw;height:82vw}.video-placeholder{left:-20vw;width:64vw}.instagram-wrap{margin-top:2rem}}
   </style>
 </head>
 <body>
@@ -56,29 +58,31 @@
     <div class="story-inner">
       <p class="story-kicker">OM FARVERIG / GABRIELA + MARIA</p>
 
-      <div class="story-block">
-        <div class="story-copy"><p>Vi er Gabriela og Maria. Vi mødte hinanden længe før FARVERIG fandtes, og fandt hurtigt hinanden i en fælles lyst til at <span class="soft">skabe, lege og udtrykke os.</span></p></div>
-        <figure class="story-media media-a"><img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG"></figure>
-      </div>
+      <div class="story-flow">
+        <div class="story-block">
+          <div class="story-copy"><p>Vi er Gabriela og Maria. Vi mødte hinanden længe før FARVERIG fandtes, og fandt hurtigt hinanden i en fælles lyst til at <span class="soft">skabe, lege og udtrykke os.</span></p></div>
+          <figure class="story-media media-a"><img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG"></figure>
+        </div>
 
-      <div class="story-block">
-        <div class="story-copy"><p>Ansigtsmaling blev en af de måder, vi kunne gøre det på — først bare fordi det var sjovt, siden fordi vi opdagede, hvor meget der kan opstå i mødet mellem <span class="soft">farver og mennesker.</span></p></div>
-        <figure class="story-media media-b" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
-      </div>
+        <div class="story-block">
+          <div class="story-copy"><p>Ansigtsmaling blev en af de måder, vi kunne gøre det på — først bare fordi det var sjovt, siden fordi vi opdagede, hvor meget der kan opstå i mødet mellem <span class="soft">farver og mennesker.</span></p></div>
+          <figure class="story-media media-b" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
+        </div>
 
-      <div class="story-block">
-        <div class="story-copy"><p>Det ene tog det andet. Flere ansigter kom til, idéerne voksede, og lige pludselig stod vi her med <span class="soft">FARVERIG.</span></p></div>
-        <figure class="story-media media-c" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
-      </div>
+        <div class="story-block">
+          <div class="story-copy"><p>Det ene tog det andet. Flere ansigter kom til, idéerne voksede, og lige pludselig stod vi her med <span class="soft">FARVERIG.</span></p></div>
+          <figure class="story-media media-c" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
+        </div>
 
-      <div class="story-block">
-        <div class="story-copy"><p>Vi er stadig i gang med at finde ud af, hvor det hele fører hen — og det er måske også det, vi bedst kan lide ved det.</p></div>
-        <div class="story-media video-placeholder"><span>VIDEO AF OS<br>KOMMER HER</span></div>
-      </div>
+        <div class="story-block">
+          <div class="story-copy"><p>Vi er stadig i gang med at finde ud af, hvor det hele fører hen — og det er måske også det, vi bedst kan lide ved det.</p></div>
+          <div class="story-media video-placeholder"><span>VIDEO AF OS<br>KOMMER HER</span></div>
+        </div>
 
-      <div class="story-block">
-        <div class="story-copy"><p>Hvis du har lyst til at følge med, kan du følge vores rejse videre på <span class="soft">Instagram.</span></p></div>
-        <figure class="story-media media-d" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
+        <div class="story-block">
+          <div class="story-copy"><p>Hvis du har lyst til at følge med, kan du følge vores rejse videre på <span class="soft">Instagram.</span></p></div>
+          <figure class="story-media media-d" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
+        </div>
       </div>
 
       <div class="instagram-wrap"><a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a></div>
@@ -88,7 +92,7 @@
   <script>
     const mediaObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
       entry.target.classList.toggle('is-visible',entry.isIntersecting);
-    }),{threshold:.38,rootMargin:'-8% 0px -8% 0px'});
+    }),{threshold:.34,rootMargin:'-6% 0px -6% 0px'});
     document.querySelectorAll('.story-media').forEach(media=>mediaObserver.observe(media));
   </script>
 </body>
