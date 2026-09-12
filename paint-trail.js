@@ -6,9 +6,26 @@
   const canvas=document.createElement('canvas');
   canvas.setAttribute('aria-hidden','true');
   Object.assign(canvas.style,{
-    position:'fixed',inset:'0',width:'100vw',height:'100vh',pointerEvents:'none',zIndex:'18'
+    position:'fixed',inset:'0',width:'100vw',height:'100vh',pointerEvents:'none',zIndex:'1'
   });
   document.body.appendChild(canvas);
+
+  // The paint lives above the black page surface, but below photography/video
+  // and the typographic/interface layer. This keeps the colour playful without
+  // sacrificing image detail or legibility.
+  const layerStyle=document.createElement('style');
+  layerStyle.textContent=`
+    .hero video{z-index:2}
+    .hero-shade{z-index:3}
+    .story-shot{z-index:4}
+    .work-story-stage:after{z-index:5}
+    .work-story-copy{z-index:8}
+    .offer-preview{z-index:5}
+    .offer-link,.offer-more,.offers-heading{z-index:8}
+    .booking-intro,.booking-form{position:relative;z-index:8}
+    .site-header,.transforming-logo,.hero-label,.bottom-glow,.book-button,.scroll-cue{isolation:isolate}
+  `;
+  document.head.appendChild(layerStyle);
 
   const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
   if(!ctx)return;
