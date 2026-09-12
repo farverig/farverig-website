@@ -8,6 +8,11 @@ if(mainNav){
   [tilbyder,om,kontakt].forEach(link=>{if(link)mainNav.appendChild(link);});
 }
 
+const offerLabels=['Børnefødselsdag','Sommerfest','Kulturevent','Festival','Mode & editorial','Kursus'];
+document.querySelectorAll('.offer-link h3').forEach((title,index)=>{if(offerLabels[index])title.textContent=offerLabels[index];});
+const offerMore=document.querySelector('.offer-more');if(offerMore)offerMore.textContent='Og meget mere…';
+const bookingTitle=document.querySelector('.booking-title');if(bookingTitle)bookingTitle.textContent='Skal vi male til jeres event?';
+
 function update(){
   const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.72)));
   logo.style.width='clamp(8.7rem,'+(38-p*25)+'vw,'+(31-p*20)+'rem)';
@@ -71,13 +76,17 @@ const bookingLayoutStyle=document.createElement('style');
 bookingLayoutStyle.textContent=`
 .site-header{opacity:1 !important;pointer-events:none !important;}
 .site-header nav{pointer-events:auto !important;}
+.offer-link h3{font-family:Arial,Helvetica,sans-serif !important;font-style:normal !important;font-weight:400 !important;text-transform:none !important;letter-spacing:-.058em !important;}
+.offer-more{text-transform:none !important;letter-spacing:-.055em !important;}
+.booking-title{font-family:Arial,Helvetica,sans-serif !important;font-style:normal !important;font-weight:400 !important;text-transform:none !important;letter-spacing:-.06em !important;}
+.booking-title em{font-family:inherit !important;font-style:normal !important;font-weight:inherit !important;letter-spacing:inherit !important;}
 @media (min-width:1051px){
   .offers{min-height:100vh !important;align-items:flex-start !important;padding-top:clamp(5.5rem,8vh,7.5rem) !important;padding-bottom:clamp(18rem,26vh,24rem) !important;}
   .offers-heading{margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;}
   .offers-cloud{min-height:0 !important;display:flex !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;align-content:initial !important;gap:0 !important;padding:0 !important;border-top:1px solid var(--line) !important;}
   .offer-link,.offer-more{display:flex !important;width:100% !important;max-width:none !important;margin-left:0 !important;padding:clamp(.45rem,.75vh,.72rem) 0 clamp(.52rem,.82vh,.82rem) !important;border-bottom:1px solid var(--line) !important;}
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
-  .offer-link h3,.offer-more{font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.79 !important;letter-spacing:-.068em !important;}
+  .offer-link h3,.offer-more{font-size:clamp(3.35rem,5.7vw,6.35rem) !important;line-height:.82 !important;}
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
   .offer-more{margin-top:0 !important;}
   .preview-born{left:auto !important;right:-4% !important;top:58% !important;width:clamp(24rem,35vw,40rem) !important;}
@@ -92,13 +101,21 @@ bookingLayoutStyle.textContent=`
   .booking-section{display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;min-height:92vh !important;align-items:stretch !important;margin-top:40vh !important;padding:clamp(8rem,11vh,11rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;}
   .booking-intro{grid-column:auto !important;grid-row:auto !important;position:static !important;top:auto !important;align-self:auto !important;width:100% !important;margin:0 auto clamp(1.5rem,2vh,2rem) !important;text-align:center !important;}
   .booking-kicker{margin:0 0 .45rem !important;}
-  .booking-title{max-width:13ch !important;margin:0 auto !important;font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.84 !important;}
+  .booking-title{max-width:14ch !important;margin:0 auto !important;font-size:clamp(3.3rem,5.7vw,6.35rem) !important;line-height:.9 !important;}
   .booking-form{grid-column:auto !important;grid-row:auto !important;width:min(84%,58rem) !important;margin:0 auto !important;align-self:auto !important;}
   .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
   .booking-field{padding-bottom:clamp(1.4rem,2vh,2rem) !important;}
   .booking-field label{font-size:clamp(.64rem,.7vw,.74rem) !important;margin-bottom:.38rem !important;}
   .booking-field input,.booking-field textarea{font-size:clamp(1.4rem,1.95vw,2.15rem) !important;padding-bottom:.5rem !important;}
   .booking-field textarea{min-height:clamp(4.8rem,7.5vh,6.2rem) !important;}
+}
+@media (max-width:1050px){
+  .offer-link h3,.offer-more{font-size:clamp(2.2rem,5.4vw,3.65rem) !important;line-height:.86 !important;}
+  .booking-title{font-size:clamp(3rem,10vw,5.1rem) !important;line-height:.92 !important;max-width:13ch !important;}
+}
+@media (max-width:760px){
+  .offer-link h3,.offer-more{font-size:clamp(1.7rem,8vw,2.55rem) !important;line-height:.9 !important;}
+  .booking-title{font-size:clamp(2.8rem,12.5vw,4.7rem) !important;line-height:.92 !important;max-width:12ch !important;}
 }
 .booking-submit,.booking-note{display:none !important;}
 .scroll-cue{display:none !important;}
