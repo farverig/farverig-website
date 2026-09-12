@@ -6,29 +6,29 @@
   const canvas=document.createElement('canvas');
   canvas.setAttribute('aria-hidden','true');
   Object.assign(canvas.style,{
-    position:'fixed',
-    inset:'0',
-    width:'100vw',
-    height:'100vh',
-    pointerEvents:'none',
-    zIndex:'18'
+    position:'fixed',inset:'0',width:'100vw',height:'100vh',pointerEvents:'none',zIndex:'18'
   });
   document.body.appendChild(canvas);
 
   const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
   if(!ctx)return;
 
-  const palette=['#1FB7A6','#3F6EF2','#7258D8','#C94D98','#F06F63'];
+  const palette=['#20B6A6','#416FEF','#735AD9','#C94F99','#EF7064'];
+  const rgbPalette=palette.map(hex=>{
+    const n=parseInt(hex.slice(1),16);
+    return [(n>>16)&255,(n>>8)&255,n&255];
+  });
+
   const points=[];
-  const LIFE=1100;
-  const MAX_POINTS=96;
+  const LIFE=1850;
+  const MAX_POINTS=125;
   let dpr=1;
   let travel=0;
   let raf=0;
   let last=null;
 
   function resize(){
-    dpr=Math.min(1.35,devicePixelRatio||1);
+    dpr=Math.min(1.25,devicePixelRatio||1);
     canvas.width=Math.round(innerWidth*dpr);
     canvas.height=Math.round(innerHeight*dpr);
     ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -36,11 +36,6 @@
   resize();
   addEventListener('resize',resize,{passive:true});
 
-  function hexToRgb(hex){
-    const n=parseInt(hex.slice(1),16);
-    return [(n>>16)&255,(n>>8)&255,n&255];
-  }
-  const rgbPalette=palette.map(hexToRgb);
   function mixColor(t,alpha=1){
     const wrapped=((t%rgbPalette.length)+rgbPalette.length)%rgbPalette.length;
     const i=Math.floor(wrapped);
@@ -65,70 +60,67 @@
       const dx=x-last.x;
       const dy=y-last.y;
       const dist=Math.hypot(dx,dy);
-      if(dist<2.2)return;
-      const dt=Math.max(8,time-last.time);
+      if(dist<1.2)return;
+      const dt=Math.max(7,time-last.time);
       speed=dist/dt;
       angle=Math.atan2(dy,dx);
       travel+=dist;
     }
-    const width=Math.max(12,Math.min(24,23-speed*8));
-    const seed=travel+time*.01;
-    points.push({x,y,time,width,phase:travel/170,angle,seed});
+
+    const width=Math.max(24,Math.min(44,43-speed*10));
+    points.push({x,y,time,width,phase:travel/190,angle,seed:travel+time*.01});
     if(points.length>MAX_POINTS)points.splice(0,points.length-MAX_POINTS);
     last={x,y,time};
     if(!raf)raf=requestAnimationFrame(draw);
   }
 
-  function drawSegment(a,b,now,glow){
+  function smoothSegment(i,now,scale,alpha){
+    const a=points[i-1];
+    const b=points[i];
+    const c=points[i+1]||b;
     const age=(now-(a.time+b.time)/2)/LIFE;
     if(age>=1)return;
-    const fade=Math.pow(Math.max(0,1-age),1.55);
-    const grad=ctx.createLinearGradient(a.x,a.y,b.x,b.y);
+
+    const fade=Math.pow(Math.max(0,1-age),1.2);
+    const endX=(b.x+c.x)/2;
+    const endY=(b.y+c.y)/2;
+    const startX=i===1?a.x:(a.x+b.x)/2;
+    const startY=i===1?a.y:(a.y+b.y)/2;
+    const grad=ctx.createLinearGradient(startX,startY,endX,endY);
     grad.addColorStop(0,mixColor(a.phase));
     grad.addColorStop(1,mixColor(b.phase));
 
     ctx.beginPath();
-    ctx.moveTo(a.x,a.y);
-    ctx.lineTo(b.x,b.y);
+    ctx.moveTo(startX,startY);
+    ctx.quadraticCurveTo(b.x,b.y,endX,endY);
     ctx.lineCap='round';
     ctx.lineJoin='round';
     ctx.strokeStyle=grad;
-
-    if(glow){
-      ctx.globalAlpha=.13*fade;
-      ctx.lineWidth=((a.width+b.width)/2)*2.45;
-      ctx.shadowBlur=18;
-      ctx.shadowColor=mixColor((a.phase+b.phase)/2,.9);
-    }else{
-      ctx.globalAlpha=.46*fade;
-      ctx.lineWidth=((a.width+b.width)/2)*.78;
-      ctx.shadowBlur=6;
-      ctx.shadowColor=mixColor((a.phase+b.phase)/2,.75);
-    }
+    ctx.globalAlpha=alpha*fade;
+    ctx.lineWidth=((a.width+b.width)/2)*scale;
+    ctx.shadowBlur=0;
     ctx.stroke();
   }
 
-  function drawGrain(point,index,now){
+  function drawMist(point,index,now){
     const age=(now-point.time)/LIFE;
     if(age>=1)return;
-    const fade=Math.pow(Math.max(0,1-age),1.45);
-    const spread=point.width*1.45;
+    const fade=Math.pow(Math.max(0,1-age),1.15);
+    const spread=point.width*1.7;
     const nx=-Math.sin(point.angle||0);
     const ny=Math.cos(point.angle||0);
-    const tx=Math.cos(point.angle||0);
-    const ty=Math.sin(point.angle||0);
 
-    for(let j=0;j<3;j++){
-      const n1=seededNoise(point.seed+j*7.13+index*.71);
-      const n2=seededNoise(point.seed+j*11.37+index*1.19);
+    for(let j=0;j<2;j++){
+      const n1=seededNoise(point.seed+j*9.17+index*.73);
+      const n2=seededNoise(point.seed+j*14.31+index*1.11);
       const side=(n1-.5)*spread*2;
-      const along=(n2-.5)*point.width*.9;
-      const x=point.x+nx*side+tx*along;
-      const y=point.y+ny*side+ty*along;
-      const radius=.8+seededNoise(point.seed+j*4.7)*2.6;
+      const drift=(n2-.5)*point.width*1.2;
+      const x=point.x+nx*side+Math.cos(point.angle||0)*drift;
+      const y=point.y+ny*side+Math.sin(point.angle||0)*drift;
+      const radius=1+seededNoise(point.seed+j*5.3)*3.2;
       ctx.beginPath();
       ctx.arc(x,y,radius,0,Math.PI*2);
-      ctx.fillStyle=mixColor(point.phase+(j-.8)*.08,.18*fade);
+      ctx.fillStyle=mixColor(point.phase+(j-.5)*.08,.08*fade);
       ctx.fill();
     }
   }
@@ -140,20 +132,32 @@
 
     if(points.length>1){
       ctx.globalCompositeOperation='source-over';
-      for(let i=1;i<points.length;i++)drawSegment(points[i-1],points[i],now,true);
-      for(let i=1;i<points.length;i++)drawSegment(points[i-1],points[i],now,false);
-      ctx.shadowBlur=0;
-      for(let i=0;i<points.length;i+=2)drawGrain(points[i],i,now);
+      const passes=[
+        [3.1,.045],
+        [2.35,.065],
+        [1.75,.095],
+        [1.28,.13],
+        [.92,.18]
+      ];
+      for(const [scale,alpha] of passes){
+        for(let i=1;i<points.length;i++)smoothSegment(i,now,scale,alpha);
+      }
+      for(let i=0;i<points.length;i+=3)drawMist(points[i],i,now);
     }
+
     ctx.globalAlpha=1;
     ctx.shadowBlur=0;
-
     if(points.length)raf=requestAnimationFrame(draw);
   }
 
   addEventListener('pointermove',event=>{
     if(event.pointerType&&event.pointerType!=='mouse'&&event.pointerType!=='pen')return;
-    addPoint(event.clientX,event.clientY,performance.now());
+    const samples=event.getCoalescedEvents?event.getCoalescedEvents():[event];
+    const step=Math.max(1,Math.ceil(samples.length/3));
+    for(let i=0;i<samples.length;i+=step){
+      const sample=samples[i];
+      addPoint(sample.clientX,sample.clientY,performance.now());
+    }
   },{passive:true});
 
   addEventListener('pointerleave',()=>{last=null;},{passive:true});
