@@ -21,41 +21,54 @@
     .about-nav a{color:var(--text);text-decoration:none;font:400 clamp(.68rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
     .about-nav a:hover{opacity:.55}.about-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 
-    .about-hero{position:relative;min-height:100vh;padding:clamp(7rem,10vh,8.5rem) var(--about-pad) clamp(2.5rem,4vh,3.5rem);display:flex;align-items:flex-end}
-    .hero-frame{position:relative;width:100%;height:min(78vh,48rem);overflow:hidden}
-    .hero-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%}
-    .hero-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08) 18%,rgba(0,0,0,.05) 55%,rgba(0,0,0,.72) 100%)}
-    .about-kicker{position:absolute;z-index:2;left:clamp(1.5rem,3vw,3rem);top:clamp(1.4rem,2.5vw,2.5rem);margin:0;color:rgba(255,255,255,.72);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .hero-title{position:absolute;z-index:2;left:clamp(1.25rem,2.5vw,2.5rem);right:clamp(1.25rem,2.5vw,2.5rem);bottom:clamp(1.2rem,2.5vw,2.3rem);margin:0;font:400 clamp(3.5rem,6.2vw,7rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:#fff}
-    .hero-title span{display:block}
-    .hero-title em{display:block;font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.06em}
+    .about-opening{position:relative;min-height:125vh;padding:clamp(8rem,15vh,12rem) var(--about-pad) clamp(5rem,9vh,8rem)}
+    .opening-kicker{margin:0 0 clamp(1.5rem,3vh,2.5rem);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+    .opening-title{position:relative;z-index:6;margin:0;max-width:13ch;font:400 clamp(4rem,7.7vw,8.6rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.075em;color:#fff}
+    .opening-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.06em}
+    .opening-title .line{display:block}
+    .opening-image{position:absolute;z-index:2;overflow:hidden;box-shadow:0 2rem 7rem rgba(0,0,0,.5)}
+    .opening-image img{width:100%;height:100%;display:block;object-fit:cover}
+    .opening-image.main{right:4vw;top:38vh;width:clamp(24rem,42vw,46rem);height:clamp(31rem,62vw,54rem);transform:rotate(2deg)}
+    .opening-image.main img{object-position:center 42%}
+    .opening-image.crop{left:-3vw;bottom:4vh;width:clamp(18rem,29vw,31rem);height:clamp(13rem,21vw,22rem);transform:rotate(-3deg)}
+    .opening-image.crop img{object-position:35% 54%;transform:scale(1.35)}
+    .opening-stamp{position:absolute;z-index:7;right:clamp(1.5rem,7vw,8rem);top:clamp(28rem,54vh,38rem);width:min(28rem,31vw);font:400 clamp(.72rem,.82vw,.84rem)/1.55 monospace;letter-spacing:.065em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 
-    .about-story{padding:clamp(5.5rem,10vh,9rem) var(--about-pad) clamp(6rem,11vh,10rem)}
-    .story-top{display:grid;grid-template-columns:minmax(0,.72fr) minmax(24rem,1.28fr);gap:clamp(3rem,9vw,11rem);align-items:start;border-top:1px solid var(--line);padding-top:clamp(1.8rem,3vw,2.6rem)}
-    .story-label{margin:0;color:var(--muted);font:400 clamp(.68rem,.78vw,.8rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
-    .story-copy{max-width:52rem}
-    .story-copy p{margin:0 0 1.25em;font:400 clamp(1.45rem,2.3vw,2.5rem)/1.14 Arial,Helvetica,sans-serif;letter-spacing:-.032em}
-    .story-copy p:last-child{margin-bottom:0}
+    .manifesto{position:relative;z-index:8;padding:clamp(7rem,13vh,12rem) var(--about-pad) clamp(7rem,13vh,12rem);background:#090909}
+    .manifesto-rule{border-top:1px solid var(--line);padding-top:clamp(2rem,4vh,3.5rem)}
+    .manifesto-text{margin:0;font:400 clamp(3.5rem,6.2vw,7rem)/.91 Arial,Helvetica,sans-serif;letter-spacing:-.065em;max-width:14.5ch}
+    .manifesto-text .soft{color:rgba(255,255,255,.34)}
+    .manifesto-text em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
 
-    .video-row{display:grid;grid-template-columns:minmax(20rem,1fr) minmax(18rem,.7fr);gap:clamp(3rem,7vw,8rem);align-items:end;margin-top:clamp(6rem,12vh,10rem)}
-    .video-placeholder{position:relative;aspect-ratio:16/10;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .video-placeholder span{font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.45);text-transform:uppercase}
-    .video-placeholder::after{content:'VIDEO';position:absolute;left:1rem;bottom:1rem;font:400 .64rem/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.25)}
-    .video-note{max-width:27rem;margin:0 0 .4rem;color:rgba(255,255,255,.66);font:400 clamp(1rem,1.35vw,1.3rem)/1.4 Arial,Helvetica,sans-serif;letter-spacing:-.015em}
+    .story-collage{position:relative;min-height:115vh;padding:0 var(--about-pad) clamp(7rem,12vh,10rem)}
+    .story-photo{position:absolute;overflow:hidden;box-shadow:0 2rem 7rem rgba(0,0,0,.42)}
+    .story-photo img{width:100%;height:100%;display:block;object-fit:cover}
+    .story-photo.one{left:5vw;top:5vh;width:clamp(22rem,39vw,43rem);height:clamp(28rem,50vw,48rem);transform:rotate(-2deg)}
+    .story-photo.one img{object-position:32% 45%}
+    .story-photo.two{right:-2vw;top:28vh;width:clamp(20rem,34vw,37rem);height:clamp(16rem,26vw,28rem);transform:rotate(3deg)}
+    .story-photo.two img{object-position:68% 38%;transform:scale(1.22)}
+    .story-copy{position:absolute;z-index:5;right:var(--about-pad);bottom:10vh;width:min(45rem,47vw)}
+    .story-copy p{margin:0;font:400 clamp(1.8rem,3vw,3.35rem)/1.08 Arial,Helvetica,sans-serif;letter-spacing:-.04em}
+    .story-copy .story-label{margin:0 0 1.3rem;font:400 clamp(.68rem,.78vw,.8rem)/1.4 monospace;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
 
-    .about-finale{padding:clamp(5rem,9vh,8rem) var(--about-pad) clamp(4rem,7vh,6rem);border-top:1px solid var(--line);text-align:center}
-    .finale-title{max-width:12ch;margin:0 auto clamp(2rem,3vw,2.7rem);font:400 clamp(3.5rem,6.2vw,7rem)/.84 Arial,Helvetica,sans-serif;letter-spacing:-.075em}
-    .finale-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.06em}
-    .finale-copy{max-width:36rem;margin:0 auto clamp(2rem,3vw,2.7rem);color:rgba(255,255,255,.68);font:400 clamp(1.05rem,1.4vw,1.35rem)/1.45 Arial,Helvetica,sans-serif;letter-spacing:-.015em}
+    .video-section{padding:clamp(6rem,11vh,9rem) var(--about-pad);border-top:1px solid var(--line)}
+    .video-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:clamp(2.5rem,5vh,4rem)}
+    .video-heading h2{margin:0;font:400 clamp(3.5rem,6.2vw,7rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.07em}
+    .video-heading h2 em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic}
+    .video-heading p{max-width:27rem;margin:0 0 .5rem;color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.55 monospace;letter-spacing:.06em;text-transform:uppercase}
+    .video-placeholder{position:relative;width:74vw;max-width:74rem;margin-left:auto;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.025);display:flex;align-items:center;justify-content:center}
+    .video-placeholder span{font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;color:rgba(255,255,255,.42);text-transform:uppercase}
+
+    .about-finale{padding:clamp(7rem,13vh,11rem) var(--about-pad) clamp(5rem,8vh,7rem);border-top:1px solid var(--line)}
+    .finale-title{margin:0 0 clamp(2.5rem,5vh,4rem);font:400 clamp(3.5rem,6.2vw,7rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.07em;max-width:12ch}
+    .finale-title em{font-family:'Roboto',Arial,Helvetica,sans-serif;font-weight:100;font-style:italic;letter-spacing:-.055em}
+    .finale-bottom{display:flex;justify-content:flex-end;align-items:center;gap:clamp(2rem,5vw,5rem)}
+    .finale-copy{max-width:29rem;margin:0;color:rgba(255,255,255,.7);font:400 clamp(1.05rem,1.4vw,1.35rem)/1.4 Arial,Helvetica,sans-serif}
     .instagram-button{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(16rem,21vw,20rem);padding:1rem 1.5rem;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:var(--text);text-decoration:none;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,color .25s ease,transform .25s ease}
     .instagram-button:hover{background:var(--text);color:#090909;transform:translateY(-2px)}
 
-    @media(max-width:900px){
-      .about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-hero{padding-top:6.8rem;min-height:auto}.hero-frame{height:72vh}.story-top,.video-row{grid-template-columns:1fr;gap:2rem}.story-copy{max-width:none}.video-note{max-width:38rem}.finale-title{font-size:clamp(3.8rem,12vw,6rem)}
-    }
-    @media(max-width:600px){
-      :root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-hero{padding-top:5.6rem}.hero-frame{height:68vh}.hero-title{font-size:clamp(3.4rem,15vw,5rem)}.about-story{padding-top:4rem}.story-copy p{font-size:1.5rem}.video-row{margin-top:4.5rem}.about-finale{padding-top:4.5rem}.finale-title{font-size:clamp(3.4rem,15vw,5rem)}
-    }
+    @media(max-width:900px){.about-header{justify-content:flex-start}.about-logo{width:7.5rem}.about-nav{gap:1rem}.about-opening{min-height:110vh;padding-top:9rem}.opening-title{font-size:clamp(4rem,12vw,7rem)}.opening-image.main{top:39vh;right:-8vw;width:62vw;height:72vw}.opening-image.crop{width:38vw;height:28vw}.opening-stamp{top:auto;bottom:5vh;right:4vw;width:42vw}.manifesto-text{font-size:clamp(3.6rem,10vw,6rem)}.story-collage{min-height:105vh}.story-photo.one{width:58vw;height:72vw}.story-photo.two{width:45vw;height:34vw}.story-copy{width:58vw}.video-heading{display:block}.video-heading p{margin-top:1.5rem}.video-placeholder{width:88vw}.finale-bottom{align-items:flex-start;flex-direction:column}}
+    @media(max-width:600px){:root{--about-pad:1rem}.about-header{height:4.5rem}.about-logo{width:6.6rem}.about-nav{gap:.8rem}.about-nav a{font-size:.58rem}.about-opening{min-height:105vh;padding-top:7rem}.opening-title{font-size:clamp(3.8rem,15vw,5.2rem)}.opening-image.main{top:37vh;right:-12vw;width:78vw;height:98vw}.opening-image.crop{left:-10vw;bottom:2vh;width:54vw;height:39vw}.opening-stamp{display:none}.manifesto{padding-top:5rem;padding-bottom:5rem}.manifesto-text{font-size:clamp(3.2rem,13vw,4.8rem)}.story-collage{min-height:92vh}.story-photo.one{left:-6vw;width:72vw;height:92vw}.story-photo.two{right:-8vw;top:36vh;width:58vw;height:44vw}.story-copy{right:1rem;bottom:5vh;width:82vw}.story-copy p{font-size:clamp(1.65rem,7vw,2.4rem)}.video-section{padding-top:5rem}.video-heading h2,.finale-title{font-size:clamp(3.2rem,13vw,4.8rem)}.video-placeholder{width:100%}.about-finale{padding-top:5rem}}
   </style>
 </head>
 <body>
@@ -65,33 +78,34 @@
   </header>
 
   <main>
-    <section class="about-hero">
-      <div class="hero-frame">
-        <img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG">
-        <p class="about-kicker">OM FARVERIG</p>
-        <h1 class="hero-title"><span>VI ER</span><em>FARVERIG.</em></h1>
+    <section class="about-opening">
+      <p class="opening-kicker">OM FARVERIG / GABRIELA + MARIA</p>
+      <h1 class="opening-title"><span class="line">VI MALER</span><span class="line">ANSIGTER.</span><span class="line">MEN DET HANDLER</span><span class="line">OM <em>MENNESKER.</em></span></h1>
+      <figure class="opening-image main"><img src="assets/billeder/Om.jpg" alt="Gabriela og Maria bag FARVERIG"></figure>
+      <figure class="opening-image crop" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
+      <p class="opening-stamp">FARVERIG ER GABRIELA OG MARIA — TO ANSIGTSMALERE MED EN FÆLLES KÆRLIGHED TIL FARVER, MØDER OG ALT DET LIDT UVENTE.</p>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-rule">
+        <p class="manifesto-text">FOR OS ER ANSIGTSMALING ET <span class="soft">KREATIVT HÅNDVÆRK,</span> HVOR MØDET MED MENNESKER ER MINDST LIGE SÅ VIGTIGT SOM <em>DET FÆRDIGE MOTIV.</em></p>
       </div>
     </section>
 
-    <section class="about-story">
-      <div class="story-top">
-        <p class="story-label">GABRIELA + MARIA</p>
-        <div class="story-copy">
-          <p>Vi er ansigterne bag FARVERIG. For os er ansigtsmaling et kreativt håndværk, hvor mødet med mennesker er mindst lige så vigtigt som det færdige motiv.</p>
-          <p>Vi maler til alt fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — altid med lysten til at skabe noget personligt, legende og lidt uventet.</p>
-        </div>
-      </div>
+    <section class="story-collage">
+      <figure class="story-photo one"><img src="assets/billeder/Om.jpg" alt="Gabriela og Maria sammen"></figure>
+      <figure class="story-photo two" aria-hidden="true"><img src="assets/billeder/Om.jpg" alt=""></figure>
+      <div class="story-copy"><p class="story-label">DET VI LAVER</p><p>Fra fødselsdage og sommerfester til festivaler, kultur, shoots og events — vi vil skabe noget personligt, legende og lidt uventet.</p></div>
+    </section>
 
-      <div class="video-row">
-        <div class="video-placeholder"><span>ET LILLE GLIMT FRA FARVERIG</span></div>
-        <p class="video-note">Her kan vi senere lægge en kort, sjov video af jer ind — mere levende og mindre poleret end en klassisk præsentationsfilm.</p>
-      </div>
+    <section class="video-section">
+      <div class="video-heading"><h2>LIDT MERE <em>OS.</em></h2><p>HER KAN VI SENERE LADE EN KORT, SJOV VIDEO BRYDE DET POLEREDE OG VISE JER, SOM I FAKTISK ER.</p></div>
+      <div class="video-placeholder"><span>ET LILLE GLIMT FRA FARVERIG</span></div>
     </section>
 
     <section class="about-finale">
       <h2 class="finale-title">FØLG MED I DET <em>FARVERIGE.</em></h2>
-      <p class="finale-copy">På Instagram deler vi nye malinger, mennesker, øjeblikke og alt det, der sker bag kulissen.</p>
-      <a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a>
+      <div class="finale-bottom"><p class="finale-copy">På Instagram deler vi nye malinger, mennesker, øjeblikke og alt det, der sker bag kulissen.</p><a class="instagram-button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG @FARVERIGCPH</a></div>
     </section>
   </main>
 </body>
