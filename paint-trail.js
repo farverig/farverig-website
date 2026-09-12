@@ -10,20 +10,30 @@
   });
   document.body.appendChild(canvas);
 
-  // The paint lives above the black page surface, but below photography/video
-  // and the typographic/interface layer. This keeps the colour playful without
-  // sacrificing image detail or legibility.
+  // Paint sits above the page/video surface, but below all editorial content.
+  // Sections that used opaque black backgrounds are made transparent so the
+  // fixed paint layer can show through their empty space without covering text/images.
   const layerStyle=document.createElement('style');
   layerStyle.textContent=`
-    .hero video{z-index:2}
-    .hero-shade{z-index:3}
-    .story-shot{z-index:4}
-    .work-story-stage:after{z-index:5}
-    .work-story-copy{z-index:8}
-    .offer-preview{z-index:5}
-    .offer-link,.offer-more,.offers-heading{z-index:8}
-    .booking-intro,.booking-form{position:relative;z-index:8}
-    .site-header,.transforming-logo,.hero-label,.bottom-glow,.book-button,.scroll-cue{isolation:isolate}
+    .hero video{z-index:0 !important}
+    .hero-shade{z-index:0 !important}
+
+    .work-story,
+    .offers,
+    .booking-section{position:relative !important;z-index:2 !important;background:transparent !important;}
+
+    .work-story-stage{position:sticky;z-index:2 !important;}
+    .story-shot{z-index:4 !important;}
+    .work-story-stage:after{z-index:5 !important;}
+    .work-story-copy{z-index:8 !important;}
+
+    .offers-shell{position:relative;z-index:8 !important;}
+    .offer-preview{z-index:5 !important;}
+    .offer-link,.offer-more,.offers-heading{position:relative;z-index:8 !important;}
+
+    .booking-intro,.booking-form{position:relative;z-index:8 !important;}
+
+    .site-header,.transforming-logo,.hero-label,.bottom-glow,.book-button,.scroll-cue,.hero-scroll-arrow{z-index:20 !important;}
   `;
   document.head.appendChild(layerStyle);
 
