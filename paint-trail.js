@@ -20,8 +20,10 @@
   });
 
   const points=[];
-  const LIFE=1850;
-  const MAX_POINTS=125;
+  const HOLD=5000;
+  const FADE=2200;
+  const LIFE=HOLD+FADE;
+  const MAX_POINTS=340;
   let dpr=1;
   let travel=0;
   let raf=0;
@@ -53,6 +55,14 @@
     return x-Math.floor(x);
   }
 
+  function ageOpacity(time,now){
+    const age=now-time;
+    if(age<=HOLD)return 1;
+    if(age>=LIFE)return 0;
+    const t=(age-HOLD)/FADE;
+    return Math.pow(1-t,1.35);
+  }
+
   function addPoint(x,y,time){
     let speed=0;
     let angle=0;
@@ -60,15 +70,15 @@
       const dx=x-last.x;
       const dy=y-last.y;
       const dist=Math.hypot(dx,dy);
-      if(dist<1.2)return;
+      if(dist<1.8)return;
       const dt=Math.max(7,time-last.time);
       speed=dist/dt;
       angle=Math.atan2(dy,dx);
       travel+=dist;
     }
 
-    const width=Math.max(24,Math.min(44,43-speed*10));
-    points.push({x,y,time,width,phase:travel/190,angle,seed:travel+time*.01});
+    const width=Math.max(34,Math.min(70,68-speed*13));
+    points.push({x,y,time,width,phase:travel/210,angle,seed:travel+time*.01});
     if(points.length>MAX_POINTS)points.splice(0,points.length-MAX_POINTS);
     last={x,y,time};
     if(!raf)raf=requestAnimationFrame(draw);
@@ -78,10 +88,9 @@
     const a=points[i-1];
     const b=points[i];
     const c=points[i+1]||b;
-    const age=(now-(a.time+b.time)/2)/LIFE;
-    if(age>=1)return;
+    const fade=(ageOpacity(a.time,now)+ageOpacity(b.time,now))/2;
+    if(fade<=0)return;
 
-    const fade=Math.pow(Math.max(0,1-age),1.2);
     const endX=(b.x+c.x)/2;
     const endY=(b.y+c.y)/2;
     const startX=i===1?a.x:(a.x+b.x)/2;
@@ -103,10 +112,9 @@
   }
 
   function drawMist(point,index,now){
-    const age=(now-point.time)/LIFE;
-    if(age>=1)return;
-    const fade=Math.pow(Math.max(0,1-age),1.15);
-    const spread=point.width*1.7;
+    const fade=ageOpacity(point.time,now);
+    if(fade<=0)return;
+    const spread=point.width*1.9;
     const nx=-Math.sin(point.angle||0);
     const ny=Math.cos(point.angle||0);
 
@@ -114,13 +122,13 @@
       const n1=seededNoise(point.seed+j*9.17+index*.73);
       const n2=seededNoise(point.seed+j*14.31+index*1.11);
       const side=(n1-.5)*spread*2;
-      const drift=(n2-.5)*point.width*1.2;
+      const drift=(n2-.5)*point.width*1.35;
       const x=point.x+nx*side+Math.cos(point.angle||0)*drift;
       const y=point.y+ny*side+Math.sin(point.angle||0)*drift;
-      const radius=1+seededNoise(point.seed+j*5.3)*3.2;
+      const radius=1.2+seededNoise(point.seed+j*5.3)*4.2;
       ctx.beginPath();
       ctx.arc(x,y,radius,0,Math.PI*2);
-      ctx.fillStyle=mixColor(point.phase+(j-.5)*.08,.08*fade);
+      ctx.fillStyle=mixColor(point.phase+(j-.5)*.08,.075*fade);
       ctx.fill();
     }
   }
@@ -133,16 +141,18 @@
     if(points.length>1){
       ctx.globalCompositeOperation='source-over';
       const passes=[
-        [3.1,.045],
-        [2.35,.065],
-        [1.75,.095],
-        [1.28,.13],
-        [.92,.18]
+        [3.45,.035],
+        [2.85,.05],
+        [2.25,.075],
+        [1.75,.11],
+        [1.38,.17],
+        [1.12,.28],
+        [1.00,1.00]
       ];
       for(const [scale,alpha] of passes){
         for(let i=1;i<points.length;i++)smoothSegment(i,now,scale,alpha);
       }
-      for(let i=0;i<points.length;i+=3)drawMist(points[i],i,now);
+      for(let i=0;i<points.length;i+=4)drawMist(points[i],i,now);
     }
 
     ctx.globalAlpha=1;
@@ -153,7 +163,7 @@
   addEventListener('pointermove',event=>{
     if(event.pointerType&&event.pointerType!=='mouse'&&event.pointerType!=='pen')return;
     const samples=event.getCoalescedEvents?event.getCoalescedEvents():[event];
-    const step=Math.max(1,Math.ceil(samples.length/3));
+    const step=Math.max(1,Math.ceil(samples.length/2));
     for(let i=0;i<samples.length;i+=step){
       const sample=samples[i];
       addPoint(sample.clientX,sample.clientY,performance.now());
