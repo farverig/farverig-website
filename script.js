@@ -72,7 +72,7 @@ bookingLayoutStyle.textContent=`
 .site-header{opacity:1 !important;pointer-events:none !important;}
 .site-header nav{pointer-events:auto !important;}
 @media (min-width:1051px){
-  .offers{min-height:100vh !important;align-items:flex-start !important;padding-top:clamp(5.5rem,8vh,7.5rem) !important;padding-bottom:clamp(12rem,17vh,16rem) !important;}
+  .offers{min-height:100vh !important;align-items:flex-start !important;padding-top:clamp(5.5rem,8vh,7.5rem) !important;padding-bottom:clamp(18rem,26vh,24rem) !important;}
   .offers-heading{margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;}
   .offers-cloud{min-height:0 !important;display:flex !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;align-content:initial !important;gap:0 !important;padding:0 !important;border-top:1px solid var(--line) !important;}
   .offer-link,.offer-more{display:flex !important;width:100% !important;max-width:none !important;margin-left:0 !important;padding:clamp(.45rem,.75vh,.72rem) 0 clamp(.52rem,.82vh,.82rem) !important;border-bottom:1px solid var(--line) !important;}
@@ -89,7 +89,7 @@ bookingLayoutStyle.textContent=`
   .offers:has(.offer-link[data-preview="festival"]:hover) .preview-festival{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
   .offers:has(.offer-link[data-preview="mode"]:hover) .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
   .offers.is-hinting .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
-  .booking-section{display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;min-height:92vh !important;align-items:stretch !important;padding:clamp(8rem,11vh,11rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;}
+  .booking-section{display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;min-height:92vh !important;align-items:stretch !important;margin-top:40vh !important;padding:clamp(8rem,11vh,11rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;}
   .booking-intro{grid-column:auto !important;grid-row:auto !important;position:static !important;top:auto !important;align-self:auto !important;width:100% !important;margin:0 auto clamp(1.5rem,2vh,2rem) !important;text-align:center !important;}
   .booking-kicker{margin:0 0 .45rem !important;}
   .booking-title{max-width:13ch !important;margin:0 auto !important;font-size:clamp(3.5rem,6.05vw,6.8rem) !important;line-height:.84 !important;}
