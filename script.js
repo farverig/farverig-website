@@ -8,6 +8,24 @@ if(mainNav){
   [tilbyder,om,kontakt].forEach(link=>{if(link)mainNav.appendChild(link);});
 }
 
+const offerLabels={
+  born:'Børnefødselsdag',
+  sommer:'Sommerfest',
+  kultur:'Kulturevent',
+  festival:'Festival',
+  mode:'Mode & editorial',
+  kursus:'Kursus'
+};
+document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{
+  const heading=item.querySelector('h3');
+  const label=offerLabels[item.dataset.preview];
+  if(heading&&label)heading.textContent=label;
+});
+const offerMore=document.querySelector('.offer-more');
+if(offerMore)offerMore.textContent='Og meget mere...';
+const bookingTitle=document.querySelector('.booking-title');
+if(bookingTitle)bookingTitle.textContent='Skal vi male til jeres event?';
+
 function update(){
   const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.72)));
   logo.style.width='clamp(8.7rem,'+(38-p*25)+'vw,'+(31-p*20)+'rem)';
@@ -77,7 +95,7 @@ bookingLayoutStyle.textContent=`
   .offers-cloud{min-height:0 !important;display:flex !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;align-content:initial !important;gap:0 !important;padding:0 !important;border-top:1px solid var(--line) !important;}
   .offer-link,.offer-more{display:flex !important;width:100% !important;max-width:none !important;margin-left:0 !important;padding:clamp(.35rem,.55vh,.52rem) 0 clamp(.42rem,.62vh,.62rem) !important;border-bottom:1px solid var(--line) !important;}
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
-  .offer-link h3,.offer-more{font-size:clamp(3.9rem,7.4vw,7.8rem) !important;line-height:.84 !important;letter-spacing:-.065em !important;}
+  .offer-link h3,.offer-more{font-size:clamp(3.2rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;text-transform:none !important;}
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
   .offer-more{margin-top:0 !important;}
   .preview-born{left:auto !important;right:-4% !important;top:58% !important;width:clamp(24rem,35vw,40rem) !important;}
@@ -92,7 +110,7 @@ bookingLayoutStyle.textContent=`
   .booking-section{display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;min-height:92vh !important;align-items:stretch !important;margin-top:40vh !important;padding:clamp(8rem,11vh,11rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;}
   .booking-intro{grid-column:auto !important;grid-row:auto !important;position:static !important;top:auto !important;align-self:auto !important;width:100% !important;margin:0 auto clamp(1.5rem,2vh,2rem) !important;text-align:center !important;}
   .booking-kicker{margin:0 0 .45rem !important;}
-  .booking-title{max-width:12ch !important;margin:0 auto !important;font-size:clamp(3.9rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;}
+  .booking-title{max-width:12ch !important;margin:0 auto !important;font-size:clamp(3.2rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;text-transform:none !important;}
   .booking-title em{font:inherit !important;font-style:normal !important;letter-spacing:inherit !important;}
   .booking-form{grid-column:auto !important;grid-row:auto !important;width:min(84%,58rem) !important;margin:0 auto !important;align-self:auto !important;}
   .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
