@@ -21,6 +21,8 @@ document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{
   const label=offerLabels[item.dataset.preview];
   if(heading&&label)heading.textContent=label;
 });
+const offersIntro=document.querySelector('.offers-intro');
+if(offersIntro)offersIntro.textContent='VI TILBYDER ANSIGTSMALING TIL:';
 const offerMore=document.querySelector('.offer-more');
 if(offerMore)offerMore.textContent='Og meget mere...';
 const bookingTitle=document.querySelector('.booking-title');
