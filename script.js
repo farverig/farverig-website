@@ -111,14 +111,15 @@ bookingLayoutStyle.textContent=`
   .offers.is-hinting .preview-mode{transform:translateY(-50%) rotate(-1deg) scale(1) !important;}
   .booking-section{display:flex !important;flex-direction:column !important;grid-template-columns:none !important;grid-template-rows:none !important;min-height:92vh !important;align-items:stretch !important;margin-top:40vh !important;padding:clamp(8rem,11vh,11rem) clamp(5rem,8vw,9rem) clamp(4rem,5.5vh,5rem) !important;}
   .booking-intro{grid-column:auto !important;grid-row:auto !important;position:static !important;top:auto !important;align-self:auto !important;width:100% !important;margin:0 auto clamp(1.5rem,2vh,2rem) !important;text-align:center !important;}
-  .booking-kicker{margin:0 0 .45rem !important;}
+  .booking-kicker{margin:0 0 .45rem !important;color:rgba(255,255,255,.78) !important;}
   .booking-title{max-width:12ch !important;margin:0 auto !important;font-size:clamp(3.2rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;text-transform:none !important;}
   .booking-title em{font:inherit !important;font-style:normal !important;letter-spacing:inherit !important;}
   .booking-form{grid-column:auto !important;grid-row:auto !important;width:min(84%,58rem) !important;margin:0 auto !important;align-self:auto !important;}
   .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
   .booking-field{padding-bottom:clamp(1.4rem,2vh,2rem) !important;}
-  .booking-field label{font-size:clamp(.64rem,.7vw,.74rem) !important;margin-bottom:.38rem !important;}
-  .booking-field input,.booking-field textarea{font-size:clamp(1.4rem,1.95vw,2.15rem) !important;padding-bottom:.5rem !important;}
+  .booking-field label{font-size:clamp(.64rem,.7vw,.74rem) !important;margin-bottom:.38rem !important;color:rgba(255,255,255,.82) !important;}
+  .booking-field input,.booking-field textarea{font-size:clamp(1.4rem,1.95vw,2.15rem) !important;padding-bottom:.5rem !important;color:#fff !important;border-bottom-color:rgba(255,255,255,.65) !important;}
+  .booking-field input::placeholder,.booking-field textarea::placeholder{color:rgba(255,255,255,.62) !important;opacity:1 !important;}
   .booking-field textarea{min-height:clamp(4.8rem,7.5vh,6.2rem) !important;}
 }
 .booking-submit,.booking-note{display:none !important;}
