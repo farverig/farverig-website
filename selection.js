@@ -1,9 +1,9 @@
 (()=>{
   const style=document.createElement('style');
   style.textContent=`
-    ::selection{background:transparent;color:#000;text-shadow:none}
+    ::selection{background:rgba(0,0,0,.001);color:#000;text-shadow:none}
     ::-moz-selection{background:#c94f99;color:#000;text-shadow:none}
-    #farverig-selection-layer{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden}
+    #farverig-selection-layer{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden;mix-blend-mode:multiply}
     .farverig-selection-mark{position:absolute;border-radius:.08em;background:linear-gradient(90deg,#20b6a6 0%,#416fef 24%,#735ad9 48%,#c94f99 72%,#ef7064 100%);opacity:.9}
   `;
   document.head.appendChild(style);
