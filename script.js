@@ -140,6 +140,22 @@ const globalCta=document.querySelector('.book-button');
 const requiredFields=bookingForm?[...bookingForm.querySelectorAll('input,textarea')]:[];
 let successState=false;
 
+function scrollBookingToFinalPosition(behavior='smooth'){
+  if(!bookingSection)return;
+  bookingSection.scrollIntoView({behavior,block:'end'});
+}
+const contactNavLink=document.querySelector('.site-header a[href="#booking"]');
+if(contactNavLink){
+  contactNavLink.addEventListener('click',event=>{
+    event.preventDefault();
+    history.replaceState(null,'','#booking');
+    scrollBookingToFinalPosition('smooth');
+  });
+}
+if(location.hash==='#booking'){
+  requestAnimationFrame(()=>requestAnimationFrame(()=>scrollBookingToFinalPosition('auto')));
+}
+
 const heroScrollArrow=document.createElement('span');heroScrollArrow.className='hero-scroll-arrow';document.body.appendChild(heroScrollArrow);
 function updateHeroScrollArrow(){const show=scrollY<innerHeight*.58;heroScrollArrow.classList.toggle('is-hidden',!show);}
 updateHeroScrollArrow();addEventListener('scroll',updateHeroScrollArrow,{passive:true});addEventListener('resize',updateHeroScrollArrow);
@@ -148,6 +164,6 @@ function formComplete(){return requiredFields.length>0&&requiredFields.every(fie
 function bookingInView(){if(!bookingSection)return false;const rect=bookingSection.getBoundingClientRect();return rect.top<innerHeight*.72&&rect.bottom>innerHeight*.25;}
 function setCta(label){if(!globalCta)return;globalCta.innerHTML=`<span>${label}</span>`;}
 function updateGlobalCta(){if(!globalCta||successState)return;if(!bookingInView()){globalCta.classList.remove('is-form-state','is-incomplete','is-ready');setCta('BOOK OS TIL DIT NÆSTE EVENT');return;}globalCta.classList.add('is-form-state');if(formComplete()){globalCta.classList.remove('is-incomplete');globalCta.classList.add('is-ready');setCta('SEND FORESPØRGSEL');}else{globalCta.classList.add('is-incomplete');globalCta.classList.remove('is-ready');setCta('SEND FORESPØRGSEL');}}
-if(globalCta&&bookingSection&&bookingForm){globalCta.removeAttribute('href');globalCta.setAttribute('role','button');globalCta.setAttribute('tabindex','0');const handleCta=()=>{if(successState)return;if(!bookingInView()){bookingSection.scrollIntoView({behavior:'smooth',block:'start'});return;}if(!formComplete()){const firstEmpty=requiredFields.find(field=>!fieldComplete(field));bookingSection.classList.remove('form-nudge');void bookingSection.offsetWidth;bookingSection.classList.add('form-nudge');if(firstEmpty){firstEmpty.focus({preventScroll:false});}return;}successState=true;globalCta.classList.remove('is-incomplete','is-ready');globalCta.classList.add('is-success');setCta('TAK — VI SVARER SNART');};globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});globalCta.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}});requiredFields.forEach(field=>field.addEventListener('input',updateGlobalCta));addEventListener('scroll',updateGlobalCta,{passive:true});addEventListener('resize',updateGlobalCta);updateGlobalCta();}
+if(globalCta&&bookingSection&&bookingForm){globalCta.removeAttribute('href');globalCta.setAttribute('role','button');globalCta.setAttribute('tabindex','0');const handleCta=()=>{if(successState)return;if(!bookingInView()){scrollBookingToFinalPosition('smooth');return;}if(!formComplete()){const firstEmpty=requiredFields.find(field=>!fieldComplete(field));bookingSection.classList.remove('form-nudge');void bookingSection.offsetWidth;bookingSection.classList.add('form-nudge');if(firstEmpty){firstEmpty.focus({preventScroll:false});}return;}successState=true;globalCta.classList.remove('is-incomplete','is-ready');globalCta.classList.add('is-success');setCta('TAK — VI SVARER SNART');};globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});globalCta.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}});requiredFields.forEach(field=>field.addEventListener('input',updateGlobalCta));addEventListener('scroll',updateGlobalCta,{passive:true});addEventListener('resize',updateGlobalCta);updateGlobalCta();}
 
 import('./paint-trail.js?v=20260913-1');
