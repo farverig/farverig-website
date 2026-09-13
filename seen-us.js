@@ -4,7 +4,7 @@
   if(!offers||!booking||document.querySelector('.seen-us'))return;
   const logos=['Distortion Ø.png','Grøn Koncert.png','Karrusel Festival.webp','Lunden.png','Saks Potts.png','Syd for Solen.png','Tivoli.png'];
   const label=file=>file.replace(/\.(png|jpe?g|webp|svg)$/i,'');
-  const encodePath=file=>`assets/billeder/her-har-du-set-os/${encodeURIComponent(file).replace(/%2F/g,'/')}`;
+  const encodePath=file=>`assets/billeder/her-har-du-set-os/${encodeURIComponent(file)}`;
   const section=document.createElement('section');section.className='seen-us';section.setAttribute('aria-labelledby','seen-us-title');
   const makeItem=file=>{const item=document.createElement('figure');item.className='seen-us-item';const img=document.createElement('img');img.src=encodePath(file);img.alt=label(file);img.loading='lazy';const caption=document.createElement('figcaption');caption.textContent=label(file);item.append(img,caption);return item;};
   const inner=document.createElement('div');inner.className='seen-us-inner';const heading=document.createElement('p');heading.className='seen-us-kicker';heading.id='seen-us-title';heading.textContent='HER HAR DU MÅSKE SET OS MALE';
