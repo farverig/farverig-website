@@ -3,8 +3,8 @@
   style.textContent=`
     ::selection{background:rgba(0,0,0,.001);color:#000;text-shadow:none}
     ::-moz-selection{background:#c94f99;color:#000;text-shadow:none}
-    #farverig-selection-layer{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden;mix-blend-mode:multiply}
-    .farverig-selection-mark{position:absolute;border-radius:.08em;background:linear-gradient(90deg,#20b6a6 0%,#416fef 24%,#735ad9 48%,#c94f99 72%,#ef7064 100%);opacity:.9}
+    #farverig-selection-layer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+    .farverig-selection-mark{position:absolute;border-radius:.08em;background:linear-gradient(90deg,#20b6a6 0%,#416fef 24%,#735ad9 48%,#c94f99 72%,#ef7064 100%);opacity:.94}
   `;
   document.head.appendChild(style);
 
