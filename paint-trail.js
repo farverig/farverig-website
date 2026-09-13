@@ -200,3 +200,5 @@
   addEventListener('pointerleave',()=>{last=null;},{passive:true});
   addEventListener('blur',()=>{last=null;});
 })();
+
+import('./selection.js?v=20260913-1');
