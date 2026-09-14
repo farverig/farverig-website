@@ -40,7 +40,8 @@
   const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
   if(!ctx)return;
 
-  const palette=['#20B6A6','#416FEF','#735AD9','#C94F99','#EF7064'];
+  // Softer editorial rainbow: lime and coral lead, cooler hues stay muted.
+  const palette=['#B8D86A','#E7C85B','#E88758','#E66F68','#CC7197','#8A70C5','#628AC7','#54A99B'];
   const rgbPalette=palette.map(hex=>{
     const n=parseInt(hex.slice(1),16);
     return [(n>>16)&255,(n>>8)&255,n&255];
@@ -213,5 +214,5 @@
   addEventListener('blur',()=>{last=null;});
 })();
 
-import('./selection.js?v=20260913-1');
+import('./selection.js?v=20260914-2');
 import('./seen-us.js?v=20260913-1');
