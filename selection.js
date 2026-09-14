@@ -2,9 +2,9 @@
   const style=document.createElement('style');
   style.textContent=`
     ::selection{background:rgba(0,0,0,.001);color:#000;text-shadow:none}
-    ::-moz-selection{background:#c94f99;color:#000;text-shadow:none}
+    ::-moz-selection{background:#cc7197;color:#000;text-shadow:none}
     #farverig-selection-layer{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-    .farverig-selection-mark{position:absolute;border-radius:.08em;background:linear-gradient(90deg,#20b6a6 0%,#416fef 24%,#735ad9 48%,#c94f99 72%,#ef7064 100%);opacity:.94}
+    .farverig-selection-mark{position:absolute;border-radius:.08em;background:linear-gradient(90deg,#b8d86a 0%,#e7c85b 14%,#e88758 28%,#e66f68 42%,#cc7197 57%,#8a70c5 71%,#628ac7 85%,#54a99b 100%);opacity:.94}
   `;
   document.head.appendChild(style);
 
