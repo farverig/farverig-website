@@ -2,7 +2,7 @@
   const offers=document.querySelector('.offers');
   const booking=document.querySelector('.booking-section');
   if(!offers||!booking||document.querySelector('.seen-us'))return;
-  const logos=['Distortion Ø.png','Grøn Koncert.png','Karrusel Festival.webp','Lunden.png','Saks Potts.png','Syd for Solen.png','Tivoli.png'];
+  const logos=['Distortion Ø.png','Grøn Koncert.png','Karrusel Festival.png','Lunden.png','Saks Potts.png','Syd for Solen.png','Tivoli.png'];
   const label=file=>file.replace(/\.(png|jpe?g|webp|svg)$/i,'');
   const encodePath=file=>`assets/billeder/her-har-du-set-os/${encodeURIComponent(file)}`;
   const section=document.createElement('section');section.className='seen-us';section.setAttribute('aria-labelledby','seen-us-title');
