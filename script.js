@@ -92,7 +92,7 @@ bookingLayoutStyle.textContent=`
 .site-header{opacity:1 !important;pointer-events:none !important;}
 .site-header nav{pointer-events:auto !important;}
 @media (min-width:1051px){
-  .offers{min-height:100vh !important;align-items:flex-start !important;padding-top:clamp(5.5rem,8vh,7.5rem) !important;padding-bottom:clamp(18rem,26vh,24rem) !important;}
+  .offers{min-height:100vh !important;align-items:flex-start !important;padding-top:clamp(5.5rem,8vh,7.5rem) !important;padding-bottom:clamp(4.5rem,6vh,6rem) !important;}
   .offers-heading{margin-bottom:clamp(1rem,1.6vh,1.4rem) !important;}
   .offers-cloud{min-height:0 !important;display:flex !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;align-content:initial !important;gap:0 !important;padding:0 !important;border-top:1px solid var(--line) !important;}
   .offer-link,.offer-more{display:flex !important;width:100% !important;max-width:none !important;margin-left:0 !important;padding:clamp(.35rem,.55vh,.52rem) 0 clamp(.42rem,.62vh,.62rem) !important;border-bottom:1px solid var(--line) !important;}
