@@ -67,7 +67,7 @@
     const box=viewport.getBoundingClientRect();
     const center=box.left+box.width/2;
     const radius=Math.max(1,box.width*.52);
-    const edgeZone=box.width*.105;
+    const edgeZone=box.width*.09;
     items.forEach(item=>{
       const r=item.getBoundingClientRect();
       const itemCenter=r.left+r.width/2;
@@ -79,9 +79,12 @@
       item.style.setProperty('--seen-z',`${z.toFixed(1)}px`);
       const edgeDistance=Math.min(itemCenter-box.left,box.right-itemCenter);
       const edge=Math.max(0,Math.min(1,edgeDistance/edgeZone));
-      const blur=(1-edge)*13;
-      const glow=(1-edge)*8;
-      item.style.filter=`blur(${blur.toFixed(1)}px) drop-shadow(0 0 ${glow.toFixed(1)}px rgba(255,255,255,.34))`;
+      const edgeIntensity=Math.pow(1-edge,1.45);
+      const blur=edgeIntensity*13;
+      const glow=edgeIntensity*30;
+      const glowWide=edgeIntensity*52;
+      const glowAlpha=.24+edgeIntensity*.48;
+      item.style.filter=`blur(${blur.toFixed(1)}px) drop-shadow(0 0 ${glow.toFixed(1)}px rgba(255,255,255,${glowAlpha.toFixed(2)})) drop-shadow(0 0 ${glowWide.toFixed(1)}px rgba(255,255,255,${(edgeIntensity*.30).toFixed(2)}))`;
     });
     depthRaf=requestAnimationFrame(updateDepth);
   }
