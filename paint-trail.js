@@ -55,6 +55,8 @@
   let travel=0;
   let raf=0;
   let last=null;
+  let lastPointerTime=0;
+  let lastDrawTime=0;
 
   function resize(){
     dpr=Math.min(1.25,devicePixelRatio||1);
@@ -108,6 +110,7 @@
     points.push({x,y,time,width,phase:travel/210,angle,seed:travel+time*.01});
     if(points.length>MAX_POINTS)points.splice(0,points.length-MAX_POINTS);
     last={x,y,time};
+    lastPointerTime=time;
     if(!raf)raf=requestAnimationFrame(draw);
   }
 
@@ -162,24 +165,33 @@
 
   function draw(now){
     raf=0;
+
+    // Keep full frame-rate while the pointer is moving, then ease down the
+    // redraw rate while the existing stroke is simply holding/fading.
+    const active=now-lastPointerTime<120;
+    const minFrameGap=active?0:26;
+    if(now-lastDrawTime<minFrameGap){
+      if(points.length)raf=requestAnimationFrame(draw);
+      return;
+    }
+    lastDrawTime=now;
+
     ctx.clearRect(0,0,innerWidth,innerHeight);
     while(points.length&&now-points[0].time>LIFE)points.shift();
 
     if(points.length>1){
       ctx.globalCompositeOperation='source-over';
       const passes=[
-        [3.45,.035],
-        [2.85,.05],
-        [2.25,.075],
-        [1.75,.11],
-        [1.38,.17],
-        [1.12,.28],
+        [3.35,.045],
+        [2.35,.085],
+        [1.62,.15],
+        [1.18,.30],
         [1.00,1.00]
       ];
       for(const [scale,alpha] of passes){
         for(let i=1;i<points.length;i++)smoothSegment(i,now,scale,alpha);
       }
-      for(let i=0;i<points.length;i+=4)drawMist(points[i],i,now);
+      for(let i=0;i<points.length;i+=6)drawMist(points[i],i,now);
     }
 
     ctx.globalAlpha=1;
