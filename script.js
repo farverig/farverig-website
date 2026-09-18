@@ -137,7 +137,9 @@ document.head.appendChild(bookingLayoutStyle);
 const bookingSection=document.querySelector('.booking-section');
 const bookingForm=document.querySelector('.booking-form');
 const globalCta=document.querySelector('.book-button');
-const requiredFields=bookingForm?[...bookingForm.querySelectorAll('input,textarea')]:[];
+const requiredFields=bookingForm?[...bookingForm.querySelectorAll('input:not([type="hidden"]):not([name="botcheck"]),textarea')]:[];
+const bookingNote=bookingForm?.querySelector('.booking-note');
+let sendingState=false;
 let successState=false;
 
 function scrollBookingToFinalPosition(behavior='smooth'){
@@ -159,11 +161,32 @@ if(location.hash==='#booking'){
 const heroScrollArrow=document.createElement('span');heroScrollArrow.className='hero-scroll-arrow';document.body.appendChild(heroScrollArrow);
 function updateHeroScrollArrow(){const show=scrollY<innerHeight*.58;heroScrollArrow.classList.toggle('is-hidden',!show);}
 updateHeroScrollArrow();addEventListener('scroll',updateHeroScrollArrow,{passive:true});addEventListener('resize',updateHeroScrollArrow);
-function fieldComplete(field){return field.value.trim().length>0;}
+function fieldComplete(field){return field.value.trim().length>0&&field.checkValidity();}
 function formComplete(){return requiredFields.length>0&&requiredFields.every(fieldComplete);}
+async function submitBooking(){
+  if(sendingState||successState||!bookingForm)return;
+  sendingState=true;
+  globalCta?.classList.remove('is-incomplete','is-ready');
+  setCta('SENDER…');
+  if(bookingNote)bookingNote.textContent='';
+  try{
+    const response=await fetch(bookingForm.action,{method:'POST',body:new FormData(bookingForm),headers:{Accept:'application/json'}});
+    const result=await response.json().catch(()=>({}));
+    if(!response.ok||result.success===false)throw new Error('Kunne ikke sende');
+    successState=true;
+    globalCta?.classList.add('is-success');
+    setCta('TAK — VI SVARER SNART');
+    bookingForm.reset();
+  }catch(error){
+    sendingState=false;
+    if(bookingNote)bookingNote.textContent='UPS — BESKEDEN BLEV IKKE SENDT. PRØV GERNE IGEN.';
+    setCta('PRØV IGEN');
+    globalCta?.classList.add('is-ready');
+  }
+}
 function bookingInView(){if(!bookingSection)return false;const rect=bookingSection.getBoundingClientRect();return rect.top<innerHeight*.72&&rect.bottom>innerHeight*.25;}
 function setCta(label){if(!globalCta)return;globalCta.innerHTML=`<span>${label}</span>`;}
 function updateGlobalCta(){if(!globalCta||successState)return;if(!bookingInView()){globalCta.classList.remove('is-form-state','is-incomplete','is-ready');setCta('BOOK OS TIL DIT NÆSTE EVENT');return;}globalCta.classList.add('is-form-state');if(formComplete()){globalCta.classList.remove('is-incomplete');globalCta.classList.add('is-ready');setCta('SEND FORESPØRGSEL');}else{globalCta.classList.add('is-incomplete');globalCta.classList.remove('is-ready');setCta('SEND FORESPØRGSEL');}}
-if(globalCta&&bookingSection&&bookingForm){globalCta.removeAttribute('href');globalCta.setAttribute('role','button');globalCta.setAttribute('tabindex','0');const handleCta=()=>{if(successState)return;if(!bookingInView()){scrollBookingToFinalPosition('smooth');return;}if(!formComplete()){const firstEmpty=requiredFields.find(field=>!fieldComplete(field));bookingSection.classList.remove('form-nudge');void bookingSection.offsetWidth;bookingSection.classList.add('form-nudge');if(firstEmpty){firstEmpty.focus({preventScroll:false});}return;}successState=true;globalCta.classList.remove('is-incomplete','is-ready');globalCta.classList.add('is-success');setCta('TAK — VI SVARER SNART');};globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});globalCta.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}});requiredFields.forEach(field=>field.addEventListener('input',updateGlobalCta));addEventListener('scroll',updateGlobalCta,{passive:true});addEventListener('resize',updateGlobalCta);updateGlobalCta();}
+if(globalCta&&bookingSection&&bookingForm){globalCta.removeAttribute('href');globalCta.setAttribute('role','button');globalCta.setAttribute('tabindex','0');const handleCta=async()=>{if(successState||sendingState)return;if(!bookingInView()){scrollBookingToFinalPosition('smooth');return;}if(!formComplete()){const firstEmpty=requiredFields.find(field=>!fieldComplete(field));bookingSection.classList.remove('form-nudge');void bookingSection.offsetWidth;bookingSection.classList.add('form-nudge');if(firstEmpty){firstEmpty.focus({preventScroll:false});firstEmpty.reportValidity();}return;}await submitBooking();};globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});globalCta.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}});bookingForm.addEventListener('submit',event=>{event.preventDefault();handleCta();});requiredFields.forEach(field=>field.addEventListener('input',()=>{if(bookingNote)bookingNote.textContent='';updateGlobalCta();}));addEventListener('scroll',updateGlobalCta,{passive:true});addEventListener('resize',updateGlobalCta);updateGlobalCta();}
 
 import('./paint-trail.js?v=20260913-1');
