@@ -116,7 +116,7 @@ bookingLayoutStyle.textContent=`
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
   .offer-link{flex-wrap:wrap !important;align-items:flex-start !important;}
   .offer-link h3{width:100% !important;}
-  .offer-description{width:100%;max-height:0;overflow:hidden;opacity:0;margin:0;color:rgba(255,255,255,.72);font:400 clamp(.66rem,.76vw,.78rem)/1.5 monospace;letter-spacing:.045em;transition:max-height .48s cubic-bezier(.2,.7,.2,1),opacity .25s ease,margin .48s cubic-bezier(.2,.7,.2,1);}
+  .offer-description{width:100%;max-height:0;overflow:hidden;opacity:0;margin:0;color:rgba(255,255,255,.72);font:400 clamp(.78rem,.9vw,.92rem)/1.5 monospace;letter-spacing:.045em;transition:max-height .48s cubic-bezier(.2,.7,.2,1),opacity .25s ease,margin .48s cubic-bezier(.2,.7,.2,1);}
   .offer-link:hover .offer-description{max-height:3.6rem;opacity:1;margin:.55rem 0 .18rem;}
   .offer-link h3,.offer-more{font-size:clamp(3.2rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;text-transform:none !important;}
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
