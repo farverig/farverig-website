@@ -115,7 +115,7 @@ bookingLayoutStyle.textContent=`
   .booking-title{max-width:12ch !important;margin:0 auto !important;font-size:clamp(3.2rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;text-transform:none !important;}
   .booking-title em{font:inherit !important;font-style:normal !important;letter-spacing:inherit !important;}
   .booking-form{grid-column:auto !important;grid-row:auto !important;width:min(84%,58rem) !important;margin:0 auto !important;align-self:auto !important;}
-  .booking-contact{position:relative !important;left:50% !important;width:max-content !important;max-width:none !important;margin-left:0 !important;margin-right:0 !important;transform:translateX(-50%) translateY(5px) !important;text-align:center !important;white-space:nowrap !important;}
+  .booking-contact{position:relative !important;left:50% !important;width:100% !important;max-width:100% !important;margin-left:0 !important;margin-right:0 !important;transform:translateX(-50%) translateY(8px) !important;text-align:center !important;white-space:nowrap !important;}
   .booking-grid{column-gap:clamp(2rem,4vw,4.5rem) !important;}
   .booking-field{padding-bottom:clamp(1.4rem,2vh,2rem) !important;}
   .booking-field label{font-size:clamp(.64rem,.7vw,.74rem) !important;margin-bottom:.38rem !important;color:rgba(255,255,255,.82) !important;}
