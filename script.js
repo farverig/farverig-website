@@ -21,6 +21,8 @@ document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{
   const label=offerLabels[item.dataset.preview];
   if(heading&&label)heading.textContent=label;
 });
+const offerDescriptions={born:'Vi skaber farverige favoritter og små fantasiverdener til dagens hovedperson og gæster.',sommer:'Et farverigt indslag til sommerfester, gårdfester og lange dage under åben himmel.',kultur:'Ansigtsmaling som en levende del af kulturhuse, byfester og kreative arrangementer.',festival:'Fra dagslys til dansegulv — vi maler looks, der bliver en del af festivaloplevelsen.',mode:'Kreative looks, detaljer og visuelle universer til shoots, shows og særlige produktioner.',kursus:'Lær vores teknikker, greb og farverige tricks gennem et kreativt hands-on kursus.'};
+document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{const description=offerDescriptions[item.dataset.preview];if(description&&!item.querySelector('.offer-description')){const p=document.createElement('p');p.className='offer-description';p.textContent=description;item.appendChild(p);}});
 const offersIntro=document.querySelector('.offers-intro');
 if(offersIntro)offersIntro.textContent='VI TILBYDER ANSIGTSMALING TIL:';
 const offerMore=document.querySelector('.offer-more');
@@ -97,6 +99,10 @@ bookingLayoutStyle.textContent=`
   .offers-cloud{min-height:0 !important;display:flex !important;flex-direction:column !important;flex-wrap:nowrap !important;align-items:stretch !important;align-content:initial !important;gap:0 !important;padding:0 !important;border-top:1px solid var(--line) !important;}
   .offer-link,.offer-more{display:flex !important;width:100% !important;max-width:none !important;margin-left:0 !important;padding:clamp(.35rem,.55vh,.52rem) 0 clamp(.42rem,.62vh,.62rem) !important;border-bottom:1px solid var(--line) !important;}
   .offer-link:nth-child(3),.offer-link:nth-child(5){margin-left:0 !important;}
+  .offer-link{flex-wrap:wrap !important;align-items:flex-start !important;}
+  .offer-link h3{width:100% !important;}
+  .offer-description{width:100%;max-height:0;overflow:hidden;opacity:0;margin:0;color:rgba(255,255,255,.72);font:400 clamp(.66rem,.76vw,.78rem)/1.5 monospace;letter-spacing:.045em;transition:max-height .48s cubic-bezier(.2,.7,.2,1),opacity .25s ease,margin .48s cubic-bezier(.2,.7,.2,1);}
+  .offer-link:hover .offer-description{max-height:3.6rem;opacity:1;margin:.55rem 0 .18rem;}
   .offer-link h3,.offer-more{font-size:clamp(3.2rem,7.4vw,7.8rem) !important;line-height:.88 !important;letter-spacing:-.065em !important;text-transform:none !important;}
   .offer-link:not(:last-of-type)::after{display:none !important;content:none !important;}
   .offer-more{margin-top:0 !important;}
