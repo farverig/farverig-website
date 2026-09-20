@@ -190,18 +190,8 @@ function setCta(label){if(!globalCta)return;globalCta.innerHTML=`<span>${label}<
 function updateGlobalCta(){if(!globalCta||successState)return;if(!bookingInView()){globalCta.classList.remove('is-form-state','is-incomplete','is-ready');setCta('BOOK OS TIL DIT NÆSTE EVENT');return;}globalCta.classList.add('is-form-state');if(formComplete()){globalCta.classList.remove('is-incomplete');globalCta.classList.add('is-ready');setCta('SEND FORESPØRGSEL');}else{globalCta.classList.add('is-incomplete');globalCta.classList.remove('is-ready');setCta('SEND FORESPØRGSEL');}}
 if(globalCta&&bookingSection&&bookingForm){globalCta.removeAttribute('href');globalCta.setAttribute('role','button');globalCta.setAttribute('tabindex','0');const handleCta=async()=>{if(successState||sendingState)return;if(!bookingInView()){scrollBookingToFinalPosition('smooth');return;}if(!formComplete()){const firstEmpty=requiredFields.find(field=>!fieldComplete(field));bookingSection.classList.remove('form-nudge');void bookingSection.offsetWidth;bookingSection.classList.add('form-nudge');if(firstEmpty){firstEmpty.focus({preventScroll:false});firstEmpty.reportValidity();}return;}await submitBooking();};globalCta.addEventListener('click',event=>{event.preventDefault();handleCta();});globalCta.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();handleCta();}});bookingForm.addEventListener('submit',event=>{event.preventDefault();handleCta();});requiredFields.forEach(field=>field.addEventListener('input',()=>{if(bookingNote)bookingNote.textContent='';updateGlobalCta();}));addEventListener('scroll',updateGlobalCta,{passive:true});addEventListener('resize',updateGlobalCta);updateGlobalCta();}
 
-const bookingBottomCtaStyle=document.createElement('style');
-bookingBottomCtaStyle.textContent=`
-@media (min-width: 901px){
-  html.booking-at-page-bottom .book-button.is-form-state{
-    bottom:clamp(3.8rem,5.2vh,4.6rem) !important;
-  }
-}
-`;
-document.head.appendChild(bookingBottomCtaStyle);
-
 const bottomGlow=document.querySelector('.bottom-glow');
-function updateBottomGlow(){if(!bottomGlow)return;const atBottom=innerHeight+scrollY>=document.documentElement.scrollHeight-12;bottomGlow.classList.toggle('is-page-bottom',atBottom);document.documentElement.classList.toggle('booking-at-page-bottom',atBottom);}
+function updateBottomGlow(){if(!bottomGlow)return;const atBottom=innerHeight+scrollY>=document.documentElement.scrollHeight-12;bottomGlow.classList.toggle('is-page-bottom',atBottom);}
 addEventListener('scroll',updateBottomGlow,{passive:true});
 addEventListener('resize',updateBottomGlow);
 updateBottomGlow();
