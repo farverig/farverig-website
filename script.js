@@ -10,7 +10,7 @@ if(mainNav){
 
 const offerLabels={
   born:'Børnefødselsdag',
-  sommer:'Sommerfest',
+  sommer:'Firmafest',
   kultur:'Kulturevent',
   festival:'Festival',
   mode:'Mode & editorial',
@@ -21,8 +21,23 @@ document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{
   const label=offerLabels[item.dataset.preview];
   if(heading&&label)heading.textContent=label;
 });
-const offerDescriptions={born:'Vi skaber farverige favoritter og små fantasiverdener til dagens hovedperson og gæster.',sommer:'Et farverigt indslag til sommerfester, gårdfester og lange dage under åben himmel.',kultur:'Ansigtsmaling som en levende del af kulturhuse, byfester og kreative arrangementer.',festival:'Fra dagslys til dansegulv — vi maler looks, der bliver en del af festivaloplevelsen.',mode:'Kreative looks, detaljer og visuelle universer til shoots, shows og særlige produktioner.',kursus:'Lær vores teknikker, greb og farverige tricks gennem et kreativt hands-on kursus.'};
-document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{const description=offerDescriptions[item.dataset.preview];if(description&&!item.querySelector('.offer-description')){const p=document.createElement('p');p.className='offer-description';p.textContent=description;item.appendChild(p);}});
+const offerDescriptions={
+  born:'Vi kommer ud til børnefødselsdage og maler alle, der har lyst – efter festens tema eller fri fantasi.',
+  sommer:'Vi kommer ud til firmafester, fredagsbarer, sommerfester og andre arrangementer på arbejdspladsen.',
+  kultur:'Vi kommer ud til kulturhuse, museer, byfester og andre kulturelle arrangementer.',
+  festival:'Vi maler på festivaler og events – både om dagen og efter mørkets frembrud med UV-maling.',
+  mode:'Vi laver ansigts- og kropsmaling til fotoshoots, kampagner, shows og redaktionelle produktioner.',
+  kursus:'Vil I selv lære at male? Vi afholder kurser i ansigtsmaling for både begyndere og øvede.'
+};
+document.querySelectorAll('.offer-link[data-preview]').forEach(item=>{
+  const description=offerDescriptions[item.dataset.preview];
+  if(description&&!item.querySelector('.offer-description')){
+    const p=document.createElement('p');
+    p.className='offer-description';
+    p.textContent=description;
+    item.appendChild(p);
+  }
+});
 const offersIntro=document.querySelector('.offers-intro');
 if(offersIntro)offersIntro.textContent='VI TILBYDER ANSIGTSMALING TIL:';
 const offerMore=document.querySelector('.offer-more');
