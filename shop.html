@@ -15,8 +15,8 @@
     .page-nav{position:absolute;right:var(--pad);display:flex;gap:clamp(1.1rem,2vw,2.5rem);pointer-events:auto}
     .page-nav a{font:400 clamp(.66rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase}
     .page-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
-    .shop-placeholder{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:6rem var(--pad);text-align:center}
-    .shop-placeholder p{max-width:62rem;margin:0;font:400 clamp(.78rem,.9vw,.92rem)/1.55 monospace;letter-spacing:.045em}
+    .shop-placeholder{position:relative;z-index:10;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:6rem var(--pad);text-align:center;pointer-events:none}
+    .shop-message{max-width:62rem}.shop-placeholder p{margin:0;font:400 clamp(.78rem,.9vw,.92rem)/1.55 monospace;letter-spacing:.045em}.shop-placeholder .stay-tuned{margin-top:.8rem}
     @media(max-width:800px){.page-header{justify-content:flex-start}.page-logo{width:6.8rem}.page-nav{gap:.7rem}.page-nav a{font-size:.55rem}.shop-placeholder p{font-size:.78rem}}
   </style>
 </head>
@@ -25,7 +25,7 @@
     <a class="page-logo" href="index.html"><img src="assets/logo/FarverigLogo_Hvid.png" alt="FARVERIG"></a>
     <nav class="page-nav" aria-label="Primær navigation"><a href="index.html#tilbyder">VI TILBYDER</a><a href="kurser.html">KURSER</a><a class="is-active" href="shop.html">SHOP</a><a href="om.html">OM</a><a href="index.html#booking">KONTAKT</a></nav>
   </header>
-  <main class="shop-placeholder"><p>Vi arbejder på at udvikle en shop med tutorials, vores kommende bog og meget mere.</p></main>
+  <main class="shop-placeholder"><div class="shop-message"><p>Vi arbejder på at udvikle en shop med tutorials, vores kommende bog og meget mere.</p><p class="stay-tuned">Stay tuned!</p></div></main>
   <script src="paint-trail.js?v=20260913-1"></script>
 </body>
 </html>
