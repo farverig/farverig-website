@@ -3,9 +3,11 @@ const header=document.querySelector('.site-header');
 const mainNav=header?.querySelector('nav');
 if(mainNav){
   const tilbyder=mainNav.querySelector('a[href="#tilbyder"]');
+  const kurser=mainNav.querySelector('a[href="kurser.html"]');
+  const shop=mainNav.querySelector('a[href="shop.html"]');
   const om=mainNav.querySelector('a[href="om.html"]');
   const kontakt=mainNav.querySelector('a[href="#booking"]');
-  [tilbyder,om,kontakt].forEach(link=>{if(link)mainNav.appendChild(link);});
+  [tilbyder,kurser,shop,om,kontakt].forEach(link=>{if(link)mainNav.appendChild(link);});
 }
 
 const offerLabels={
