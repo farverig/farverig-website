@@ -12,30 +12,30 @@ body{margin:0;background:#090909;color:var(--text);overflow-x:hidden}
 .page-logo{pointer-events:auto;width:clamp(7.8rem,12vw,10.7rem);line-height:0}.page-logo img{display:block;width:100%}
 .page-nav{position:absolute;right:var(--pad);display:flex;gap:clamp(1.1rem,2vw,2.5rem);pointer-events:auto}.page-nav a{font:400 clamp(.66rem,.75vw,.78rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase}.page-nav .is-active{border-bottom:1px solid currentColor;padding-bottom:.2rem}
 main{position:relative;z-index:10}
-.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(8rem,14vh,12rem) var(--pad) clamp(4rem,7vh,6rem)}
+.hero{min-height:auto;padding:clamp(10rem,16vh,13rem) var(--pad) clamp(5rem,8vh,7rem)}
 .kicker,.mono{font:400 clamp(.78rem,.9vw,.92rem)/1.5 monospace;letter-spacing:.045em}
 .kicker{margin:0 0 1.5rem;color:var(--muted);text-transform:uppercase}
-.hero h1{max-width:11ch;margin:0;font:400 clamp(4.6rem,10.5vw,11rem)/.82 Arial,Helvetica,sans-serif;letter-spacing:-.075em}
+.hero h1{max-width:13ch;margin:0;font:400 clamp(3.8rem,7.2vw,7.8rem)/.86 Arial,Helvetica,sans-serif;letter-spacing:-.07em}
 .hero-copy{max-width:48rem;margin:clamp(2rem,4vh,3rem) 0 0;font:400 clamp(.9rem,1.05vw,1.08rem)/1.55 monospace;letter-spacing:.025em}
-.section{padding:clamp(6rem,11vh,10rem) var(--pad);border-top:1px solid var(--line)}
-.section-label{margin:0 0 clamp(2.5rem,5vh,4rem);color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
+.section{padding:clamp(4.5rem,7vh,6.5rem) var(--pad);border-top:1px solid var(--line)}
+.section-label{margin:0 0 clamp(1.6rem,3vh,2.4rem);color:var(--muted);font:400 clamp(.72rem,.82vw,.84rem)/1.4 monospace;letter-spacing:.08em;text-transform:uppercase}
 .curriculum{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
 .topic{display:grid;grid-template-columns:3rem 1fr;gap:1rem;padding:clamp(1.6rem,3vw,2.8rem) 0;border-bottom:1px solid var(--line)}
 .topic:nth-child(odd){padding-right:clamp(2rem,5vw,6rem)}.topic:nth-child(even){padding-left:clamp(2rem,5vw,6rem);border-left:1px solid var(--line)}
-.topic span{color:var(--muted);font:400 .7rem/1.4 monospace}.topic h2{margin:0;font:400 clamp(2.1rem,4.3vw,4.8rem)/.9 Arial,sans-serif;letter-spacing:-.055em}
-.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(4rem,10vw,10rem)}
-.split h2,.courses h2{margin:0 0 1.6rem;font:400 clamp(3rem,6.5vw,7rem)/.88 Arial,sans-serif;letter-spacing:-.065em}
+.topic span{color:var(--muted);font:400 .7rem/1.4 monospace}.topic h2{margin:0;font:400 clamp(1.45rem,2.5vw,2.8rem)/.95 Arial,sans-serif;letter-spacing:-.045em}
+.course-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}.course-type{padding:clamp(2rem,3vw,3rem);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.course-type:first-child{padding-left:0}.course-type:last-child{border-right:0}.course-type .num{display:block;margin-bottom:2rem;color:var(--muted);font:400 .7rem/1.4 monospace}.course-type h2{margin:0 0 1rem;font:400 clamp(2rem,3.5vw,3.8rem)/.9 Arial,sans-serif;letter-spacing:-.055em}.course-type p{margin:0;color:#d1cec7;font:400 clamp(.78rem,.9vw,.92rem)/1.55 monospace}.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(4rem,10vw,10rem)}
+.split h2,.courses h2{margin:0 0 1.4rem;font:400 clamp(2.5rem,4.5vw,4.8rem)/.9 Arial,sans-serif;letter-spacing:-.055em}
 .split p,.courses p{max-width:44rem;margin:0;color:#d1cec7;font:400 clamp(.78rem,.9vw,.92rem)/1.6 monospace;letter-spacing:.035em}
-.courses{text-align:center;padding-top:clamp(8rem,15vh,13rem);padding-bottom:clamp(8rem,15vh,13rem)}
+.courses{text-align:center}
 .courses h2{max-width:12ch;margin-left:auto;margin-right:auto}
 .actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2.4rem}
 .button{display:inline-flex;align-items:center;justify-content:center;min-width:15rem;padding:1rem 1.4rem;border:1px solid rgba(255,255,255,.75);border-radius:999px;font:400 clamp(.7rem,.8vw,.82rem)/1 monospace;letter-spacing:.08em;text-transform:uppercase;transition:.25s}
 .button:hover{background:#fff;color:#090909;transform:translateY(-2px)}
 .private{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(3rem,10vw,10rem);align-items:end}
-.private h2{margin:0;font:400 clamp(3rem,7vw,7.5rem)/.87 Arial,sans-serif;letter-spacing:-.065em}
+.private h2{margin:0;font:400 clamp(2.5rem,4.8vw,5.2rem)/.9 Arial,sans-serif;letter-spacing:-.055em}
 .private-copy p{margin:0 0 2rem;color:#d1cec7;font:400 clamp(.78rem,.9vw,.92rem)/1.6 monospace}
 .private .button{border-radius:0;border-width:1px 0;padding-left:0;padding-right:0;justify-content:space-between;width:100%}
-@media(max-width:800px){.page-header{justify-content:flex-start}.page-logo{width:6.8rem}.page-nav{gap:.7rem}.page-nav a{font-size:.55rem}.hero h1{font-size:clamp(4rem,18vw,6.5rem)}.curriculum,.split,.private{grid-template-columns:1fr}.topic:nth-child(odd),.topic:nth-child(even){padding-left:0;padding-right:0;border-left:0}.split{gap:5rem}}
+@media(max-width:800px){.page-header{justify-content:flex-start}.page-logo{width:6.8rem}.page-nav{gap:.7rem}.page-nav a{font-size:.55rem}.hero h1{font-size:clamp(3.6rem,15vw,5.6rem)}.curriculum,.course-types,.split,.private{grid-template-columns:1fr}.course-type,.course-type:first-child{padding:2rem 0;border-right:0}.topic:nth-child(odd),.topic:nth-child(even){padding-left:0;padding-right:0;border-left:0}.split{gap:5rem}}
 </style>
 </head>
 <body>
@@ -43,16 +43,14 @@ main{position:relative;z-index:10}
 <main>
 <section class="hero"><p class="kicker">FARVERIG / KURSER</p><h1>KURSER I ANSIGTSMALING.</h1><p class="hero-copy">Vi afholder løbende kurser i København for dig, der gerne vil lære at male ansigter – eller blive bedre til det, du allerede kan.</p></section>
 
-<section class="section"><p class="section-label">DET ARBEJDER VI MED</p><div class="curriculum">
+<section class="section"><p class="section-label">VÆLG DET KURSUS DER PASSER TIL DIG</p><div class="course-types"><article class="course-type"><span class="num">01</span><h2>INTRO</h2><p>For dig, der er ny i ansigtsmaling. Vi starter med materialer og de grundlæggende teknikker og bygger enkle designs op sammen.</p></article><article class="course-type"><span class="num">02</span><h2>ØVET</h2><p>For dig, der allerede maler og vil arbejde videre med teknik, designs, detaljer og en hurtigere arbejdsgang.</p></article><article class="course-type"><span class="num">03</span><h2>PRIVAT HOLD</h2><p>Et kursus hos jer – for institutioner, arbejdspladser og private grupper. Indhold og niveau tilpasses gruppen.</p></article></div></section><section class="section"><div class="split"><div><p class="section-label">DET ARBEJDER VI MED</p><p>Indholdet varierer efter kursus og niveau. Vi arbejder blandt andet med:</p></div><div class="curriculum">
 <div class="topic"><span>01</span><h2>MALING &amp; MATERIALER</h2></div>
 <div class="topic"><span>02</span><h2>PENSELTEKNIK</h2></div>
 <div class="topic"><span>03</span><h2>SVAMPETEKNIK</h2></div>
 <div class="topic"><span>04</span><h2>FARVER &amp; OPBYGNING</h2></div>
 <div class="topic"><span>05</span><h2>DESIGNS &amp; MOTIVER</h2></div>
 <div class="topic"><span>06</span><h2>HURTIGERE ARBEJDSGANGE</h2></div>
-</div></section>
-
-<section class="section"><div class="split"><div><p class="section-label">HVEM ER DET TIL?</p><h2>NY ELLER ØVET.</h2></div><p>Du behøver ikke have prøvet ansigtsmaling før. Vores kurser kan være for helt nye malere og for dig, der allerede maler og gerne vil lære flere teknikker. Det konkrete niveau fremgår altid af det enkelte kursus.</p></div></section>
+</div></div></section>
 
 <section class="section courses"><p class="section-label">KOMMENDE KURSER</p><h2>NYE DATOER ANNONCERES LØBENDE.</h2><p style="margin-left:auto;margin-right:auto">Vi annoncerer nye kurser på Instagram. Når der er åbent for tilmelding, finder du de aktuelle kurser og booking via Luma.</p><div class="actions"><a class="button" href="https://www.instagram.com/farverigcph/" target="_blank" rel="noopener noreferrer">FØLG MED PÅ INSTAGRAM →</a><span class="button" style="opacity:.38;cursor:default">LUMA · KOMMER SNART</span></div></section>
 
