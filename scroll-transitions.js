@@ -1,30 +1,25 @@
-/* Prototype: scroll-drevet overgang fra billedfortælling til tilbud. */
+/* Scrollprototype: tydelig indtoning af "Vi tilbyder". */
 (()=>{
-  const story=document.querySelector('.work-story');
-  const stage=story?.querySelector('.work-story-stage');
   const offers=document.querySelector('.offers');
-  const shell=offers?.querySelector('.offers-shell');
-  if(!story||!stage||!offers||!shell)return;
+  if(!offers)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let raf=0;
-  const clamp=(n)=>Math.max(0,Math.min(1,n));
+  const clamp=n=>Math.max(0,Math.min(1,n));
+  let frame=0;
   function update(){
-    raf=0;
+    frame=0;
     if(reduced.matches||innerWidth<=760){
-      stage.style.opacity='';
-      shell.style.opacity='';
-      shell.style.transform='';
+      offers.style.opacity='';
+      offers.style.transform='';
       return;
     }
+    const top=offers.getBoundingClientRect().top;
     const vh=innerHeight;
-    const offerTop=offers.getBoundingClientRect().top;
-    // Den nye sektion overtager gradvist den sidste del af billedfortællingen.
-    const progress=clamp((vh*.88-offerTop)/(vh*.82));
-    stage.style.opacity=String(1-clamp(progress*1.55));
-    shell.style.opacity=String(clamp((progress-.08)/.75));
-    shell.style.transform=`translate3d(0,${((1-progress)*28).toFixed(1)}px,0)`;
+    // Fade foregår mens tilbudssektionen kommer ind i viewporten.
+    // Først helt synlig når dens top er tæt på toppen af skærmen.
+    const progress=clamp((vh*.94-top)/(vh*.82));
+    offers.style.opacity=String(progress);
   }
-  function schedule(){if(!raf)raf=requestAnimationFrame(update)}
+  function schedule(){if(!frame)frame=requestAnimationFrame(update)}
   addEventListener('scroll',schedule,{passive:true});
   addEventListener('resize',schedule,{passive:true});
   reduced.addEventListener?.('change',schedule);
